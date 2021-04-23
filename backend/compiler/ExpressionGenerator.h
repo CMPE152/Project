@@ -1,7 +1,7 @@
 #ifndef EXPRESSIONGENERATOR_H_
 #define EXPRESSIONGENERATOR_H_
 
-#include "backend/compiler/ASMCodeGenerator.h"
+#include "backend/compiler/CodeGenerator.h"
 
 namespace backend { namespace compiler {
 

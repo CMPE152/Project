@@ -1,7 +1,7 @@
 #ifndef PROGRAMGENERATOR_H_
 #define PROGRAMGENERATOR_H_
 
-#include "backend/compiler/ASMCodeGenerator.h"
+#include "backend/compiler/CodeGenerator.h"
 
 namespace backend { namespace compiler {
 

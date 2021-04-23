@@ -93,11 +93,11 @@ int main(int argc, const char *args[])
 
     string programName = sourceFileName;
     int delim = programName.rfind('/');
-    if(delim > 0 and delim < programName.length()-1){
+    if(delim > 0 && delim < programName.length()-1){
         programName = programName.substr(delim+1);
     }
     delim = programName.find('.');
-    if(delim > 0 and delim < programName.length()){
+    if(delim > 0 && delim < programName.length()){
         programName = programName.substr(0,delim);
     }
 

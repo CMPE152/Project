@@ -8,7 +8,7 @@
 #include "intermediate/type/Typespec.h"
 #include "backend/compiler/Compiler.h"
 #include "backend/compiler/Instruction.h"
-#include "backend/compiler/ASMCodeGenerator.h"
+#include "backend/compiler/CodeGenerator.h"
 #include "backend/compiler/ExpressionGenerator.h"
 #include "backend/compiler/StructuredDataGenerator.h"
 
@@ -42,15 +42,9 @@ void StructuredDataGenerator::emitData(SymtabEntry *routineId)
 }
 
 void StructuredDataGenerator::emitInit(SymtabEntry *targetId){
-    if(targetId == nullptr){
-        return;
-    }
-
-    if(targetId->getKind() == VARIABLE){
+    if(targetId != nullptr && targetId->getKind() == VARIABLE){
         Typespec *type = targetId->getType();
         Form form = type->getForm();
-
-        //Only need to allocate arrays dynamically, scalars are handled during routine init
         if      (form == ARRAY)  emitAllocateArray(targetId, type);
         else if (form == RECORD) emitAllocateRecord(targetId, type, DUP);
     }
@@ -74,15 +68,13 @@ void StructuredDataGenerator::emitAllocateArray(SymtabEntry *targetId,
         if(arrayType->getArrayElementCountExpression() != nullptr){
             //Place the desired array size on top of stack by visiting expression
             compiler->visit(arrayType->getArrayElementCountExpression());
-            ++dimensionCount;
-            elmtType = elmtType->getArrayElementType();
         }
         else {
             int elmtCount = elmtType->getArrayElementCount();
-            ++dimensionCount;
             emitLoadConstant(elmtCount);
-            elmtType = elmtType->getArrayElementType();
         }
+        ++dimensionCount;
+        elmtType = elmtType->getArrayElementType();
     } while (elmtType->getForm() == ARRAY);
 
     // The array element type.

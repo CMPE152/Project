@@ -23,7 +23,6 @@ Object Compiler::visitFunctionDefinition(uCParser::FunctionDefinitionContext *ct
 
 Object Compiler::visitVariableDeclaration(uCParser::VariableDeclarationContext *ctx){
     if(!ctx->length().empty()) {
-        //Only need to dynamically allocate array types
         StructuredDataGenerator structuredCode(programCode, this);
         structuredCode.emitInit(ctx->variableIdentifier(0)->entry);
     }
@@ -89,7 +88,6 @@ Object Compiler::visitFunctionCall(uCParser::FunctionCallContext *ctx){
     auto b = ctx->functionIdentifier()->getText();
     auto a = ctx->functionIdentifier()->type;
     if(ctx->functionIdentifier()->type != Predefined::voidType) {
-        //We don't want to use the result, so remove it from the stack
         statementCode->emit(Instruction::POP);
     }
     return nullptr;

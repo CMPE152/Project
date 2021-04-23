@@ -1,7 +1,7 @@
 #ifndef STRUCTUREDDATAGENERATOR_H_
 #define STRUCTUREDDATAGENERATOR_H_
 
-#include "backend/compiler/ASMCodeGenerator.h"
+#include "backend/compiler/CodeGenerator.h"
 
 namespace backend { namespace compiler {
 

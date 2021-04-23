@@ -4,7 +4,7 @@
 #include <vector>
 #include <map>
 
-#include "backend/compiler/ASMCodeGenerator.h"
+#include "backend/compiler/CodeGenerator.h"
 
 namespace backend { namespace compiler {
 
