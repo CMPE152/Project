@@ -4,7 +4,7 @@ void main(){
 	int i;
 	do{
 		print("Enter Number:");
-		read(i);
+		get(i);
 		if(i >= 0){
 			int fib_n = fib(i);
 			println("The ",i,(i==1)?"st":((i==2)?"nd":(i==3?"rd":"th")),
