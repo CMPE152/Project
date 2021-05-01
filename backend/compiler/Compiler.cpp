@@ -4,10 +4,12 @@
 
 namespace backend { namespace compiler {
 
+//change
 Object Compiler::loadValue(uCParser::VariableContext *ctx){
     expressionCode->emitLoadValue(ctx);
     return nullptr;
 }
+
 
 Object Compiler::visitProgram(uCParser::ProgramContext *ctx){
     createNewGenerators(code);
@@ -15,12 +17,14 @@ Object Compiler::visitProgram(uCParser::ProgramContext *ctx){
     return nullptr;
 }
 
+//change visitroutinedefinition
 Object Compiler::visitFunctionDefinition(uCParser::FunctionDefinitionContext *ctx){
     createNewGenerators(code);
     programCode->emitRoutine(ctx);
     return nullptr;
 }
 
+//change
 Object Compiler::visitVariableDeclaration(uCParser::VariableDeclarationContext *ctx){
     if(!ctx->length().empty()) {
         StructuredDataGenerator structuredCode(programCode, this);
@@ -29,6 +33,7 @@ Object Compiler::visitVariableDeclaration(uCParser::VariableDeclarationContext *
     return nullptr;
 }
 
+//change
 Object Compiler::visitStatement(uCParser::StatementContext *ctx){
     if (ctx->controlStatement() == nullptr){
         statementCode->emitComment(ctx);
@@ -37,6 +42,7 @@ Object Compiler::visitStatement(uCParser::StatementContext *ctx){
     return visitChildren(ctx);
 }
 
+//change
 Object Compiler::visitAssignVariable(uCParser::AssignVariableContext *ctx){
     if(ctx->lhs()->variable()){
         statementCode->emitAssignment(ctx);
@@ -48,26 +54,31 @@ Object Compiler::visitAssignVariable(uCParser::AssignVariableContext *ctx){
     return nullptr;
 }
 
+//change
 Object Compiler::visitIncrementVariable(uCParser::IncrementVariableContext *ctx){
     statementCode->emitIncrement(ctx);
     return nullptr;
 }
 
+//change
 Object Compiler::visitDecrementVariable(uCParser::DecrementVariableContext *ctx){
     statementCode->emitDecrement(ctx);
     return nullptr;
 }
+
 
 Object Compiler::visitIfStatement(uCParser::IfStatementContext *ctx){
     statementCode->emitIf(ctx);
     return nullptr;
 }
 
+//change
 Object Compiler::visitSwitchStatement(uCParser::SwitchStatementContext *ctx){
     statementCode->emitSwitch(ctx);
     return nullptr;
 }
 
+//change
 Object Compiler::visitDoWhileLoop(uCParser::DoWhileLoopContext *ctx){
     statementCode->emitDoWhile(ctx);
     return nullptr;
@@ -83,6 +94,7 @@ Object Compiler::visitForLoop(uCParser::ForLoopContext *ctx){
     return nullptr;
 }
 
+//change
 Object Compiler::visitFunctionCall(uCParser::FunctionCallContext *ctx){
     statementCode->emitFunctionCall(ctx);
     auto b = ctx->functionIdentifier()->getText();
@@ -93,6 +105,7 @@ Object Compiler::visitFunctionCall(uCParser::FunctionCallContext *ctx){
     return nullptr;
 }
 
+//change
 Object Compiler::visitReturnStatement(uCParser::ReturnStatementContext *ctx){
     statementCode->emitReturn(ctx);
     return nullptr;
@@ -154,11 +167,13 @@ Object Compiler::visitParenthesizedFactor(uCParser::ParenthesizedFactorContext *
     return visit(ctx->expression());
 }
 
+//change
 Object Compiler::visitPrintStatement(uCParser::PrintStatementContext *ctx){
     statementCode->emitPrint(ctx);
     return nullptr;
 }
 
+//change
 Object Compiler::visitPrintlnStatement(uCParser::PrintlnStatementContext *ctx){
     statementCode->emitPrintln(ctx);
     return nullptr;

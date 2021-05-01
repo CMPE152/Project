@@ -29,7 +29,7 @@ int main(int argc, const char *args[])
 {
     if (argc != 3 && argc != 4)
     {
-        cout << "USAGE: PascalJava option sourceFileName [outputDirectory]" << endl;
+        cout << "USAGE: PascalJava option sourceFileName" << endl;
         cout << "   option: -compile" << endl;
         return -1;
     }
@@ -37,10 +37,10 @@ int main(int argc, const char *args[])
     string option = toLowerCase(args[1]);
     string sourceFileName = args[2];
 
-    BackendMode mode = COMPILER;
+ *  BackendMode mode = COMPILER;
 
-    if (option == "-compile") mode = COMPILER;
-    else if(option == "-lex") mode = COMPILER;
+ *   if (option == "-compile") mode = COMPILER;
+ *   else if(option == "-lex") mode = COMPILER;
     else
     {
         cout << "ERROR: Invalid option." << endl;
@@ -62,13 +62,13 @@ int main(int argc, const char *args[])
 
     // Create a lexer which scans the character stream
     // to create a token stream.
-    uCLexer lexer(&input);
+    * uCLexer lexer(&input);
     lexer.removeErrorListeners();
     lexer.addErrorListener(&syntaxErrorHandler);
     CommonTokenStream tokens(&lexer);
 
     // Create a parser which parses the token stream.
-    uCParser parser(&tokens);
+    * uCParser parser(&tokens);
 
     // Pass 1: Check syntax and create the parse tree.
     cout << endl << "PASS 1 Syntax: ";
@@ -91,23 +91,22 @@ int main(int argc, const char *args[])
         cout << "There were no syntax errors." << endl;
     }
 
-    string programName = sourceFileName;
-    int delim = programName.rfind('/');
-    if(delim > 0 && delim < programName.length()-1){
-        programName = programName.substr(delim+1);
+    * string programName = sourceFileName;
+    * int delim = programName.rfind('/');
+    * if(delim > 0 && delim < programName.length()-1){
+    *    programName = programName.substr(delim+1);
     }
-    delim = programName.find('.');
-    if(delim > 0 && delim < programName.length()){
-        programName = programName.substr(0,delim);
-    }
+    * delim = programName.find('.');
+    * if(delim > 0 && delim < programName.length()){
+    *     programName = programName.substr(0,delim);
+    * }
 
     // Pass 2: Create symbol tables and set parse tree node datatypes.
     cout << endl << "PASS 2 Semantics:" << endl ;
-    Semantics *pass2 = new Semantics(mode,programName);
+    * Semantics *pass2 = new Semantics(mode,programName);
     pass2->visit(tree);
 
     int error_count = pass2->getErrorCount();
-
     if (error_count > 0)
     {
         cout << endl << "There were " << error_count << " semantic errors."
@@ -115,14 +114,14 @@ int main(int argc, const char *args[])
         return errorCount;
     }
 
-    if(option == "-lex"){
-        return 0;
+*     if(option == "-lex"){
+*        return 0;
     }
 
     // Pass 3: Translation.
     switch (mode)
     {
-        case COMPILER:{
+*          case COMPILER:{
             string outputFile = "";
             if(argc == 4){
                 outputFile = string(args[3]);
@@ -131,7 +130,7 @@ int main(int argc, const char *args[])
             // Pass 3: Compile the Pascal program.
             cout << endl << "PASS 3 Compilation: ";
             SymtabEntry *programId = pass2->getProgramId();
-            Compiler *pass3 = new Compiler(programId,outputFile);
+*            Compiler *pass3 = new Compiler(programId,outputFile);
             pass3->visit(tree);
 
             cout << "Object file \"" << pass3->getObjectFileName()

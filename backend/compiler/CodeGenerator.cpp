@@ -312,6 +312,7 @@ void CodeGenerator::emitLoadValue(SymtabEntry *variableId)
     }
 }
 
+//change
 void CodeGenerator::emitInitLocal(Typespec *type, int index){
     Form form = SCALAR;
 

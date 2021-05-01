@@ -9,6 +9,7 @@
 
 namespace backend { namespace compiler {
 
+//change
 void ExpressionGenerator::emitExpression(uCParser::ExpressionContext *ctx){
     if(!ctx->expression().empty()){
         //Ternary expression
@@ -199,6 +200,7 @@ void ExpressionGenerator::emitSimpleExpression(uCParser::SimpleExpressionContext
     }
 }
 
+//change
 void ExpressionGenerator::emitTerm(uCParser::TermContext *ctx){
     int count = ctx->factor().size();
 
@@ -259,6 +261,7 @@ void ExpressionGenerator::emitNotFactor(uCParser::NotFactorContext *ctx){
     emit(IXOR);
 }
 
+//change
 void ExpressionGenerator::emitLoadValue(uCParser::VariableContext *varCtx){
     int a = varCtx->modifier().size();
     // Load the scalar value or structure address.
@@ -273,6 +276,7 @@ void ExpressionGenerator::emitLoadValue(uCParser::VariableContext *varCtx){
     }
 }
 
+//change
 Typespec *ExpressionGenerator::emitLoadVariable(uCParser::VariableContext *varCtx){
     SymtabEntry *variableId = varCtx->entry;
     Typespec *variableType = variableId->getType();
@@ -297,6 +301,7 @@ Typespec *ExpressionGenerator::emitLoadVariable(uCParser::VariableContext *varCt
     return variableType;
 }
 
+//change
 Typespec *ExpressionGenerator::emitLoadArrayElementAccess(uCParser::ModifierContext *modCtx,Typespec *elmtType, bool lastModifier){
     // Loop over the subscripts.
     emitExpression(modCtx->index()->expression());
@@ -309,6 +314,7 @@ Typespec *ExpressionGenerator::emitLoadArrayElementAccess(uCParser::ModifierCont
     return elmtType;
 }
 
+//change
 Typespec *ExpressionGenerator::emitLoadArrayElementValue(Typespec *elmtType){
     Form form = SCALAR;
 
@@ -336,11 +342,13 @@ Typespec *ExpressionGenerator::emitLoadArrayElementValue(Typespec *elmtType){
     return nullptr;
 }
 
+//change
 void ExpressionGenerator::emitLoadIntegerConstant(uCParser::NumberContext *intCtx){
     int value = stoi(intCtx->getText());
     emitLoadConstant(value);
 }
 
+//change
 void ExpressionGenerator::emitLoadRealConstant(uCParser::NumberContext *realCtx){
     float value = stof(realCtx->getText());
     emitLoadConstant(value);

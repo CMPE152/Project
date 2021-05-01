@@ -14,6 +14,7 @@ namespace backend { namespace compiler {
 using namespace std;
 using namespace intermediate;
 
+//change
 string StatementGenerator::typeToString(Typespec *type){
     static std::map<Typespec*,string> typeMap= {
             {Predefined::integerType,"I"},
@@ -41,6 +42,7 @@ string StatementGenerator::typeToString(Typespec *type){
     return retStr;
 }
 
+//change
 void StatementGenerator::emitCast(Typespec* from, Typespec* to){
     
     if(from == Predefined::integerType){
@@ -76,6 +78,11 @@ void StatementGenerator::emitAssignment(uCParser::AssignVariableContext *ctx){
         emitStoreValue(varId,varId->getType());
     }
     
+    //else if(lastModCtx->field() != nullptr)
+//    {
+//        emitStoreValue(lastModCtx->field()->entry, lastModCtx->field()->type);
+//    }
+    
     else{
         emitStoreValue(nullptr,varType);
     }
@@ -83,6 +90,7 @@ void StatementGenerator::emitAssignment(uCParser::AssignVariableContext *ctx){
 
 }
 
+//change
 void StatementGenerator::emitDeclarationAssignment(uCParser::AssignVariableContext *ctx){
     SymtabEntry *varId = ctx->lhs()->variableDeclaration()->variableIdentifier(0)->entry;
     Typespec *varType = ctx->lhs()->variableDeclaration()->variableIdentifier(0)->type;
@@ -102,6 +110,7 @@ void StatementGenerator::emitDeclarationAssignment(uCParser::AssignVariableConte
     emitStoreValue(varId, varId->getType());
 }
 
+//change
 void StatementGenerator::emitIncrement(uCParser::IncrementVariableContext *ctx){
     SymtabEntry *varEntry = ctx->variable()->entry;
     Typespec *varType = ctx->variable()->type;
@@ -124,6 +133,7 @@ void StatementGenerator::emitIncrement(uCParser::IncrementVariableContext *ctx){
     }
 }
 
+//change
 void StatementGenerator::emitDecrement(uCParser::DecrementVariableContext *ctx){
     SymtabEntry *varEntry = ctx->variable()->entry;
     Typespec *varType = ctx->variable()->type;
@@ -146,6 +156,7 @@ void StatementGenerator::emitDecrement(uCParser::DecrementVariableContext *ctx){
     }
 }
 
+//change
 void StatementGenerator::emitIf(uCParser::IfStatementContext *ctx){
     Label* doneLabel = new Label();
 
@@ -186,6 +197,7 @@ void StatementGenerator::emitIf(uCParser::IfStatementContext *ctx){
     emitLabel(doneLabel);
 }
 
+//change
 void StatementGenerator::emitSwitch(uCParser::SwitchStatementContext *ctx){
     std::vector<std::pair<uCParser::CaseBranchContext*,Label*>> branchLabels;
 
@@ -241,6 +253,7 @@ void StatementGenerator::emitSwitch(uCParser::SwitchStatementContext *ctx){
     emitLabel(exitCase);
 }
 
+//change
 void StatementGenerator::emitDoWhile(uCParser::DoWhileLoopContext *ctx){
     Label *loopTopLabel  = new Label();
     Label *loopExitLabel = new Label();
@@ -255,6 +268,7 @@ void StatementGenerator::emitDoWhile(uCParser::DoWhileLoopContext *ctx){
     emitLabel(loopExitLabel);
 }
 
+//change
 void StatementGenerator::emitWhile(uCParser::WhileLoopContext *ctx){
     Label* topLabel = new Label();
     Label* exitLabel = new Label();
@@ -276,6 +290,7 @@ void StatementGenerator::emitWhile(uCParser::WhileLoopContext *ctx){
     emitLabel(exitLabel); 
 }
 
+//change
 void StatementGenerator::emitFor(uCParser::ForLoopContext *ctx){
     Label* topLabel = new Label();
     Label* exitLabel = new Label();
@@ -307,6 +322,7 @@ void StatementGenerator::emitFunctionCall(uCParser::FunctionCallContext *ctx){
     emitCall(ctx->functionIdentifier()->entry,ctx->argumentList());
 }
 
+//change
 void StatementGenerator::emitCall(SymtabEntry *routineId, uCParser::ArgumentListContext *argListCtx){
 
     string argTypeString;
@@ -334,6 +350,7 @@ void StatementGenerator::emitCall(SymtabEntry *routineId, uCParser::ArgumentList
     emit(Instruction::INVOKESTATIC,functionName);
 }
 
+//change
 void StatementGenerator::emitReturn(uCParser::ReturnStatementContext *ctx) {
     
     if (ctx->expression()){
@@ -347,14 +364,17 @@ void StatementGenerator::emitReturn(uCParser::ReturnStatementContext *ctx) {
     }
 }
 
+//change with emitwrite
 void StatementGenerator::emitPrint(uCParser::PrintStatementContext *ctx){
     emitPrint(ctx->printArguments(), false);
 }
 
+//chage emitwriteln
 void StatementGenerator::emitPrintln(uCParser::PrintlnStatementContext *ctx){
     emitPrint(ctx->printArguments(), true);
 }
 
+//chage emitwrite
 void StatementGenerator::emitPrint(uCParser::PrintArgumentsContext *argsCtx, bool needLF){
     emit(GETSTATIC, "java/lang/System/out", "Ljava/io/PrintStream;");
 

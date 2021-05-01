@@ -40,6 +40,7 @@ void ProgramGenerator::emitRoutine(uCParser::FunctionDefinitionContext *ctx){
     emitFunctionLocals(routineId);
 
     // Generate code to allocate any arrays, records, and strings.
+    //change
     //Moved to initialize arrays dynamically during runtime
     //StructuredDataGenerator structuredCode(this, compiler);
     //structuredCode.emitData(routineId);
@@ -113,6 +114,7 @@ void ProgramGenerator::emitConstructor(){
     localStack->reset();
 }
 
+//change
 void ProgramGenerator::emitSubroutines(uCParser::ProgramContext *ctx){
     for(uCParser::FunctionDefinitionContext *fCtx : ctx->functionDefinition()){
         string fName = fCtx->functionDeclaration()->functionIdentifier()->getText();
@@ -121,6 +123,7 @@ void ProgramGenerator::emitSubroutines(uCParser::ProgramContext *ctx){
     }
 }
 
+//change
 void ProgramGenerator::emitMainMethod(uCParser::ProgramContext *ctx){
     emitLine();
     emitComment("MAIN");
@@ -213,6 +216,7 @@ void ProgramGenerator::emitMainEpilogue(){
     close();  // the object file
 }
 
+//change similar with routine
 void ProgramGenerator::emitFunction(uCParser::FunctionDefinitionContext *ctx){
     SymtabEntry *routineId = ctx->functionDeclaration()->functionIdentifier()->entry;
     Symtab *routineSymtab = routineId->getRoutineSymtab();
@@ -234,6 +238,7 @@ void ProgramGenerator::emitFunction(uCParser::FunctionDefinitionContext *ctx){
     emitFunctionEpilogue();
 }
 
+//change similar with routine header
 void ProgramGenerator::emitFunctionHeader(SymtabEntry *routineId){
     string routineName = routineId->getName();
     vector<SymtabEntry *> *parmIds = routineId->getRoutineParameters();
@@ -262,6 +267,7 @@ void ProgramGenerator::emitFunctionHeader(SymtabEntry *routineId){
     emitDirective(METHOD_PRIVATE_STATIC, header);
 }
 
+//change similar with routinelocals
 void ProgramGenerator::emitFunctionLocals(SymtabEntry *routineId){
     Symtab *symtab = routineId->getRoutineSymtab();
     vector<SymtabEntry *> ids = symtab->sortedEntries();
@@ -297,6 +303,7 @@ void ProgramGenerator::emitFunctionLocals(SymtabEntry *routineId){
     }
 }
 
+//change similar with emitroutinereturn
 void ProgramGenerator::emitFunctionReturn(SymtabEntry *routineId){
     emitLine();
 
@@ -320,6 +327,7 @@ void ProgramGenerator::emitFunctionReturn(SymtabEntry *routineId){
     }
 }
 
+//change similar with routineepilogue
 void ProgramGenerator::emitFunctionEpilogue(){
     emitLine();
     emitDirective(LIMIT_LOCALS, localVariables->count());
