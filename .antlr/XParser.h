@@ -6,7 +6,7 @@
     using namespace intermediate::type;
 
 
-// Generated from c:\Users\yezho\Desktop\CMPE152\temp\Team_Y_CMPE152\Compiler_Project\uC.g4 by ANTLR 4.8
+// Generated from c:\Users\yezho\Desktop\CMPE152\temp\Team_Y_CMPE152\Compiler_Project\X.g4 by ANTLR 4.8
 
 #pragma once
 
@@ -16,7 +16,7 @@
 
 
 
-class  uCParser : public antlr4::Parser {
+class  XParser : public antlr4::Parser {
 public:
   enum {
     T__0 = 1, T__1 = 2, T__2 = 3, T__3 = 4, T__4 = 5, T__5 = 6, T__6 = 7, 
@@ -25,7 +25,7 @@ public:
     T__20 = 21, T__21 = 22, T__22 = 23, T__23 = 24, T__24 = 25, T__25 = 26, 
     T__26 = 27, INT = 28, BOOL = 29, FLOAT = 30, VOID = 31, DO = 32, WHILE = 33, 
     FOR = 34, IF = 35, ELSEIF = 36, ELSE = 37, SWITCH = 38, CASE = 39, DEFAULT = 40, 
-    PRINT = 41, PRINTLN = 42, READ = 43, READLN = 44, RETURN = 45, ARRAYINDICATOR = 46, 
+    PRINT = 41, PRINTLN = 42, GET = 43, GETLN = 44, RETURN = 45, ARRAYINDICATOR = 46, 
     SINGLEQUOTE = 47, DOUBLEQUOTE = 48, DOUBLESLASH = 49, IDENTIFIER = 50, 
     INTEGER = 51, REAL = 52, CHARACTER = 53, STRING = 54, NEWLINE = 55, 
     WS = 56, COMMENT = 57, BLOCKCOMMENT = 58
@@ -42,8 +42,8 @@ public:
     RuleParameterIdentifier = 24, RuleReturnStatement = 25, RuleFunctionCall = 26, 
     RuleArgumentList = 27, RuleArgument = 28, RulePrintStatement = 29, RulePrintlnStatement = 30, 
     RulePrintArguments = 31, RulePrintArgument = 32, RuleFieldWidth = 33, 
-    RuleDecimalPlaces = 34, RuleReadStatement = 35, RuleReadlnStatement = 36, 
-    RuleReadArguments = 37, RuleExpression = 38, RuleSimpleExpression = 39, 
+    RuleDecimalPlaces = 34, RuleGetStatement = 35, RuleGetlnStatement = 36, 
+    RuleGetArguments = 37, RuleExpression = 38, RuleSimpleExpression = 39, 
     RuleTerm = 40, RuleFactor = 41, RuleVariable = 42, RuleModifier = 43, 
     RuleIndex = 44, RuleVariableIdentifier = 45, RuleNumber = 46, RuleUnsignedNumber = 47, 
     RuleSign = 48, RuleIntegerConstant = 49, RuleRealConstant = 50, RuleRelOp = 51, 
@@ -51,8 +51,8 @@ public:
     RuleStringConstant = 56
   };
 
-  uCParser(antlr4::TokenStream *input);
-  ~uCParser();
+  XParser(antlr4::TokenStream *input);
+  ~XParser();
 
   virtual std::string getGrammarFileName() const override;
   virtual const antlr4::atn::ATN& getATN() const override { return _atn; };
@@ -96,9 +96,9 @@ public:
   class PrintArgumentContext;
   class FieldWidthContext;
   class DecimalPlacesContext;
-  class ReadStatementContext;
-  class ReadlnStatementContext;
-  class ReadArgumentsContext;
+  class GetStatementContext;
+  class GetlnStatementContext;
+  class GetArgumentsContext;
   class ExpressionContext;
   class SimpleExpressionContext;
   class TermContext;
@@ -164,8 +164,8 @@ public:
     ControlStatementContext *controlStatement();
     PrintStatementContext *printStatement();
     PrintlnStatementContext *printlnStatement();
-    ReadStatementContext *readStatement();
-    ReadlnStatementContext *readlnStatement();
+    GetStatementContext *getStatement();
+    GetlnStatementContext *getlnStatement();
     FunctionCallContext *functionCall();
     ReturnStatementContext *returnStatement();
 
@@ -679,37 +679,37 @@ public:
 
   DecimalPlacesContext* decimalPlaces();
 
-  class  ReadStatementContext : public antlr4::ParserRuleContext {
+  class  GetStatementContext : public antlr4::ParserRuleContext {
   public:
-    ReadStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    GetStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *READ();
-    ReadArgumentsContext *readArguments();
+    antlr4::tree::TerminalNode *GET();
+    GetArgumentsContext *getArguments();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
    
   };
 
-  ReadStatementContext* readStatement();
+  GetStatementContext* getStatement();
 
-  class  ReadlnStatementContext : public antlr4::ParserRuleContext {
+  class  GetlnStatementContext : public antlr4::ParserRuleContext {
   public:
-    ReadlnStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    GetlnStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *READLN();
-    ReadArgumentsContext *readArguments();
+    antlr4::tree::TerminalNode *GETLN();
+    GetArgumentsContext *getArguments();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
    
   };
 
-  ReadlnStatementContext* readlnStatement();
+  GetlnStatementContext* getlnStatement();
 
-  class  ReadArgumentsContext : public antlr4::ParserRuleContext {
+  class  GetArgumentsContext : public antlr4::ParserRuleContext {
   public:
-    ReadArgumentsContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    GetArgumentsContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     std::vector<VariableContext *> variable();
     VariableContext* variable(size_t i);
@@ -719,7 +719,7 @@ public:
    
   };
 
-  ReadArgumentsContext* readArguments();
+  GetArgumentsContext* getArguments();
 
   class  ExpressionContext : public antlr4::ParserRuleContext {
   public:

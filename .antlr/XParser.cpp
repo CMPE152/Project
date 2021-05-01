@@ -6,92 +6,92 @@
     using namespace intermediate::type;
 
 
-// Generated from c:\Users\yezho\Desktop\CMPE152\temp\Team_Y_CMPE152\Compiler_Project\uC.g4 by ANTLR 4.8
+// Generated from c:\Users\yezho\Desktop\CMPE152\temp\Team_Y_CMPE152\Compiler_Project\X.g4 by ANTLR 4.8
 
 
-#include "uCVisitor.h"
+#include "XVisitor.h"
 
-#include "uCParser.h"
+#include "XParser.h"
 
 
 using namespace antlrcpp;
 using namespace antlr4;
 
-uCParser::uCParser(TokenStream *input) : Parser(input) {
+XParser::XParser(TokenStream *input) : Parser(input) {
   _interpreter = new atn::ParserATNSimulator(this, _atn, _decisionToDFA, _sharedContextCache);
 }
 
-uCParser::~uCParser() {
+XParser::~XParser() {
   delete _interpreter;
 }
 
-std::string uCParser::getGrammarFileName() const {
-  return "uC.g4";
+std::string XParser::getGrammarFileName() const {
+  return "X.g4";
 }
 
-const std::vector<std::string>& uCParser::getRuleNames() const {
+const std::vector<std::string>& XParser::getRuleNames() const {
   return _ruleNames;
 }
 
-dfa::Vocabulary& uCParser::getVocabulary() const {
+dfa::Vocabulary& XParser::getVocabulary() const {
   return _vocabulary;
 }
 
 
 //----------------- ProgramContext ------------------------------------------------------------------
 
-uCParser::ProgramContext::ProgramContext(ParserRuleContext *parent, size_t invokingState)
+XParser::ProgramContext::ProgramContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-std::vector<uCParser::FunctionDefinitionContext *> uCParser::ProgramContext::functionDefinition() {
-  return getRuleContexts<uCParser::FunctionDefinitionContext>();
+std::vector<XParser::FunctionDefinitionContext *> XParser::ProgramContext::functionDefinition() {
+  return getRuleContexts<XParser::FunctionDefinitionContext>();
 }
 
-uCParser::FunctionDefinitionContext* uCParser::ProgramContext::functionDefinition(size_t i) {
-  return getRuleContext<uCParser::FunctionDefinitionContext>(i);
+XParser::FunctionDefinitionContext* XParser::ProgramContext::functionDefinition(size_t i) {
+  return getRuleContext<XParser::FunctionDefinitionContext>(i);
 }
 
-std::vector<uCParser::FunctionDeclarationContext *> uCParser::ProgramContext::functionDeclaration() {
-  return getRuleContexts<uCParser::FunctionDeclarationContext>();
+std::vector<XParser::FunctionDeclarationContext *> XParser::ProgramContext::functionDeclaration() {
+  return getRuleContexts<XParser::FunctionDeclarationContext>();
 }
 
-uCParser::FunctionDeclarationContext* uCParser::ProgramContext::functionDeclaration(size_t i) {
-  return getRuleContext<uCParser::FunctionDeclarationContext>(i);
+XParser::FunctionDeclarationContext* XParser::ProgramContext::functionDeclaration(size_t i) {
+  return getRuleContext<XParser::FunctionDeclarationContext>(i);
 }
 
-std::vector<uCParser::AssignmentStatementContext *> uCParser::ProgramContext::assignmentStatement() {
-  return getRuleContexts<uCParser::AssignmentStatementContext>();
+std::vector<XParser::AssignmentStatementContext *> XParser::ProgramContext::assignmentStatement() {
+  return getRuleContexts<XParser::AssignmentStatementContext>();
 }
 
-uCParser::AssignmentStatementContext* uCParser::ProgramContext::assignmentStatement(size_t i) {
-  return getRuleContext<uCParser::AssignmentStatementContext>(i);
+XParser::AssignmentStatementContext* XParser::ProgramContext::assignmentStatement(size_t i) {
+  return getRuleContext<XParser::AssignmentStatementContext>(i);
 }
 
-std::vector<uCParser::VariableDeclarationContext *> uCParser::ProgramContext::variableDeclaration() {
-  return getRuleContexts<uCParser::VariableDeclarationContext>();
+std::vector<XParser::VariableDeclarationContext *> XParser::ProgramContext::variableDeclaration() {
+  return getRuleContexts<XParser::VariableDeclarationContext>();
 }
 
-uCParser::VariableDeclarationContext* uCParser::ProgramContext::variableDeclaration(size_t i) {
-  return getRuleContext<uCParser::VariableDeclarationContext>(i);
-}
-
-
-size_t uCParser::ProgramContext::getRuleIndex() const {
-  return uCParser::RuleProgram;
+XParser::VariableDeclarationContext* XParser::ProgramContext::variableDeclaration(size_t i) {
+  return getRuleContext<XParser::VariableDeclarationContext>(i);
 }
 
 
-antlrcpp::Any uCParser::ProgramContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::ProgramContext::getRuleIndex() const {
+  return XParser::RuleProgram;
+}
+
+
+antlrcpp::Any XParser::ProgramContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitProgram(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::ProgramContext* uCParser::program() {
+XParser::ProgramContext* XParser::program() {
   ProgramContext *_localctx = _tracker.createInstance<ProgramContext>(_ctx, getState());
-  enterRule(_localctx, 0, uCParser::RuleProgram);
+  enterRule(_localctx, 0, XParser::RuleProgram);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -116,7 +116,7 @@ uCParser::ProgramContext* uCParser::program() {
         setState(115);
         functionDeclaration();
         setState(116);
-        match(uCParser::T__0);
+        match(XParser::T__0);
         break;
       }
 
@@ -124,7 +124,7 @@ uCParser::ProgramContext* uCParser::program() {
         setState(118);
         assignmentStatement();
         setState(119);
-        match(uCParser::T__0);
+        match(XParser::T__0);
         break;
       }
 
@@ -132,7 +132,7 @@ uCParser::ProgramContext* uCParser::program() {
         setState(121);
         variableDeclaration();
         setState(122);
-        match(uCParser::T__0);
+        match(XParser::T__0);
         break;
       }
 
@@ -141,11 +141,11 @@ uCParser::ProgramContext* uCParser::program() {
       _errHandler->sync(this);
       _la = _input->LA(1);
     } while ((((_la & ~ 0x3fULL) == 0) &&
-      ((1ULL << _la) & ((1ULL << uCParser::INT)
-      | (1ULL << uCParser::BOOL)
-      | (1ULL << uCParser::FLOAT)
-      | (1ULL << uCParser::VOID)
-      | (1ULL << uCParser::IDENTIFIER))) != 0));
+      ((1ULL << _la) & ((1ULL << XParser::INT)
+      | (1ULL << XParser::BOOL)
+      | (1ULL << XParser::FLOAT)
+      | (1ULL << XParser::VOID)
+      | (1ULL << XParser::IDENTIFIER))) != 0));
    
   }
   catch (RecognitionException &e) {
@@ -159,38 +159,38 @@ uCParser::ProgramContext* uCParser::program() {
 
 //----------------- C_statementContext ------------------------------------------------------------------
 
-uCParser::C_statementContext::C_statementContext(ParserRuleContext *parent, size_t invokingState)
+XParser::C_statementContext::C_statementContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-uCParser::FunctionDeclarationContext* uCParser::C_statementContext::functionDeclaration() {
-  return getRuleContext<uCParser::FunctionDeclarationContext>(0);
+XParser::FunctionDeclarationContext* XParser::C_statementContext::functionDeclaration() {
+  return getRuleContext<XParser::FunctionDeclarationContext>(0);
 }
 
-uCParser::StatementContext* uCParser::C_statementContext::statement() {
-  return getRuleContext<uCParser::StatementContext>(0);
+XParser::StatementContext* XParser::C_statementContext::statement() {
+  return getRuleContext<XParser::StatementContext>(0);
 }
 
-uCParser::EmptyStatementContext* uCParser::C_statementContext::emptyStatement() {
-  return getRuleContext<uCParser::EmptyStatementContext>(0);
-}
-
-
-size_t uCParser::C_statementContext::getRuleIndex() const {
-  return uCParser::RuleC_statement;
+XParser::EmptyStatementContext* XParser::C_statementContext::emptyStatement() {
+  return getRuleContext<XParser::EmptyStatementContext>(0);
 }
 
 
-antlrcpp::Any uCParser::C_statementContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::C_statementContext::getRuleIndex() const {
+  return XParser::RuleC_statement;
+}
+
+
+antlrcpp::Any XParser::C_statementContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitC_statement(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::C_statementContext* uCParser::c_statement() {
+XParser::C_statementContext* XParser::c_statement() {
   C_statementContext *_localctx = _tracker.createInstance<C_statementContext>(_ctx, getState());
-  enterRule(_localctx, 2, uCParser::RuleC_statement);
+  enterRule(_localctx, 2, XParser::RuleC_statement);
 
   auto onExit = finally([=] {
     exitRule();
@@ -204,7 +204,7 @@ uCParser::C_statementContext* uCParser::c_statement() {
       setState(128);
       functionDeclaration();
       setState(129);
-      match(uCParser::T__0);
+      match(XParser::T__0);
       break;
     }
 
@@ -213,7 +213,7 @@ uCParser::C_statementContext* uCParser::c_statement() {
       setState(131);
       statement();
       setState(132);
-      match(uCParser::T__0);
+      match(XParser::T__0);
       break;
     }
 
@@ -222,7 +222,7 @@ uCParser::C_statementContext* uCParser::c_statement() {
       setState(134);
       emptyStatement();
       setState(135);
-      match(uCParser::T__0);
+      match(XParser::T__0);
       break;
     }
 
@@ -240,62 +240,62 @@ uCParser::C_statementContext* uCParser::c_statement() {
 
 //----------------- StatementContext ------------------------------------------------------------------
 
-uCParser::StatementContext::StatementContext(ParserRuleContext *parent, size_t invokingState)
+XParser::StatementContext::StatementContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-uCParser::AssignmentStatementContext* uCParser::StatementContext::assignmentStatement() {
-  return getRuleContext<uCParser::AssignmentStatementContext>(0);
+XParser::AssignmentStatementContext* XParser::StatementContext::assignmentStatement() {
+  return getRuleContext<XParser::AssignmentStatementContext>(0);
 }
 
-uCParser::VariableDeclarationContext* uCParser::StatementContext::variableDeclaration() {
-  return getRuleContext<uCParser::VariableDeclarationContext>(0);
+XParser::VariableDeclarationContext* XParser::StatementContext::variableDeclaration() {
+  return getRuleContext<XParser::VariableDeclarationContext>(0);
 }
 
-uCParser::ControlStatementContext* uCParser::StatementContext::controlStatement() {
-  return getRuleContext<uCParser::ControlStatementContext>(0);
+XParser::ControlStatementContext* XParser::StatementContext::controlStatement() {
+  return getRuleContext<XParser::ControlStatementContext>(0);
 }
 
-uCParser::PrintStatementContext* uCParser::StatementContext::printStatement() {
-  return getRuleContext<uCParser::PrintStatementContext>(0);
+XParser::PrintStatementContext* XParser::StatementContext::printStatement() {
+  return getRuleContext<XParser::PrintStatementContext>(0);
 }
 
-uCParser::PrintlnStatementContext* uCParser::StatementContext::printlnStatement() {
-  return getRuleContext<uCParser::PrintlnStatementContext>(0);
+XParser::PrintlnStatementContext* XParser::StatementContext::printlnStatement() {
+  return getRuleContext<XParser::PrintlnStatementContext>(0);
 }
 
-uCParser::ReadStatementContext* uCParser::StatementContext::readStatement() {
-  return getRuleContext<uCParser::ReadStatementContext>(0);
+XParser::GetStatementContext* XParser::StatementContext::getStatement() {
+  return getRuleContext<XParser::GetStatementContext>(0);
 }
 
-uCParser::ReadlnStatementContext* uCParser::StatementContext::readlnStatement() {
-  return getRuleContext<uCParser::ReadlnStatementContext>(0);
+XParser::GetlnStatementContext* XParser::StatementContext::getlnStatement() {
+  return getRuleContext<XParser::GetlnStatementContext>(0);
 }
 
-uCParser::FunctionCallContext* uCParser::StatementContext::functionCall() {
-  return getRuleContext<uCParser::FunctionCallContext>(0);
+XParser::FunctionCallContext* XParser::StatementContext::functionCall() {
+  return getRuleContext<XParser::FunctionCallContext>(0);
 }
 
-uCParser::ReturnStatementContext* uCParser::StatementContext::returnStatement() {
-  return getRuleContext<uCParser::ReturnStatementContext>(0);
-}
-
-
-size_t uCParser::StatementContext::getRuleIndex() const {
-  return uCParser::RuleStatement;
+XParser::ReturnStatementContext* XParser::StatementContext::returnStatement() {
+  return getRuleContext<XParser::ReturnStatementContext>(0);
 }
 
 
-antlrcpp::Any uCParser::StatementContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::StatementContext::getRuleIndex() const {
+  return XParser::RuleStatement;
+}
+
+
+antlrcpp::Any XParser::StatementContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitStatement(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::StatementContext* uCParser::statement() {
+XParser::StatementContext* XParser::statement() {
   StatementContext *_localctx = _tracker.createInstance<StatementContext>(_ctx, getState());
-  enterRule(_localctx, 4, uCParser::RuleStatement);
+  enterRule(_localctx, 4, XParser::RuleStatement);
 
   auto onExit = finally([=] {
     exitRule();
@@ -342,14 +342,14 @@ uCParser::StatementContext* uCParser::statement() {
     case 6: {
       enterOuterAlt(_localctx, 6);
       setState(144);
-      readStatement();
+      getStatement();
       break;
     }
 
     case 7: {
       enterOuterAlt(_localctx, 7);
       setState(145);
-      readlnStatement();
+      getlnStatement();
       break;
     }
 
@@ -381,26 +381,26 @@ uCParser::StatementContext* uCParser::statement() {
 
 //----------------- EmptyStatementContext ------------------------------------------------------------------
 
-uCParser::EmptyStatementContext::EmptyStatementContext(ParserRuleContext *parent, size_t invokingState)
+XParser::EmptyStatementContext::EmptyStatementContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
 
-size_t uCParser::EmptyStatementContext::getRuleIndex() const {
-  return uCParser::RuleEmptyStatement;
+size_t XParser::EmptyStatementContext::getRuleIndex() const {
+  return XParser::RuleEmptyStatement;
 }
 
 
-antlrcpp::Any uCParser::EmptyStatementContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::EmptyStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitEmptyStatement(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::EmptyStatementContext* uCParser::emptyStatement() {
+XParser::EmptyStatementContext* XParser::emptyStatement() {
   EmptyStatementContext *_localctx = _tracker.createInstance<EmptyStatementContext>(_ctx, getState());
-  enterRule(_localctx, 6, uCParser::RuleEmptyStatement);
+  enterRule(_localctx, 6, XParser::RuleEmptyStatement);
 
   auto onExit = finally([=] {
     exitRule();
@@ -421,46 +421,46 @@ uCParser::EmptyStatementContext* uCParser::emptyStatement() {
 
 //----------------- VariableDeclarationContext ------------------------------------------------------------------
 
-uCParser::VariableDeclarationContext::VariableDeclarationContext(ParserRuleContext *parent, size_t invokingState)
+XParser::VariableDeclarationContext::VariableDeclarationContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-uCParser::TypeIdentifierContext* uCParser::VariableDeclarationContext::typeIdentifier() {
-  return getRuleContext<uCParser::TypeIdentifierContext>(0);
+XParser::TypeIdentifierContext* XParser::VariableDeclarationContext::typeIdentifier() {
+  return getRuleContext<XParser::TypeIdentifierContext>(0);
 }
 
-std::vector<uCParser::VariableIdentifierContext *> uCParser::VariableDeclarationContext::variableIdentifier() {
-  return getRuleContexts<uCParser::VariableIdentifierContext>();
+std::vector<XParser::VariableIdentifierContext *> XParser::VariableDeclarationContext::variableIdentifier() {
+  return getRuleContexts<XParser::VariableIdentifierContext>();
 }
 
-uCParser::VariableIdentifierContext* uCParser::VariableDeclarationContext::variableIdentifier(size_t i) {
-  return getRuleContext<uCParser::VariableIdentifierContext>(i);
+XParser::VariableIdentifierContext* XParser::VariableDeclarationContext::variableIdentifier(size_t i) {
+  return getRuleContext<XParser::VariableIdentifierContext>(i);
 }
 
-std::vector<uCParser::LengthContext *> uCParser::VariableDeclarationContext::length() {
-  return getRuleContexts<uCParser::LengthContext>();
+std::vector<XParser::LengthContext *> XParser::VariableDeclarationContext::length() {
+  return getRuleContexts<XParser::LengthContext>();
 }
 
-uCParser::LengthContext* uCParser::VariableDeclarationContext::length(size_t i) {
-  return getRuleContext<uCParser::LengthContext>(i);
-}
-
-
-size_t uCParser::VariableDeclarationContext::getRuleIndex() const {
-  return uCParser::RuleVariableDeclaration;
+XParser::LengthContext* XParser::VariableDeclarationContext::length(size_t i) {
+  return getRuleContext<XParser::LengthContext>(i);
 }
 
 
-antlrcpp::Any uCParser::VariableDeclarationContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::VariableDeclarationContext::getRuleIndex() const {
+  return XParser::RuleVariableDeclaration;
+}
+
+
+antlrcpp::Any XParser::VariableDeclarationContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitVariableDeclaration(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::VariableDeclarationContext* uCParser::variableDeclaration() {
+XParser::VariableDeclarationContext* XParser::variableDeclaration() {
   VariableDeclarationContext *_localctx = _tracker.createInstance<VariableDeclarationContext>(_ctx, getState());
-  enterRule(_localctx, 8, uCParser::RuleVariableDeclaration);
+  enterRule(_localctx, 8, XParser::RuleVariableDeclaration);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -479,9 +479,9 @@ uCParser::VariableDeclarationContext* uCParser::variableDeclaration() {
       setState(158);
       _errHandler->sync(this);
       _la = _input->LA(1);
-      while (_la == uCParser::T__1) {
+      while (_la == XParser::T__1) {
         setState(154);
-        match(uCParser::T__1);
+        match(XParser::T__1);
         setState(155);
         variableIdentifier();
         setState(160);
@@ -500,13 +500,13 @@ uCParser::VariableDeclarationContext* uCParser::variableDeclaration() {
       setState(169);
       _errHandler->sync(this);
       _la = _input->LA(1);
-      while (_la == uCParser::T__2) {
+      while (_la == XParser::T__2) {
         setState(163);
-        match(uCParser::T__2);
+        match(XParser::T__2);
         setState(164);
         length();
         setState(165);
-        match(uCParser::T__3);
+        match(XParser::T__3);
         setState(171);
         _errHandler->sync(this);
         _la = _input->LA(1);
@@ -528,30 +528,30 @@ uCParser::VariableDeclarationContext* uCParser::variableDeclaration() {
 
 //----------------- LengthContext ------------------------------------------------------------------
 
-uCParser::LengthContext::LengthContext(ParserRuleContext *parent, size_t invokingState)
+XParser::LengthContext::LengthContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-uCParser::ExpressionContext* uCParser::LengthContext::expression() {
-  return getRuleContext<uCParser::ExpressionContext>(0);
+XParser::ExpressionContext* XParser::LengthContext::expression() {
+  return getRuleContext<XParser::ExpressionContext>(0);
 }
 
 
-size_t uCParser::LengthContext::getRuleIndex() const {
-  return uCParser::RuleLength;
+size_t XParser::LengthContext::getRuleIndex() const {
+  return XParser::RuleLength;
 }
 
 
-antlrcpp::Any uCParser::LengthContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::LengthContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitLength(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::LengthContext* uCParser::length() {
+XParser::LengthContext* XParser::length() {
   LengthContext *_localctx = _tracker.createInstance<LengthContext>(_ctx, getState());
-  enterRule(_localctx, 10, uCParser::RuleLength);
+  enterRule(_localctx, 10, XParser::RuleLength);
 
   auto onExit = finally([=] {
     exitRule();
@@ -573,71 +573,71 @@ uCParser::LengthContext* uCParser::length() {
 
 //----------------- AssignmentStatementContext ------------------------------------------------------------------
 
-uCParser::AssignmentStatementContext::AssignmentStatementContext(ParserRuleContext *parent, size_t invokingState)
+XParser::AssignmentStatementContext::AssignmentStatementContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
 
-size_t uCParser::AssignmentStatementContext::getRuleIndex() const {
-  return uCParser::RuleAssignmentStatement;
+size_t XParser::AssignmentStatementContext::getRuleIndex() const {
+  return XParser::RuleAssignmentStatement;
 }
 
-void uCParser::AssignmentStatementContext::copyFrom(AssignmentStatementContext *ctx) {
+void XParser::AssignmentStatementContext::copyFrom(AssignmentStatementContext *ctx) {
   ParserRuleContext::copyFrom(ctx);
 }
 
 //----------------- AssignVariableContext ------------------------------------------------------------------
 
-uCParser::LhsContext* uCParser::AssignVariableContext::lhs() {
-  return getRuleContext<uCParser::LhsContext>(0);
+XParser::LhsContext* XParser::AssignVariableContext::lhs() {
+  return getRuleContext<XParser::LhsContext>(0);
 }
 
-uCParser::RhsContext* uCParser::AssignVariableContext::rhs() {
-  return getRuleContext<uCParser::RhsContext>(0);
+XParser::RhsContext* XParser::AssignVariableContext::rhs() {
+  return getRuleContext<XParser::RhsContext>(0);
 }
 
-uCParser::AssignVariableContext::AssignVariableContext(AssignmentStatementContext *ctx) { copyFrom(ctx); }
+XParser::AssignVariableContext::AssignVariableContext(AssignmentStatementContext *ctx) { copyFrom(ctx); }
 
 
-antlrcpp::Any uCParser::AssignVariableContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::AssignVariableContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitAssignVariable(this);
   else
     return visitor->visitChildren(this);
 }
 //----------------- DecrementVariableContext ------------------------------------------------------------------
 
-uCParser::VariableContext* uCParser::DecrementVariableContext::variable() {
-  return getRuleContext<uCParser::VariableContext>(0);
+XParser::VariableContext* XParser::DecrementVariableContext::variable() {
+  return getRuleContext<XParser::VariableContext>(0);
 }
 
-uCParser::DecrementVariableContext::DecrementVariableContext(AssignmentStatementContext *ctx) { copyFrom(ctx); }
+XParser::DecrementVariableContext::DecrementVariableContext(AssignmentStatementContext *ctx) { copyFrom(ctx); }
 
 
-antlrcpp::Any uCParser::DecrementVariableContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::DecrementVariableContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitDecrementVariable(this);
   else
     return visitor->visitChildren(this);
 }
 //----------------- IncrementVariableContext ------------------------------------------------------------------
 
-uCParser::VariableContext* uCParser::IncrementVariableContext::variable() {
-  return getRuleContext<uCParser::VariableContext>(0);
+XParser::VariableContext* XParser::IncrementVariableContext::variable() {
+  return getRuleContext<XParser::VariableContext>(0);
 }
 
-uCParser::IncrementVariableContext::IncrementVariableContext(AssignmentStatementContext *ctx) { copyFrom(ctx); }
+XParser::IncrementVariableContext::IncrementVariableContext(AssignmentStatementContext *ctx) { copyFrom(ctx); }
 
 
-antlrcpp::Any uCParser::IncrementVariableContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::IncrementVariableContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitIncrementVariable(this);
   else
     return visitor->visitChildren(this);
 }
-uCParser::AssignmentStatementContext* uCParser::assignmentStatement() {
+XParser::AssignmentStatementContext* XParser::assignmentStatement() {
   AssignmentStatementContext *_localctx = _tracker.createInstance<AssignmentStatementContext>(_ctx, getState());
-  enterRule(_localctx, 12, uCParser::RuleAssignmentStatement);
+  enterRule(_localctx, 12, XParser::RuleAssignmentStatement);
 
   auto onExit = finally([=] {
     exitRule();
@@ -647,34 +647,34 @@ uCParser::AssignmentStatementContext* uCParser::assignmentStatement() {
     _errHandler->sync(this);
     switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 7, _ctx)) {
     case 1: {
-      _localctx = dynamic_cast<AssignmentStatementContext *>(_tracker.createInstance<uCParser::AssignVariableContext>(_localctx));
+      _localctx = dynamic_cast<AssignmentStatementContext *>(_tracker.createInstance<XParser::AssignVariableContext>(_localctx));
       enterOuterAlt(_localctx, 1);
       setState(176);
       lhs();
       setState(177);
-      match(uCParser::T__4);
+      match(XParser::T__4);
       setState(178);
       rhs();
       break;
     }
 
     case 2: {
-      _localctx = dynamic_cast<AssignmentStatementContext *>(_tracker.createInstance<uCParser::IncrementVariableContext>(_localctx));
+      _localctx = dynamic_cast<AssignmentStatementContext *>(_tracker.createInstance<XParser::IncrementVariableContext>(_localctx));
       enterOuterAlt(_localctx, 2);
       setState(180);
       variable();
       setState(181);
-      match(uCParser::T__5);
+      match(XParser::T__5);
       break;
     }
 
     case 3: {
-      _localctx = dynamic_cast<AssignmentStatementContext *>(_tracker.createInstance<uCParser::DecrementVariableContext>(_localctx));
+      _localctx = dynamic_cast<AssignmentStatementContext *>(_tracker.createInstance<XParser::DecrementVariableContext>(_localctx));
       enterOuterAlt(_localctx, 3);
       setState(183);
       variable();
       setState(184);
-      match(uCParser::T__6);
+      match(XParser::T__6);
       break;
     }
 
@@ -692,34 +692,34 @@ uCParser::AssignmentStatementContext* uCParser::assignmentStatement() {
 
 //----------------- LhsContext ------------------------------------------------------------------
 
-uCParser::LhsContext::LhsContext(ParserRuleContext *parent, size_t invokingState)
+XParser::LhsContext::LhsContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-uCParser::VariableContext* uCParser::LhsContext::variable() {
-  return getRuleContext<uCParser::VariableContext>(0);
+XParser::VariableContext* XParser::LhsContext::variable() {
+  return getRuleContext<XParser::VariableContext>(0);
 }
 
-uCParser::VariableDeclarationContext* uCParser::LhsContext::variableDeclaration() {
-  return getRuleContext<uCParser::VariableDeclarationContext>(0);
-}
-
-
-size_t uCParser::LhsContext::getRuleIndex() const {
-  return uCParser::RuleLhs;
+XParser::VariableDeclarationContext* XParser::LhsContext::variableDeclaration() {
+  return getRuleContext<XParser::VariableDeclarationContext>(0);
 }
 
 
-antlrcpp::Any uCParser::LhsContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::LhsContext::getRuleIndex() const {
+  return XParser::RuleLhs;
+}
+
+
+antlrcpp::Any XParser::LhsContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitLhs(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::LhsContext* uCParser::lhs() {
+XParser::LhsContext* XParser::lhs() {
   LhsContext *_localctx = _tracker.createInstance<LhsContext>(_ctx, getState());
-  enterRule(_localctx, 14, uCParser::RuleLhs);
+  enterRule(_localctx, 14, XParser::RuleLhs);
 
   auto onExit = finally([=] {
     exitRule();
@@ -728,17 +728,17 @@ uCParser::LhsContext* uCParser::lhs() {
     setState(190);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
-      case uCParser::IDENTIFIER: {
+      case XParser::IDENTIFIER: {
         enterOuterAlt(_localctx, 1);
         setState(188);
         variable();
         break;
       }
 
-      case uCParser::INT:
-      case uCParser::BOOL:
-      case uCParser::FLOAT:
-      case uCParser::VOID: {
+      case XParser::INT:
+      case XParser::BOOL:
+      case XParser::FLOAT:
+      case XParser::VOID: {
         enterOuterAlt(_localctx, 2);
         setState(189);
         variableDeclaration();
@@ -761,30 +761,30 @@ uCParser::LhsContext* uCParser::lhs() {
 
 //----------------- RhsContext ------------------------------------------------------------------
 
-uCParser::RhsContext::RhsContext(ParserRuleContext *parent, size_t invokingState)
+XParser::RhsContext::RhsContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-uCParser::ExpressionContext* uCParser::RhsContext::expression() {
-  return getRuleContext<uCParser::ExpressionContext>(0);
+XParser::ExpressionContext* XParser::RhsContext::expression() {
+  return getRuleContext<XParser::ExpressionContext>(0);
 }
 
 
-size_t uCParser::RhsContext::getRuleIndex() const {
-  return uCParser::RuleRhs;
+size_t XParser::RhsContext::getRuleIndex() const {
+  return XParser::RuleRhs;
 }
 
 
-antlrcpp::Any uCParser::RhsContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::RhsContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitRhs(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::RhsContext* uCParser::rhs() {
+XParser::RhsContext* XParser::rhs() {
   RhsContext *_localctx = _tracker.createInstance<RhsContext>(_ctx, getState());
-  enterRule(_localctx, 16, uCParser::RuleRhs);
+  enterRule(_localctx, 16, XParser::RuleRhs);
 
   auto onExit = finally([=] {
     exitRule();
@@ -806,42 +806,42 @@ uCParser::RhsContext* uCParser::rhs() {
 
 //----------------- ControlScopeContext ------------------------------------------------------------------
 
-uCParser::ControlScopeContext::ControlScopeContext(ParserRuleContext *parent, size_t invokingState)
+XParser::ControlScopeContext::ControlScopeContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-std::vector<uCParser::C_statementContext *> uCParser::ControlScopeContext::c_statement() {
-  return getRuleContexts<uCParser::C_statementContext>();
+std::vector<XParser::C_statementContext *> XParser::ControlScopeContext::c_statement() {
+  return getRuleContexts<XParser::C_statementContext>();
 }
 
-uCParser::C_statementContext* uCParser::ControlScopeContext::c_statement(size_t i) {
-  return getRuleContext<uCParser::C_statementContext>(i);
+XParser::C_statementContext* XParser::ControlScopeContext::c_statement(size_t i) {
+  return getRuleContext<XParser::C_statementContext>(i);
 }
 
-std::vector<uCParser::ControlStatementContext *> uCParser::ControlScopeContext::controlStatement() {
-  return getRuleContexts<uCParser::ControlStatementContext>();
+std::vector<XParser::ControlStatementContext *> XParser::ControlScopeContext::controlStatement() {
+  return getRuleContexts<XParser::ControlStatementContext>();
 }
 
-uCParser::ControlStatementContext* uCParser::ControlScopeContext::controlStatement(size_t i) {
-  return getRuleContext<uCParser::ControlStatementContext>(i);
-}
-
-
-size_t uCParser::ControlScopeContext::getRuleIndex() const {
-  return uCParser::RuleControlScope;
+XParser::ControlStatementContext* XParser::ControlScopeContext::controlStatement(size_t i) {
+  return getRuleContext<XParser::ControlStatementContext>(i);
 }
 
 
-antlrcpp::Any uCParser::ControlScopeContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::ControlScopeContext::getRuleIndex() const {
+  return XParser::RuleControlScope;
+}
+
+
+antlrcpp::Any XParser::ControlScopeContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitControlScope(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::ControlScopeContext* uCParser::controlScope() {
+XParser::ControlScopeContext* XParser::controlScope() {
   ControlScopeContext *_localctx = _tracker.createInstance<ControlScopeContext>(_ctx, getState());
-  enterRule(_localctx, 18, uCParser::RuleControlScope);
+  enterRule(_localctx, 18, XParser::RuleControlScope);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -850,28 +850,28 @@ uCParser::ControlScopeContext* uCParser::controlScope() {
   try {
     enterOuterAlt(_localctx, 1);
     setState(194);
-    match(uCParser::T__7);
+    match(XParser::T__7);
     setState(199);
     _errHandler->sync(this);
     _la = _input->LA(1);
     while ((((_la & ~ 0x3fULL) == 0) &&
-      ((1ULL << _la) & ((1ULL << uCParser::T__0)
-      | (1ULL << uCParser::T__7)
-      | (1ULL << uCParser::INT)
-      | (1ULL << uCParser::BOOL)
-      | (1ULL << uCParser::FLOAT)
-      | (1ULL << uCParser::VOID)
-      | (1ULL << uCParser::DO)
-      | (1ULL << uCParser::WHILE)
-      | (1ULL << uCParser::FOR)
-      | (1ULL << uCParser::IF)
-      | (1ULL << uCParser::SWITCH)
-      | (1ULL << uCParser::PRINT)
-      | (1ULL << uCParser::PRINTLN)
-      | (1ULL << uCParser::READ)
-      | (1ULL << uCParser::READLN)
-      | (1ULL << uCParser::RETURN)
-      | (1ULL << uCParser::IDENTIFIER))) != 0)) {
+      ((1ULL << _la) & ((1ULL << XParser::T__0)
+      | (1ULL << XParser::T__7)
+      | (1ULL << XParser::INT)
+      | (1ULL << XParser::BOOL)
+      | (1ULL << XParser::FLOAT)
+      | (1ULL << XParser::VOID)
+      | (1ULL << XParser::DO)
+      | (1ULL << XParser::WHILE)
+      | (1ULL << XParser::FOR)
+      | (1ULL << XParser::IF)
+      | (1ULL << XParser::SWITCH)
+      | (1ULL << XParser::PRINT)
+      | (1ULL << XParser::PRINTLN)
+      | (1ULL << XParser::GET)
+      | (1ULL << XParser::GETLN)
+      | (1ULL << XParser::RETURN)
+      | (1ULL << XParser::IDENTIFIER))) != 0)) {
       setState(197);
       _errHandler->sync(this);
       switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 9, _ctx)) {
@@ -893,7 +893,7 @@ uCParser::ControlScopeContext* uCParser::controlScope() {
       _la = _input->LA(1);
     }
     setState(202);
-    match(uCParser::T__8);
+    match(XParser::T__8);
    
   }
   catch (RecognitionException &e) {
@@ -907,50 +907,50 @@ uCParser::ControlScopeContext* uCParser::controlScope() {
 
 //----------------- ControlStatementContext ------------------------------------------------------------------
 
-uCParser::ControlStatementContext::ControlStatementContext(ParserRuleContext *parent, size_t invokingState)
+XParser::ControlStatementContext::ControlStatementContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-uCParser::DoWhileLoopContext* uCParser::ControlStatementContext::doWhileLoop() {
-  return getRuleContext<uCParser::DoWhileLoopContext>(0);
+XParser::DoWhileLoopContext* XParser::ControlStatementContext::doWhileLoop() {
+  return getRuleContext<XParser::DoWhileLoopContext>(0);
 }
 
-uCParser::WhileLoopContext* uCParser::ControlStatementContext::whileLoop() {
-  return getRuleContext<uCParser::WhileLoopContext>(0);
+XParser::WhileLoopContext* XParser::ControlStatementContext::whileLoop() {
+  return getRuleContext<XParser::WhileLoopContext>(0);
 }
 
-uCParser::ForLoopContext* uCParser::ControlStatementContext::forLoop() {
-  return getRuleContext<uCParser::ForLoopContext>(0);
+XParser::ForLoopContext* XParser::ControlStatementContext::forLoop() {
+  return getRuleContext<XParser::ForLoopContext>(0);
 }
 
-uCParser::IfStatementContext* uCParser::ControlStatementContext::ifStatement() {
-  return getRuleContext<uCParser::IfStatementContext>(0);
+XParser::IfStatementContext* XParser::ControlStatementContext::ifStatement() {
+  return getRuleContext<XParser::IfStatementContext>(0);
 }
 
-uCParser::SwitchStatementContext* uCParser::ControlStatementContext::switchStatement() {
-  return getRuleContext<uCParser::SwitchStatementContext>(0);
+XParser::SwitchStatementContext* XParser::ControlStatementContext::switchStatement() {
+  return getRuleContext<XParser::SwitchStatementContext>(0);
 }
 
-uCParser::ControlScopeContext* uCParser::ControlStatementContext::controlScope() {
-  return getRuleContext<uCParser::ControlScopeContext>(0);
-}
-
-
-size_t uCParser::ControlStatementContext::getRuleIndex() const {
-  return uCParser::RuleControlStatement;
+XParser::ControlScopeContext* XParser::ControlStatementContext::controlScope() {
+  return getRuleContext<XParser::ControlScopeContext>(0);
 }
 
 
-antlrcpp::Any uCParser::ControlStatementContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::ControlStatementContext::getRuleIndex() const {
+  return XParser::RuleControlStatement;
+}
+
+
+antlrcpp::Any XParser::ControlStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitControlStatement(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::ControlStatementContext* uCParser::controlStatement() {
+XParser::ControlStatementContext* XParser::controlStatement() {
   ControlStatementContext *_localctx = _tracker.createInstance<ControlStatementContext>(_ctx, getState());
-  enterRule(_localctx, 20, uCParser::RuleControlStatement);
+  enterRule(_localctx, 20, XParser::RuleControlStatement);
 
   auto onExit = finally([=] {
     exitRule();
@@ -959,42 +959,42 @@ uCParser::ControlStatementContext* uCParser::controlStatement() {
     setState(210);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
-      case uCParser::DO: {
+      case XParser::DO: {
         enterOuterAlt(_localctx, 1);
         setState(204);
         doWhileLoop();
         break;
       }
 
-      case uCParser::WHILE: {
+      case XParser::WHILE: {
         enterOuterAlt(_localctx, 2);
         setState(205);
         whileLoop();
         break;
       }
 
-      case uCParser::FOR: {
+      case XParser::FOR: {
         enterOuterAlt(_localctx, 3);
         setState(206);
         forLoop();
         break;
       }
 
-      case uCParser::IF: {
+      case XParser::IF: {
         enterOuterAlt(_localctx, 4);
         setState(207);
         ifStatement();
         break;
       }
 
-      case uCParser::SWITCH: {
+      case XParser::SWITCH: {
         enterOuterAlt(_localctx, 5);
         setState(208);
         switchStatement();
         break;
       }
 
-      case uCParser::T__7: {
+      case XParser::T__7: {
         enterOuterAlt(_localctx, 6);
         setState(209);
         controlScope();
@@ -1017,42 +1017,42 @@ uCParser::ControlStatementContext* uCParser::controlStatement() {
 
 //----------------- DoWhileLoopContext ------------------------------------------------------------------
 
-uCParser::DoWhileLoopContext::DoWhileLoopContext(ParserRuleContext *parent, size_t invokingState)
+XParser::DoWhileLoopContext::DoWhileLoopContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-tree::TerminalNode* uCParser::DoWhileLoopContext::DO() {
-  return getToken(uCParser::DO, 0);
+tree::TerminalNode* XParser::DoWhileLoopContext::DO() {
+  return getToken(XParser::DO, 0);
 }
 
-uCParser::ControlScopeContext* uCParser::DoWhileLoopContext::controlScope() {
-  return getRuleContext<uCParser::ControlScopeContext>(0);
+XParser::ControlScopeContext* XParser::DoWhileLoopContext::controlScope() {
+  return getRuleContext<XParser::ControlScopeContext>(0);
 }
 
-tree::TerminalNode* uCParser::DoWhileLoopContext::WHILE() {
-  return getToken(uCParser::WHILE, 0);
+tree::TerminalNode* XParser::DoWhileLoopContext::WHILE() {
+  return getToken(XParser::WHILE, 0);
 }
 
-uCParser::ExpressionContext* uCParser::DoWhileLoopContext::expression() {
-  return getRuleContext<uCParser::ExpressionContext>(0);
-}
-
-
-size_t uCParser::DoWhileLoopContext::getRuleIndex() const {
-  return uCParser::RuleDoWhileLoop;
+XParser::ExpressionContext* XParser::DoWhileLoopContext::expression() {
+  return getRuleContext<XParser::ExpressionContext>(0);
 }
 
 
-antlrcpp::Any uCParser::DoWhileLoopContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::DoWhileLoopContext::getRuleIndex() const {
+  return XParser::RuleDoWhileLoop;
+}
+
+
+antlrcpp::Any XParser::DoWhileLoopContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitDoWhileLoop(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::DoWhileLoopContext* uCParser::doWhileLoop() {
+XParser::DoWhileLoopContext* XParser::doWhileLoop() {
   DoWhileLoopContext *_localctx = _tracker.createInstance<DoWhileLoopContext>(_ctx, getState());
-  enterRule(_localctx, 22, uCParser::RuleDoWhileLoop);
+  enterRule(_localctx, 22, XParser::RuleDoWhileLoop);
 
   auto onExit = finally([=] {
     exitRule();
@@ -1060,17 +1060,17 @@ uCParser::DoWhileLoopContext* uCParser::doWhileLoop() {
   try {
     enterOuterAlt(_localctx, 1);
     setState(212);
-    match(uCParser::DO);
+    match(XParser::DO);
     setState(213);
     controlScope();
     setState(214);
-    match(uCParser::WHILE);
+    match(XParser::WHILE);
     setState(215);
-    match(uCParser::T__9);
+    match(XParser::T__9);
     setState(216);
     expression(0);
     setState(217);
-    match(uCParser::T__10);
+    match(XParser::T__10);
    
   }
   catch (RecognitionException &e) {
@@ -1084,38 +1084,38 @@ uCParser::DoWhileLoopContext* uCParser::doWhileLoop() {
 
 //----------------- WhileLoopContext ------------------------------------------------------------------
 
-uCParser::WhileLoopContext::WhileLoopContext(ParserRuleContext *parent, size_t invokingState)
+XParser::WhileLoopContext::WhileLoopContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-tree::TerminalNode* uCParser::WhileLoopContext::WHILE() {
-  return getToken(uCParser::WHILE, 0);
+tree::TerminalNode* XParser::WhileLoopContext::WHILE() {
+  return getToken(XParser::WHILE, 0);
 }
 
-uCParser::ExpressionContext* uCParser::WhileLoopContext::expression() {
-  return getRuleContext<uCParser::ExpressionContext>(0);
+XParser::ExpressionContext* XParser::WhileLoopContext::expression() {
+  return getRuleContext<XParser::ExpressionContext>(0);
 }
 
-uCParser::ControlScopeContext* uCParser::WhileLoopContext::controlScope() {
-  return getRuleContext<uCParser::ControlScopeContext>(0);
-}
-
-
-size_t uCParser::WhileLoopContext::getRuleIndex() const {
-  return uCParser::RuleWhileLoop;
+XParser::ControlScopeContext* XParser::WhileLoopContext::controlScope() {
+  return getRuleContext<XParser::ControlScopeContext>(0);
 }
 
 
-antlrcpp::Any uCParser::WhileLoopContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::WhileLoopContext::getRuleIndex() const {
+  return XParser::RuleWhileLoop;
+}
+
+
+antlrcpp::Any XParser::WhileLoopContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitWhileLoop(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::WhileLoopContext* uCParser::whileLoop() {
+XParser::WhileLoopContext* XParser::whileLoop() {
   WhileLoopContext *_localctx = _tracker.createInstance<WhileLoopContext>(_ctx, getState());
-  enterRule(_localctx, 24, uCParser::RuleWhileLoop);
+  enterRule(_localctx, 24, XParser::RuleWhileLoop);
 
   auto onExit = finally([=] {
     exitRule();
@@ -1123,13 +1123,13 @@ uCParser::WhileLoopContext* uCParser::whileLoop() {
   try {
     enterOuterAlt(_localctx, 1);
     setState(219);
-    match(uCParser::WHILE);
+    match(XParser::WHILE);
     setState(220);
-    match(uCParser::T__9);
+    match(XParser::T__9);
     setState(221);
     expression(0);
     setState(222);
-    match(uCParser::T__10);
+    match(XParser::T__10);
     setState(223);
     controlScope();
    
@@ -1145,46 +1145,46 @@ uCParser::WhileLoopContext* uCParser::whileLoop() {
 
 //----------------- ForLoopContext ------------------------------------------------------------------
 
-uCParser::ForLoopContext::ForLoopContext(ParserRuleContext *parent, size_t invokingState)
+XParser::ForLoopContext::ForLoopContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-tree::TerminalNode* uCParser::ForLoopContext::FOR() {
-  return getToken(uCParser::FOR, 0);
+tree::TerminalNode* XParser::ForLoopContext::FOR() {
+  return getToken(XParser::FOR, 0);
 }
 
-uCParser::ExpressionContext* uCParser::ForLoopContext::expression() {
-  return getRuleContext<uCParser::ExpressionContext>(0);
+XParser::ExpressionContext* XParser::ForLoopContext::expression() {
+  return getRuleContext<XParser::ExpressionContext>(0);
 }
 
-uCParser::ControlScopeContext* uCParser::ForLoopContext::controlScope() {
-  return getRuleContext<uCParser::ControlScopeContext>(0);
+XParser::ControlScopeContext* XParser::ForLoopContext::controlScope() {
+  return getRuleContext<XParser::ControlScopeContext>(0);
 }
 
-std::vector<uCParser::StatementContext *> uCParser::ForLoopContext::statement() {
-  return getRuleContexts<uCParser::StatementContext>();
+std::vector<XParser::StatementContext *> XParser::ForLoopContext::statement() {
+  return getRuleContexts<XParser::StatementContext>();
 }
 
-uCParser::StatementContext* uCParser::ForLoopContext::statement(size_t i) {
-  return getRuleContext<uCParser::StatementContext>(i);
-}
-
-
-size_t uCParser::ForLoopContext::getRuleIndex() const {
-  return uCParser::RuleForLoop;
+XParser::StatementContext* XParser::ForLoopContext::statement(size_t i) {
+  return getRuleContext<XParser::StatementContext>(i);
 }
 
 
-antlrcpp::Any uCParser::ForLoopContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::ForLoopContext::getRuleIndex() const {
+  return XParser::RuleForLoop;
+}
+
+
+antlrcpp::Any XParser::ForLoopContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitForLoop(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::ForLoopContext* uCParser::forLoop() {
+XParser::ForLoopContext* XParser::forLoop() {
   ForLoopContext *_localctx = _tracker.createInstance<ForLoopContext>(_ctx, getState());
-  enterRule(_localctx, 26, uCParser::RuleForLoop);
+  enterRule(_localctx, 26, XParser::RuleForLoop);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -1193,65 +1193,65 @@ uCParser::ForLoopContext* uCParser::forLoop() {
   try {
     enterOuterAlt(_localctx, 1);
     setState(225);
-    match(uCParser::FOR);
+    match(XParser::FOR);
     setState(226);
-    match(uCParser::T__9);
+    match(XParser::T__9);
     setState(228);
     _errHandler->sync(this);
 
     _la = _input->LA(1);
     if ((((_la & ~ 0x3fULL) == 0) &&
-      ((1ULL << _la) & ((1ULL << uCParser::T__7)
-      | (1ULL << uCParser::INT)
-      | (1ULL << uCParser::BOOL)
-      | (1ULL << uCParser::FLOAT)
-      | (1ULL << uCParser::VOID)
-      | (1ULL << uCParser::DO)
-      | (1ULL << uCParser::WHILE)
-      | (1ULL << uCParser::FOR)
-      | (1ULL << uCParser::IF)
-      | (1ULL << uCParser::SWITCH)
-      | (1ULL << uCParser::PRINT)
-      | (1ULL << uCParser::PRINTLN)
-      | (1ULL << uCParser::READ)
-      | (1ULL << uCParser::READLN)
-      | (1ULL << uCParser::RETURN)
-      | (1ULL << uCParser::IDENTIFIER))) != 0)) {
+      ((1ULL << _la) & ((1ULL << XParser::T__7)
+      | (1ULL << XParser::INT)
+      | (1ULL << XParser::BOOL)
+      | (1ULL << XParser::FLOAT)
+      | (1ULL << XParser::VOID)
+      | (1ULL << XParser::DO)
+      | (1ULL << XParser::WHILE)
+      | (1ULL << XParser::FOR)
+      | (1ULL << XParser::IF)
+      | (1ULL << XParser::SWITCH)
+      | (1ULL << XParser::PRINT)
+      | (1ULL << XParser::PRINTLN)
+      | (1ULL << XParser::GET)
+      | (1ULL << XParser::GETLN)
+      | (1ULL << XParser::RETURN)
+      | (1ULL << XParser::IDENTIFIER))) != 0)) {
       setState(227);
       statement();
     }
     setState(230);
-    match(uCParser::T__0);
+    match(XParser::T__0);
     setState(231);
     expression(0);
     setState(232);
-    match(uCParser::T__0);
+    match(XParser::T__0);
     setState(234);
     _errHandler->sync(this);
 
     _la = _input->LA(1);
     if ((((_la & ~ 0x3fULL) == 0) &&
-      ((1ULL << _la) & ((1ULL << uCParser::T__7)
-      | (1ULL << uCParser::INT)
-      | (1ULL << uCParser::BOOL)
-      | (1ULL << uCParser::FLOAT)
-      | (1ULL << uCParser::VOID)
-      | (1ULL << uCParser::DO)
-      | (1ULL << uCParser::WHILE)
-      | (1ULL << uCParser::FOR)
-      | (1ULL << uCParser::IF)
-      | (1ULL << uCParser::SWITCH)
-      | (1ULL << uCParser::PRINT)
-      | (1ULL << uCParser::PRINTLN)
-      | (1ULL << uCParser::READ)
-      | (1ULL << uCParser::READLN)
-      | (1ULL << uCParser::RETURN)
-      | (1ULL << uCParser::IDENTIFIER))) != 0)) {
+      ((1ULL << _la) & ((1ULL << XParser::T__7)
+      | (1ULL << XParser::INT)
+      | (1ULL << XParser::BOOL)
+      | (1ULL << XParser::FLOAT)
+      | (1ULL << XParser::VOID)
+      | (1ULL << XParser::DO)
+      | (1ULL << XParser::WHILE)
+      | (1ULL << XParser::FOR)
+      | (1ULL << XParser::IF)
+      | (1ULL << XParser::SWITCH)
+      | (1ULL << XParser::PRINT)
+      | (1ULL << XParser::PRINTLN)
+      | (1ULL << XParser::GET)
+      | (1ULL << XParser::GETLN)
+      | (1ULL << XParser::RETURN)
+      | (1ULL << XParser::IDENTIFIER))) != 0)) {
       setState(233);
       statement();
     }
     setState(236);
-    match(uCParser::T__10);
+    match(XParser::T__10);
     setState(237);
     controlScope();
    
@@ -1267,58 +1267,58 @@ uCParser::ForLoopContext* uCParser::forLoop() {
 
 //----------------- IfStatementContext ------------------------------------------------------------------
 
-uCParser::IfStatementContext::IfStatementContext(ParserRuleContext *parent, size_t invokingState)
+XParser::IfStatementContext::IfStatementContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-std::vector<tree::TerminalNode *> uCParser::IfStatementContext::IF() {
-  return getTokens(uCParser::IF);
+std::vector<tree::TerminalNode *> XParser::IfStatementContext::IF() {
+  return getTokens(XParser::IF);
 }
 
-tree::TerminalNode* uCParser::IfStatementContext::IF(size_t i) {
-  return getToken(uCParser::IF, i);
+tree::TerminalNode* XParser::IfStatementContext::IF(size_t i) {
+  return getToken(XParser::IF, i);
 }
 
-std::vector<uCParser::ExpressionContext *> uCParser::IfStatementContext::expression() {
-  return getRuleContexts<uCParser::ExpressionContext>();
+std::vector<XParser::ExpressionContext *> XParser::IfStatementContext::expression() {
+  return getRuleContexts<XParser::ExpressionContext>();
 }
 
-uCParser::ExpressionContext* uCParser::IfStatementContext::expression(size_t i) {
-  return getRuleContext<uCParser::ExpressionContext>(i);
+XParser::ExpressionContext* XParser::IfStatementContext::expression(size_t i) {
+  return getRuleContext<XParser::ExpressionContext>(i);
 }
 
-std::vector<uCParser::ControlScopeContext *> uCParser::IfStatementContext::controlScope() {
-  return getRuleContexts<uCParser::ControlScopeContext>();
+std::vector<XParser::ControlScopeContext *> XParser::IfStatementContext::controlScope() {
+  return getRuleContexts<XParser::ControlScopeContext>();
 }
 
-uCParser::ControlScopeContext* uCParser::IfStatementContext::controlScope(size_t i) {
-  return getRuleContext<uCParser::ControlScopeContext>(i);
+XParser::ControlScopeContext* XParser::IfStatementContext::controlScope(size_t i) {
+  return getRuleContext<XParser::ControlScopeContext>(i);
 }
 
-std::vector<tree::TerminalNode *> uCParser::IfStatementContext::ELSE() {
-  return getTokens(uCParser::ELSE);
+std::vector<tree::TerminalNode *> XParser::IfStatementContext::ELSE() {
+  return getTokens(XParser::ELSE);
 }
 
-tree::TerminalNode* uCParser::IfStatementContext::ELSE(size_t i) {
-  return getToken(uCParser::ELSE, i);
-}
-
-
-size_t uCParser::IfStatementContext::getRuleIndex() const {
-  return uCParser::RuleIfStatement;
+tree::TerminalNode* XParser::IfStatementContext::ELSE(size_t i) {
+  return getToken(XParser::ELSE, i);
 }
 
 
-antlrcpp::Any uCParser::IfStatementContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::IfStatementContext::getRuleIndex() const {
+  return XParser::RuleIfStatement;
+}
+
+
+antlrcpp::Any XParser::IfStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitIfStatement(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::IfStatementContext* uCParser::ifStatement() {
+XParser::IfStatementContext* XParser::ifStatement() {
   IfStatementContext *_localctx = _tracker.createInstance<IfStatementContext>(_ctx, getState());
-  enterRule(_localctx, 28, uCParser::RuleIfStatement);
+  enterRule(_localctx, 28, XParser::RuleIfStatement);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -1328,13 +1328,13 @@ uCParser::IfStatementContext* uCParser::ifStatement() {
     size_t alt;
     enterOuterAlt(_localctx, 1);
     setState(239);
-    match(uCParser::IF);
+    match(XParser::IF);
     setState(240);
-    match(uCParser::T__9);
+    match(XParser::T__9);
     setState(241);
     expression(0);
     setState(242);
-    match(uCParser::T__10);
+    match(XParser::T__10);
     setState(243);
     controlScope();
     setState(253);
@@ -1343,15 +1343,15 @@ uCParser::IfStatementContext* uCParser::ifStatement() {
     while (alt != 2 && alt != atn::ATN::INVALID_ALT_NUMBER) {
       if (alt == 1) {
         setState(244);
-        match(uCParser::ELSE);
+        match(XParser::ELSE);
         setState(245);
-        match(uCParser::IF);
+        match(XParser::IF);
         setState(246);
-        match(uCParser::T__9);
+        match(XParser::T__9);
         setState(247);
         expression(0);
         setState(248);
-        match(uCParser::T__10);
+        match(XParser::T__10);
         setState(249);
         controlScope(); 
       }
@@ -1363,9 +1363,9 @@ uCParser::IfStatementContext* uCParser::ifStatement() {
     _errHandler->sync(this);
 
     _la = _input->LA(1);
-    if (_la == uCParser::ELSE) {
+    if (_la == XParser::ELSE) {
       setState(256);
-      match(uCParser::ELSE);
+      match(XParser::ELSE);
       setState(257);
       controlScope();
     }
@@ -1382,38 +1382,38 @@ uCParser::IfStatementContext* uCParser::ifStatement() {
 
 //----------------- SwitchStatementContext ------------------------------------------------------------------
 
-uCParser::SwitchStatementContext::SwitchStatementContext(ParserRuleContext *parent, size_t invokingState)
+XParser::SwitchStatementContext::SwitchStatementContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-tree::TerminalNode* uCParser::SwitchStatementContext::SWITCH() {
-  return getToken(uCParser::SWITCH, 0);
+tree::TerminalNode* XParser::SwitchStatementContext::SWITCH() {
+  return getToken(XParser::SWITCH, 0);
 }
 
-uCParser::ExpressionContext* uCParser::SwitchStatementContext::expression() {
-  return getRuleContext<uCParser::ExpressionContext>(0);
+XParser::ExpressionContext* XParser::SwitchStatementContext::expression() {
+  return getRuleContext<XParser::ExpressionContext>(0);
 }
 
-uCParser::SwitchCaseListContext* uCParser::SwitchStatementContext::switchCaseList() {
-  return getRuleContext<uCParser::SwitchCaseListContext>(0);
-}
-
-
-size_t uCParser::SwitchStatementContext::getRuleIndex() const {
-  return uCParser::RuleSwitchStatement;
+XParser::SwitchCaseListContext* XParser::SwitchStatementContext::switchCaseList() {
+  return getRuleContext<XParser::SwitchCaseListContext>(0);
 }
 
 
-antlrcpp::Any uCParser::SwitchStatementContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::SwitchStatementContext::getRuleIndex() const {
+  return XParser::RuleSwitchStatement;
+}
+
+
+antlrcpp::Any XParser::SwitchStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitSwitchStatement(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::SwitchStatementContext* uCParser::switchStatement() {
+XParser::SwitchStatementContext* XParser::switchStatement() {
   SwitchStatementContext *_localctx = _tracker.createInstance<SwitchStatementContext>(_ctx, getState());
-  enterRule(_localctx, 30, uCParser::RuleSwitchStatement);
+  enterRule(_localctx, 30, XParser::RuleSwitchStatement);
 
   auto onExit = finally([=] {
     exitRule();
@@ -1421,19 +1421,19 @@ uCParser::SwitchStatementContext* uCParser::switchStatement() {
   try {
     enterOuterAlt(_localctx, 1);
     setState(260);
-    match(uCParser::SWITCH);
+    match(XParser::SWITCH);
     setState(261);
-    match(uCParser::T__9);
+    match(XParser::T__9);
     setState(262);
     expression(0);
     setState(263);
-    match(uCParser::T__10);
+    match(XParser::T__10);
     setState(264);
-    match(uCParser::T__7);
+    match(XParser::T__7);
     setState(265);
     switchCaseList();
     setState(266);
-    match(uCParser::T__8);
+    match(XParser::T__8);
    
   }
   catch (RecognitionException &e) {
@@ -1447,38 +1447,38 @@ uCParser::SwitchStatementContext* uCParser::switchStatement() {
 
 //----------------- SwitchCaseListContext ------------------------------------------------------------------
 
-uCParser::SwitchCaseListContext::SwitchCaseListContext(ParserRuleContext *parent, size_t invokingState)
+XParser::SwitchCaseListContext::SwitchCaseListContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-std::vector<uCParser::CaseBranchContext *> uCParser::SwitchCaseListContext::caseBranch() {
-  return getRuleContexts<uCParser::CaseBranchContext>();
+std::vector<XParser::CaseBranchContext *> XParser::SwitchCaseListContext::caseBranch() {
+  return getRuleContexts<XParser::CaseBranchContext>();
 }
 
-uCParser::CaseBranchContext* uCParser::SwitchCaseListContext::caseBranch(size_t i) {
-  return getRuleContext<uCParser::CaseBranchContext>(i);
+XParser::CaseBranchContext* XParser::SwitchCaseListContext::caseBranch(size_t i) {
+  return getRuleContext<XParser::CaseBranchContext>(i);
 }
 
-uCParser::DefaultBranchContext* uCParser::SwitchCaseListContext::defaultBranch() {
-  return getRuleContext<uCParser::DefaultBranchContext>(0);
-}
-
-
-size_t uCParser::SwitchCaseListContext::getRuleIndex() const {
-  return uCParser::RuleSwitchCaseList;
+XParser::DefaultBranchContext* XParser::SwitchCaseListContext::defaultBranch() {
+  return getRuleContext<XParser::DefaultBranchContext>(0);
 }
 
 
-antlrcpp::Any uCParser::SwitchCaseListContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::SwitchCaseListContext::getRuleIndex() const {
+  return XParser::RuleSwitchCaseList;
+}
+
+
+antlrcpp::Any XParser::SwitchCaseListContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitSwitchCaseList(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::SwitchCaseListContext* uCParser::switchCaseList() {
+XParser::SwitchCaseListContext* XParser::switchCaseList() {
   SwitchCaseListContext *_localctx = _tracker.createInstance<SwitchCaseListContext>(_ctx, getState());
-  enterRule(_localctx, 32, uCParser::RuleSwitchCaseList);
+  enterRule(_localctx, 32, XParser::RuleSwitchCaseList);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -1489,7 +1489,7 @@ uCParser::SwitchCaseListContext* uCParser::switchCaseList() {
     setState(271);
     _errHandler->sync(this);
     _la = _input->LA(1);
-    while (_la == uCParser::CASE) {
+    while (_la == XParser::CASE) {
       setState(268);
       caseBranch();
       setState(273);
@@ -1500,7 +1500,7 @@ uCParser::SwitchCaseListContext* uCParser::switchCaseList() {
     _errHandler->sync(this);
 
     _la = _input->LA(1);
-    if (_la == uCParser::DEFAULT) {
+    if (_la == XParser::DEFAULT) {
       setState(274);
       defaultBranch();
     }
@@ -1517,38 +1517,38 @@ uCParser::SwitchCaseListContext* uCParser::switchCaseList() {
 
 //----------------- CaseBranchContext ------------------------------------------------------------------
 
-uCParser::CaseBranchContext::CaseBranchContext(ParserRuleContext *parent, size_t invokingState)
+XParser::CaseBranchContext::CaseBranchContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-tree::TerminalNode* uCParser::CaseBranchContext::CASE() {
-  return getToken(uCParser::CASE, 0);
+tree::TerminalNode* XParser::CaseBranchContext::CASE() {
+  return getToken(XParser::CASE, 0);
 }
 
-uCParser::NumberContext* uCParser::CaseBranchContext::number() {
-  return getRuleContext<uCParser::NumberContext>(0);
+XParser::NumberContext* XParser::CaseBranchContext::number() {
+  return getRuleContext<XParser::NumberContext>(0);
 }
 
-uCParser::ControlScopeContext* uCParser::CaseBranchContext::controlScope() {
-  return getRuleContext<uCParser::ControlScopeContext>(0);
-}
-
-
-size_t uCParser::CaseBranchContext::getRuleIndex() const {
-  return uCParser::RuleCaseBranch;
+XParser::ControlScopeContext* XParser::CaseBranchContext::controlScope() {
+  return getRuleContext<XParser::ControlScopeContext>(0);
 }
 
 
-antlrcpp::Any uCParser::CaseBranchContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::CaseBranchContext::getRuleIndex() const {
+  return XParser::RuleCaseBranch;
+}
+
+
+antlrcpp::Any XParser::CaseBranchContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitCaseBranch(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::CaseBranchContext* uCParser::caseBranch() {
+XParser::CaseBranchContext* XParser::caseBranch() {
   CaseBranchContext *_localctx = _tracker.createInstance<CaseBranchContext>(_ctx, getState());
-  enterRule(_localctx, 34, uCParser::RuleCaseBranch);
+  enterRule(_localctx, 34, XParser::RuleCaseBranch);
 
   auto onExit = finally([=] {
     exitRule();
@@ -1556,11 +1556,11 @@ uCParser::CaseBranchContext* uCParser::caseBranch() {
   try {
     enterOuterAlt(_localctx, 1);
     setState(277);
-    match(uCParser::CASE);
+    match(XParser::CASE);
     setState(278);
     number();
     setState(279);
-    match(uCParser::T__11);
+    match(XParser::T__11);
     setState(280);
     controlScope();
    
@@ -1576,34 +1576,34 @@ uCParser::CaseBranchContext* uCParser::caseBranch() {
 
 //----------------- DefaultBranchContext ------------------------------------------------------------------
 
-uCParser::DefaultBranchContext::DefaultBranchContext(ParserRuleContext *parent, size_t invokingState)
+XParser::DefaultBranchContext::DefaultBranchContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-tree::TerminalNode* uCParser::DefaultBranchContext::DEFAULT() {
-  return getToken(uCParser::DEFAULT, 0);
+tree::TerminalNode* XParser::DefaultBranchContext::DEFAULT() {
+  return getToken(XParser::DEFAULT, 0);
 }
 
-uCParser::ControlScopeContext* uCParser::DefaultBranchContext::controlScope() {
-  return getRuleContext<uCParser::ControlScopeContext>(0);
-}
-
-
-size_t uCParser::DefaultBranchContext::getRuleIndex() const {
-  return uCParser::RuleDefaultBranch;
+XParser::ControlScopeContext* XParser::DefaultBranchContext::controlScope() {
+  return getRuleContext<XParser::ControlScopeContext>(0);
 }
 
 
-antlrcpp::Any uCParser::DefaultBranchContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::DefaultBranchContext::getRuleIndex() const {
+  return XParser::RuleDefaultBranch;
+}
+
+
+antlrcpp::Any XParser::DefaultBranchContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitDefaultBranch(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::DefaultBranchContext* uCParser::defaultBranch() {
+XParser::DefaultBranchContext* XParser::defaultBranch() {
   DefaultBranchContext *_localctx = _tracker.createInstance<DefaultBranchContext>(_ctx, getState());
-  enterRule(_localctx, 36, uCParser::RuleDefaultBranch);
+  enterRule(_localctx, 36, XParser::RuleDefaultBranch);
 
   auto onExit = finally([=] {
     exitRule();
@@ -1611,9 +1611,9 @@ uCParser::DefaultBranchContext* uCParser::defaultBranch() {
   try {
     enterOuterAlt(_localctx, 1);
     setState(282);
-    match(uCParser::DEFAULT);
+    match(XParser::DEFAULT);
     setState(283);
-    match(uCParser::T__11);
+    match(XParser::T__11);
     setState(284);
     controlScope();
    
@@ -1629,34 +1629,34 @@ uCParser::DefaultBranchContext* uCParser::defaultBranch() {
 
 //----------------- FunctionDefinitionContext ------------------------------------------------------------------
 
-uCParser::FunctionDefinitionContext::FunctionDefinitionContext(ParserRuleContext *parent, size_t invokingState)
+XParser::FunctionDefinitionContext::FunctionDefinitionContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-uCParser::FunctionDeclarationContext* uCParser::FunctionDefinitionContext::functionDeclaration() {
-  return getRuleContext<uCParser::FunctionDeclarationContext>(0);
+XParser::FunctionDeclarationContext* XParser::FunctionDefinitionContext::functionDeclaration() {
+  return getRuleContext<XParser::FunctionDeclarationContext>(0);
 }
 
-uCParser::ControlScopeContext* uCParser::FunctionDefinitionContext::controlScope() {
-  return getRuleContext<uCParser::ControlScopeContext>(0);
-}
-
-
-size_t uCParser::FunctionDefinitionContext::getRuleIndex() const {
-  return uCParser::RuleFunctionDefinition;
+XParser::ControlScopeContext* XParser::FunctionDefinitionContext::controlScope() {
+  return getRuleContext<XParser::ControlScopeContext>(0);
 }
 
 
-antlrcpp::Any uCParser::FunctionDefinitionContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::FunctionDefinitionContext::getRuleIndex() const {
+  return XParser::RuleFunctionDefinition;
+}
+
+
+antlrcpp::Any XParser::FunctionDefinitionContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitFunctionDefinition(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::FunctionDefinitionContext* uCParser::functionDefinition() {
+XParser::FunctionDefinitionContext* XParser::functionDefinition() {
   FunctionDefinitionContext *_localctx = _tracker.createInstance<FunctionDefinitionContext>(_ctx, getState());
-  enterRule(_localctx, 38, uCParser::RuleFunctionDefinition);
+  enterRule(_localctx, 38, XParser::RuleFunctionDefinition);
 
   auto onExit = finally([=] {
     exitRule();
@@ -1680,42 +1680,42 @@ uCParser::FunctionDefinitionContext* uCParser::functionDefinition() {
 
 //----------------- FunctionDeclarationContext ------------------------------------------------------------------
 
-uCParser::FunctionDeclarationContext::FunctionDeclarationContext(ParserRuleContext *parent, size_t invokingState)
+XParser::FunctionDeclarationContext::FunctionDeclarationContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-uCParser::TypeIdentifierContext* uCParser::FunctionDeclarationContext::typeIdentifier() {
-  return getRuleContext<uCParser::TypeIdentifierContext>(0);
+XParser::TypeIdentifierContext* XParser::FunctionDeclarationContext::typeIdentifier() {
+  return getRuleContext<XParser::TypeIdentifierContext>(0);
 }
 
-uCParser::FunctionIdentifierContext* uCParser::FunctionDeclarationContext::functionIdentifier() {
-  return getRuleContext<uCParser::FunctionIdentifierContext>(0);
+XParser::FunctionIdentifierContext* XParser::FunctionDeclarationContext::functionIdentifier() {
+  return getRuleContext<XParser::FunctionIdentifierContext>(0);
 }
 
-uCParser::ParameterDeclarationsListContext* uCParser::FunctionDeclarationContext::parameterDeclarationsList() {
-  return getRuleContext<uCParser::ParameterDeclarationsListContext>(0);
+XParser::ParameterDeclarationsListContext* XParser::FunctionDeclarationContext::parameterDeclarationsList() {
+  return getRuleContext<XParser::ParameterDeclarationsListContext>(0);
 }
 
-tree::TerminalNode* uCParser::FunctionDeclarationContext::VOID() {
-  return getToken(uCParser::VOID, 0);
-}
-
-
-size_t uCParser::FunctionDeclarationContext::getRuleIndex() const {
-  return uCParser::RuleFunctionDeclaration;
+tree::TerminalNode* XParser::FunctionDeclarationContext::VOID() {
+  return getToken(XParser::VOID, 0);
 }
 
 
-antlrcpp::Any uCParser::FunctionDeclarationContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::FunctionDeclarationContext::getRuleIndex() const {
+  return XParser::RuleFunctionDeclaration;
+}
+
+
+antlrcpp::Any XParser::FunctionDeclarationContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitFunctionDeclaration(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::FunctionDeclarationContext* uCParser::functionDeclaration() {
+XParser::FunctionDeclarationContext* XParser::functionDeclaration() {
   FunctionDeclarationContext *_localctx = _tracker.createInstance<FunctionDeclarationContext>(_ctx, getState());
-  enterRule(_localctx, 40, uCParser::RuleFunctionDeclaration);
+  enterRule(_localctx, 40, XParser::RuleFunctionDeclaration);
 
   auto onExit = finally([=] {
     exitRule();
@@ -1727,7 +1727,7 @@ uCParser::FunctionDeclarationContext* uCParser::functionDeclaration() {
     setState(290);
     functionIdentifier();
     setState(291);
-    match(uCParser::T__9);
+    match(XParser::T__9);
     setState(294);
     _errHandler->sync(this);
 
@@ -1740,13 +1740,13 @@ uCParser::FunctionDeclarationContext* uCParser::functionDeclaration() {
 
     case 2: {
       setState(293);
-      match(uCParser::VOID);
+      match(XParser::VOID);
       break;
     }
 
     }
     setState(296);
-    match(uCParser::T__10);
+    match(XParser::T__10);
    
   }
   catch (RecognitionException &e) {
@@ -1760,30 +1760,30 @@ uCParser::FunctionDeclarationContext* uCParser::functionDeclaration() {
 
 //----------------- FunctionIdentifierContext ------------------------------------------------------------------
 
-uCParser::FunctionIdentifierContext::FunctionIdentifierContext(ParserRuleContext *parent, size_t invokingState)
+XParser::FunctionIdentifierContext::FunctionIdentifierContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-tree::TerminalNode* uCParser::FunctionIdentifierContext::IDENTIFIER() {
-  return getToken(uCParser::IDENTIFIER, 0);
+tree::TerminalNode* XParser::FunctionIdentifierContext::IDENTIFIER() {
+  return getToken(XParser::IDENTIFIER, 0);
 }
 
 
-size_t uCParser::FunctionIdentifierContext::getRuleIndex() const {
-  return uCParser::RuleFunctionIdentifier;
+size_t XParser::FunctionIdentifierContext::getRuleIndex() const {
+  return XParser::RuleFunctionIdentifier;
 }
 
 
-antlrcpp::Any uCParser::FunctionIdentifierContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::FunctionIdentifierContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitFunctionIdentifier(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::FunctionIdentifierContext* uCParser::functionIdentifier() {
+XParser::FunctionIdentifierContext* XParser::functionIdentifier() {
   FunctionIdentifierContext *_localctx = _tracker.createInstance<FunctionIdentifierContext>(_ctx, getState());
-  enterRule(_localctx, 42, uCParser::RuleFunctionIdentifier);
+  enterRule(_localctx, 42, XParser::RuleFunctionIdentifier);
 
   auto onExit = finally([=] {
     exitRule();
@@ -1791,7 +1791,7 @@ uCParser::FunctionIdentifierContext* uCParser::functionIdentifier() {
   try {
     enterOuterAlt(_localctx, 1);
     setState(298);
-    match(uCParser::IDENTIFIER);
+    match(XParser::IDENTIFIER);
    
   }
   catch (RecognitionException &e) {
@@ -1805,34 +1805,34 @@ uCParser::FunctionIdentifierContext* uCParser::functionIdentifier() {
 
 //----------------- ParameterDeclarationsListContext ------------------------------------------------------------------
 
-uCParser::ParameterDeclarationsListContext::ParameterDeclarationsListContext(ParserRuleContext *parent, size_t invokingState)
+XParser::ParameterDeclarationsListContext::ParameterDeclarationsListContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-std::vector<uCParser::ParameterDeclarationContext *> uCParser::ParameterDeclarationsListContext::parameterDeclaration() {
-  return getRuleContexts<uCParser::ParameterDeclarationContext>();
+std::vector<XParser::ParameterDeclarationContext *> XParser::ParameterDeclarationsListContext::parameterDeclaration() {
+  return getRuleContexts<XParser::ParameterDeclarationContext>();
 }
 
-uCParser::ParameterDeclarationContext* uCParser::ParameterDeclarationsListContext::parameterDeclaration(size_t i) {
-  return getRuleContext<uCParser::ParameterDeclarationContext>(i);
-}
-
-
-size_t uCParser::ParameterDeclarationsListContext::getRuleIndex() const {
-  return uCParser::RuleParameterDeclarationsList;
+XParser::ParameterDeclarationContext* XParser::ParameterDeclarationsListContext::parameterDeclaration(size_t i) {
+  return getRuleContext<XParser::ParameterDeclarationContext>(i);
 }
 
 
-antlrcpp::Any uCParser::ParameterDeclarationsListContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::ParameterDeclarationsListContext::getRuleIndex() const {
+  return XParser::RuleParameterDeclarationsList;
+}
+
+
+antlrcpp::Any XParser::ParameterDeclarationsListContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitParameterDeclarationsList(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::ParameterDeclarationsListContext* uCParser::parameterDeclarationsList() {
+XParser::ParameterDeclarationsListContext* XParser::parameterDeclarationsList() {
   ParameterDeclarationsListContext *_localctx = _tracker.createInstance<ParameterDeclarationsListContext>(_ctx, getState());
-  enterRule(_localctx, 44, uCParser::RuleParameterDeclarationsList);
+  enterRule(_localctx, 44, XParser::RuleParameterDeclarationsList);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -1845,9 +1845,9 @@ uCParser::ParameterDeclarationsListContext* uCParser::parameterDeclarationsList(
     setState(305);
     _errHandler->sync(this);
     _la = _input->LA(1);
-    while (_la == uCParser::T__1) {
+    while (_la == XParser::T__1) {
       setState(301);
-      match(uCParser::T__1);
+      match(XParser::T__1);
       setState(302);
       parameterDeclaration();
       setState(307);
@@ -1867,42 +1867,42 @@ uCParser::ParameterDeclarationsListContext* uCParser::parameterDeclarationsList(
 
 //----------------- ParameterDeclarationContext ------------------------------------------------------------------
 
-uCParser::ParameterDeclarationContext::ParameterDeclarationContext(ParserRuleContext *parent, size_t invokingState)
+XParser::ParameterDeclarationContext::ParameterDeclarationContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-uCParser::TypeIdentifierContext* uCParser::ParameterDeclarationContext::typeIdentifier() {
-  return getRuleContext<uCParser::TypeIdentifierContext>(0);
+XParser::TypeIdentifierContext* XParser::ParameterDeclarationContext::typeIdentifier() {
+  return getRuleContext<XParser::TypeIdentifierContext>(0);
 }
 
-uCParser::ParameterIdentifierContext* uCParser::ParameterDeclarationContext::parameterIdentifier() {
-  return getRuleContext<uCParser::ParameterIdentifierContext>(0);
+XParser::ParameterIdentifierContext* XParser::ParameterDeclarationContext::parameterIdentifier() {
+  return getRuleContext<XParser::ParameterIdentifierContext>(0);
 }
 
-std::vector<tree::TerminalNode *> uCParser::ParameterDeclarationContext::ARRAYINDICATOR() {
-  return getTokens(uCParser::ARRAYINDICATOR);
+std::vector<tree::TerminalNode *> XParser::ParameterDeclarationContext::ARRAYINDICATOR() {
+  return getTokens(XParser::ARRAYINDICATOR);
 }
 
-tree::TerminalNode* uCParser::ParameterDeclarationContext::ARRAYINDICATOR(size_t i) {
-  return getToken(uCParser::ARRAYINDICATOR, i);
-}
-
-
-size_t uCParser::ParameterDeclarationContext::getRuleIndex() const {
-  return uCParser::RuleParameterDeclaration;
+tree::TerminalNode* XParser::ParameterDeclarationContext::ARRAYINDICATOR(size_t i) {
+  return getToken(XParser::ARRAYINDICATOR, i);
 }
 
 
-antlrcpp::Any uCParser::ParameterDeclarationContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::ParameterDeclarationContext::getRuleIndex() const {
+  return XParser::RuleParameterDeclaration;
+}
+
+
+antlrcpp::Any XParser::ParameterDeclarationContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitParameterDeclaration(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::ParameterDeclarationContext* uCParser::parameterDeclaration() {
+XParser::ParameterDeclarationContext* XParser::parameterDeclaration() {
   ParameterDeclarationContext *_localctx = _tracker.createInstance<ParameterDeclarationContext>(_ctx, getState());
-  enterRule(_localctx, 46, uCParser::RuleParameterDeclaration);
+  enterRule(_localctx, 46, XParser::RuleParameterDeclaration);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -1915,9 +1915,9 @@ uCParser::ParameterDeclarationContext* uCParser::parameterDeclaration() {
     setState(312);
     _errHandler->sync(this);
     _la = _input->LA(1);
-    while (_la == uCParser::ARRAYINDICATOR) {
+    while (_la == XParser::ARRAYINDICATOR) {
       setState(309);
-      match(uCParser::ARRAYINDICATOR);
+      match(XParser::ARRAYINDICATOR);
       setState(314);
       _errHandler->sync(this);
       _la = _input->LA(1);
@@ -1937,30 +1937,30 @@ uCParser::ParameterDeclarationContext* uCParser::parameterDeclaration() {
 
 //----------------- ParameterIdentifierContext ------------------------------------------------------------------
 
-uCParser::ParameterIdentifierContext::ParameterIdentifierContext(ParserRuleContext *parent, size_t invokingState)
+XParser::ParameterIdentifierContext::ParameterIdentifierContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-tree::TerminalNode* uCParser::ParameterIdentifierContext::IDENTIFIER() {
-  return getToken(uCParser::IDENTIFIER, 0);
+tree::TerminalNode* XParser::ParameterIdentifierContext::IDENTIFIER() {
+  return getToken(XParser::IDENTIFIER, 0);
 }
 
 
-size_t uCParser::ParameterIdentifierContext::getRuleIndex() const {
-  return uCParser::RuleParameterIdentifier;
+size_t XParser::ParameterIdentifierContext::getRuleIndex() const {
+  return XParser::RuleParameterIdentifier;
 }
 
 
-antlrcpp::Any uCParser::ParameterIdentifierContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::ParameterIdentifierContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitParameterIdentifier(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::ParameterIdentifierContext* uCParser::parameterIdentifier() {
+XParser::ParameterIdentifierContext* XParser::parameterIdentifier() {
   ParameterIdentifierContext *_localctx = _tracker.createInstance<ParameterIdentifierContext>(_ctx, getState());
-  enterRule(_localctx, 48, uCParser::RuleParameterIdentifier);
+  enterRule(_localctx, 48, XParser::RuleParameterIdentifier);
 
   auto onExit = finally([=] {
     exitRule();
@@ -1968,7 +1968,7 @@ uCParser::ParameterIdentifierContext* uCParser::parameterIdentifier() {
   try {
     enterOuterAlt(_localctx, 1);
     setState(317);
-    match(uCParser::IDENTIFIER);
+    match(XParser::IDENTIFIER);
    
   }
   catch (RecognitionException &e) {
@@ -1982,34 +1982,34 @@ uCParser::ParameterIdentifierContext* uCParser::parameterIdentifier() {
 
 //----------------- ReturnStatementContext ------------------------------------------------------------------
 
-uCParser::ReturnStatementContext::ReturnStatementContext(ParserRuleContext *parent, size_t invokingState)
+XParser::ReturnStatementContext::ReturnStatementContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-tree::TerminalNode* uCParser::ReturnStatementContext::RETURN() {
-  return getToken(uCParser::RETURN, 0);
+tree::TerminalNode* XParser::ReturnStatementContext::RETURN() {
+  return getToken(XParser::RETURN, 0);
 }
 
-uCParser::ExpressionContext* uCParser::ReturnStatementContext::expression() {
-  return getRuleContext<uCParser::ExpressionContext>(0);
-}
-
-
-size_t uCParser::ReturnStatementContext::getRuleIndex() const {
-  return uCParser::RuleReturnStatement;
+XParser::ExpressionContext* XParser::ReturnStatementContext::expression() {
+  return getRuleContext<XParser::ExpressionContext>(0);
 }
 
 
-antlrcpp::Any uCParser::ReturnStatementContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::ReturnStatementContext::getRuleIndex() const {
+  return XParser::RuleReturnStatement;
+}
+
+
+antlrcpp::Any XParser::ReturnStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitReturnStatement(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::ReturnStatementContext* uCParser::returnStatement() {
+XParser::ReturnStatementContext* XParser::returnStatement() {
   ReturnStatementContext *_localctx = _tracker.createInstance<ReturnStatementContext>(_ctx, getState());
-  enterRule(_localctx, 50, uCParser::RuleReturnStatement);
+  enterRule(_localctx, 50, XParser::RuleReturnStatement);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -2018,20 +2018,20 @@ uCParser::ReturnStatementContext* uCParser::returnStatement() {
   try {
     enterOuterAlt(_localctx, 1);
     setState(319);
-    match(uCParser::RETURN);
+    match(XParser::RETURN);
     setState(321);
     _errHandler->sync(this);
 
     _la = _input->LA(1);
     if ((((_la & ~ 0x3fULL) == 0) &&
-      ((1ULL << _la) & ((1ULL << uCParser::T__9)
-      | (1ULL << uCParser::T__13)
-      | (1ULL << uCParser::T__14)
-      | (1ULL << uCParser::IDENTIFIER)
-      | (1ULL << uCParser::INTEGER)
-      | (1ULL << uCParser::REAL)
-      | (1ULL << uCParser::CHARACTER)
-      | (1ULL << uCParser::STRING))) != 0)) {
+      ((1ULL << _la) & ((1ULL << XParser::T__9)
+      | (1ULL << XParser::T__13)
+      | (1ULL << XParser::T__14)
+      | (1ULL << XParser::IDENTIFIER)
+      | (1ULL << XParser::INTEGER)
+      | (1ULL << XParser::REAL)
+      | (1ULL << XParser::CHARACTER)
+      | (1ULL << XParser::STRING))) != 0)) {
       setState(320);
       expression(0);
     }
@@ -2048,34 +2048,34 @@ uCParser::ReturnStatementContext* uCParser::returnStatement() {
 
 //----------------- FunctionCallContext ------------------------------------------------------------------
 
-uCParser::FunctionCallContext::FunctionCallContext(ParserRuleContext *parent, size_t invokingState)
+XParser::FunctionCallContext::FunctionCallContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-uCParser::FunctionIdentifierContext* uCParser::FunctionCallContext::functionIdentifier() {
-  return getRuleContext<uCParser::FunctionIdentifierContext>(0);
+XParser::FunctionIdentifierContext* XParser::FunctionCallContext::functionIdentifier() {
+  return getRuleContext<XParser::FunctionIdentifierContext>(0);
 }
 
-uCParser::ArgumentListContext* uCParser::FunctionCallContext::argumentList() {
-  return getRuleContext<uCParser::ArgumentListContext>(0);
-}
-
-
-size_t uCParser::FunctionCallContext::getRuleIndex() const {
-  return uCParser::RuleFunctionCall;
+XParser::ArgumentListContext* XParser::FunctionCallContext::argumentList() {
+  return getRuleContext<XParser::ArgumentListContext>(0);
 }
 
 
-antlrcpp::Any uCParser::FunctionCallContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::FunctionCallContext::getRuleIndex() const {
+  return XParser::RuleFunctionCall;
+}
+
+
+antlrcpp::Any XParser::FunctionCallContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitFunctionCall(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::FunctionCallContext* uCParser::functionCall() {
+XParser::FunctionCallContext* XParser::functionCall() {
   FunctionCallContext *_localctx = _tracker.createInstance<FunctionCallContext>(_ctx, getState());
-  enterRule(_localctx, 52, uCParser::RuleFunctionCall);
+  enterRule(_localctx, 52, XParser::RuleFunctionCall);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -2086,25 +2086,25 @@ uCParser::FunctionCallContext* uCParser::functionCall() {
     setState(323);
     functionIdentifier();
     setState(324);
-    match(uCParser::T__9);
+    match(XParser::T__9);
     setState(326);
     _errHandler->sync(this);
 
     _la = _input->LA(1);
     if ((((_la & ~ 0x3fULL) == 0) &&
-      ((1ULL << _la) & ((1ULL << uCParser::T__9)
-      | (1ULL << uCParser::T__13)
-      | (1ULL << uCParser::T__14)
-      | (1ULL << uCParser::IDENTIFIER)
-      | (1ULL << uCParser::INTEGER)
-      | (1ULL << uCParser::REAL)
-      | (1ULL << uCParser::CHARACTER)
-      | (1ULL << uCParser::STRING))) != 0)) {
+      ((1ULL << _la) & ((1ULL << XParser::T__9)
+      | (1ULL << XParser::T__13)
+      | (1ULL << XParser::T__14)
+      | (1ULL << XParser::IDENTIFIER)
+      | (1ULL << XParser::INTEGER)
+      | (1ULL << XParser::REAL)
+      | (1ULL << XParser::CHARACTER)
+      | (1ULL << XParser::STRING))) != 0)) {
       setState(325);
       argumentList();
     }
     setState(328);
-    match(uCParser::T__10);
+    match(XParser::T__10);
    
   }
   catch (RecognitionException &e) {
@@ -2118,34 +2118,34 @@ uCParser::FunctionCallContext* uCParser::functionCall() {
 
 //----------------- ArgumentListContext ------------------------------------------------------------------
 
-uCParser::ArgumentListContext::ArgumentListContext(ParserRuleContext *parent, size_t invokingState)
+XParser::ArgumentListContext::ArgumentListContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-std::vector<uCParser::ArgumentContext *> uCParser::ArgumentListContext::argument() {
-  return getRuleContexts<uCParser::ArgumentContext>();
+std::vector<XParser::ArgumentContext *> XParser::ArgumentListContext::argument() {
+  return getRuleContexts<XParser::ArgumentContext>();
 }
 
-uCParser::ArgumentContext* uCParser::ArgumentListContext::argument(size_t i) {
-  return getRuleContext<uCParser::ArgumentContext>(i);
-}
-
-
-size_t uCParser::ArgumentListContext::getRuleIndex() const {
-  return uCParser::RuleArgumentList;
+XParser::ArgumentContext* XParser::ArgumentListContext::argument(size_t i) {
+  return getRuleContext<XParser::ArgumentContext>(i);
 }
 
 
-antlrcpp::Any uCParser::ArgumentListContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::ArgumentListContext::getRuleIndex() const {
+  return XParser::RuleArgumentList;
+}
+
+
+antlrcpp::Any XParser::ArgumentListContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitArgumentList(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::ArgumentListContext* uCParser::argumentList() {
+XParser::ArgumentListContext* XParser::argumentList() {
   ArgumentListContext *_localctx = _tracker.createInstance<ArgumentListContext>(_ctx, getState());
-  enterRule(_localctx, 54, uCParser::RuleArgumentList);
+  enterRule(_localctx, 54, XParser::RuleArgumentList);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -2158,9 +2158,9 @@ uCParser::ArgumentListContext* uCParser::argumentList() {
     setState(335);
     _errHandler->sync(this);
     _la = _input->LA(1);
-    while (_la == uCParser::T__1) {
+    while (_la == XParser::T__1) {
       setState(331);
-      match(uCParser::T__1);
+      match(XParser::T__1);
       setState(332);
       argument();
       setState(337);
@@ -2180,30 +2180,30 @@ uCParser::ArgumentListContext* uCParser::argumentList() {
 
 //----------------- ArgumentContext ------------------------------------------------------------------
 
-uCParser::ArgumentContext::ArgumentContext(ParserRuleContext *parent, size_t invokingState)
+XParser::ArgumentContext::ArgumentContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-uCParser::ExpressionContext* uCParser::ArgumentContext::expression() {
-  return getRuleContext<uCParser::ExpressionContext>(0);
+XParser::ExpressionContext* XParser::ArgumentContext::expression() {
+  return getRuleContext<XParser::ExpressionContext>(0);
 }
 
 
-size_t uCParser::ArgumentContext::getRuleIndex() const {
-  return uCParser::RuleArgument;
+size_t XParser::ArgumentContext::getRuleIndex() const {
+  return XParser::RuleArgument;
 }
 
 
-antlrcpp::Any uCParser::ArgumentContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::ArgumentContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitArgument(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::ArgumentContext* uCParser::argument() {
+XParser::ArgumentContext* XParser::argument() {
   ArgumentContext *_localctx = _tracker.createInstance<ArgumentContext>(_ctx, getState());
-  enterRule(_localctx, 56, uCParser::RuleArgument);
+  enterRule(_localctx, 56, XParser::RuleArgument);
 
   auto onExit = finally([=] {
     exitRule();
@@ -2225,34 +2225,34 @@ uCParser::ArgumentContext* uCParser::argument() {
 
 //----------------- PrintStatementContext ------------------------------------------------------------------
 
-uCParser::PrintStatementContext::PrintStatementContext(ParserRuleContext *parent, size_t invokingState)
+XParser::PrintStatementContext::PrintStatementContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-tree::TerminalNode* uCParser::PrintStatementContext::PRINT() {
-  return getToken(uCParser::PRINT, 0);
+tree::TerminalNode* XParser::PrintStatementContext::PRINT() {
+  return getToken(XParser::PRINT, 0);
 }
 
-uCParser::PrintArgumentsContext* uCParser::PrintStatementContext::printArguments() {
-  return getRuleContext<uCParser::PrintArgumentsContext>(0);
-}
-
-
-size_t uCParser::PrintStatementContext::getRuleIndex() const {
-  return uCParser::RulePrintStatement;
+XParser::PrintArgumentsContext* XParser::PrintStatementContext::printArguments() {
+  return getRuleContext<XParser::PrintArgumentsContext>(0);
 }
 
 
-antlrcpp::Any uCParser::PrintStatementContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::PrintStatementContext::getRuleIndex() const {
+  return XParser::RulePrintStatement;
+}
+
+
+antlrcpp::Any XParser::PrintStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitPrintStatement(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::PrintStatementContext* uCParser::printStatement() {
+XParser::PrintStatementContext* XParser::printStatement() {
   PrintStatementContext *_localctx = _tracker.createInstance<PrintStatementContext>(_ctx, getState());
-  enterRule(_localctx, 58, uCParser::RulePrintStatement);
+  enterRule(_localctx, 58, XParser::RulePrintStatement);
 
   auto onExit = finally([=] {
     exitRule();
@@ -2260,13 +2260,13 @@ uCParser::PrintStatementContext* uCParser::printStatement() {
   try {
     enterOuterAlt(_localctx, 1);
     setState(340);
-    match(uCParser::PRINT);
+    match(XParser::PRINT);
     setState(341);
-    match(uCParser::T__9);
+    match(XParser::T__9);
     setState(342);
     printArguments();
     setState(343);
-    match(uCParser::T__10);
+    match(XParser::T__10);
    
   }
   catch (RecognitionException &e) {
@@ -2280,34 +2280,34 @@ uCParser::PrintStatementContext* uCParser::printStatement() {
 
 //----------------- PrintlnStatementContext ------------------------------------------------------------------
 
-uCParser::PrintlnStatementContext::PrintlnStatementContext(ParserRuleContext *parent, size_t invokingState)
+XParser::PrintlnStatementContext::PrintlnStatementContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-tree::TerminalNode* uCParser::PrintlnStatementContext::PRINTLN() {
-  return getToken(uCParser::PRINTLN, 0);
+tree::TerminalNode* XParser::PrintlnStatementContext::PRINTLN() {
+  return getToken(XParser::PRINTLN, 0);
 }
 
-uCParser::PrintArgumentsContext* uCParser::PrintlnStatementContext::printArguments() {
-  return getRuleContext<uCParser::PrintArgumentsContext>(0);
-}
-
-
-size_t uCParser::PrintlnStatementContext::getRuleIndex() const {
-  return uCParser::RulePrintlnStatement;
+XParser::PrintArgumentsContext* XParser::PrintlnStatementContext::printArguments() {
+  return getRuleContext<XParser::PrintArgumentsContext>(0);
 }
 
 
-antlrcpp::Any uCParser::PrintlnStatementContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::PrintlnStatementContext::getRuleIndex() const {
+  return XParser::RulePrintlnStatement;
+}
+
+
+antlrcpp::Any XParser::PrintlnStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitPrintlnStatement(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::PrintlnStatementContext* uCParser::printlnStatement() {
+XParser::PrintlnStatementContext* XParser::printlnStatement() {
   PrintlnStatementContext *_localctx = _tracker.createInstance<PrintlnStatementContext>(_ctx, getState());
-  enterRule(_localctx, 60, uCParser::RulePrintlnStatement);
+  enterRule(_localctx, 60, XParser::RulePrintlnStatement);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -2316,27 +2316,27 @@ uCParser::PrintlnStatementContext* uCParser::printlnStatement() {
   try {
     enterOuterAlt(_localctx, 1);
     setState(345);
-    match(uCParser::PRINTLN);
+    match(XParser::PRINTLN);
     setState(346);
-    match(uCParser::T__9);
+    match(XParser::T__9);
     setState(348);
     _errHandler->sync(this);
 
     _la = _input->LA(1);
     if ((((_la & ~ 0x3fULL) == 0) &&
-      ((1ULL << _la) & ((1ULL << uCParser::T__9)
-      | (1ULL << uCParser::T__13)
-      | (1ULL << uCParser::T__14)
-      | (1ULL << uCParser::IDENTIFIER)
-      | (1ULL << uCParser::INTEGER)
-      | (1ULL << uCParser::REAL)
-      | (1ULL << uCParser::CHARACTER)
-      | (1ULL << uCParser::STRING))) != 0)) {
+      ((1ULL << _la) & ((1ULL << XParser::T__9)
+      | (1ULL << XParser::T__13)
+      | (1ULL << XParser::T__14)
+      | (1ULL << XParser::IDENTIFIER)
+      | (1ULL << XParser::INTEGER)
+      | (1ULL << XParser::REAL)
+      | (1ULL << XParser::CHARACTER)
+      | (1ULL << XParser::STRING))) != 0)) {
       setState(347);
       printArguments();
     }
     setState(350);
-    match(uCParser::T__10);
+    match(XParser::T__10);
    
   }
   catch (RecognitionException &e) {
@@ -2350,34 +2350,34 @@ uCParser::PrintlnStatementContext* uCParser::printlnStatement() {
 
 //----------------- PrintArgumentsContext ------------------------------------------------------------------
 
-uCParser::PrintArgumentsContext::PrintArgumentsContext(ParserRuleContext *parent, size_t invokingState)
+XParser::PrintArgumentsContext::PrintArgumentsContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-std::vector<uCParser::PrintArgumentContext *> uCParser::PrintArgumentsContext::printArgument() {
-  return getRuleContexts<uCParser::PrintArgumentContext>();
+std::vector<XParser::PrintArgumentContext *> XParser::PrintArgumentsContext::printArgument() {
+  return getRuleContexts<XParser::PrintArgumentContext>();
 }
 
-uCParser::PrintArgumentContext* uCParser::PrintArgumentsContext::printArgument(size_t i) {
-  return getRuleContext<uCParser::PrintArgumentContext>(i);
-}
-
-
-size_t uCParser::PrintArgumentsContext::getRuleIndex() const {
-  return uCParser::RulePrintArguments;
+XParser::PrintArgumentContext* XParser::PrintArgumentsContext::printArgument(size_t i) {
+  return getRuleContext<XParser::PrintArgumentContext>(i);
 }
 
 
-antlrcpp::Any uCParser::PrintArgumentsContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::PrintArgumentsContext::getRuleIndex() const {
+  return XParser::RulePrintArguments;
+}
+
+
+antlrcpp::Any XParser::PrintArgumentsContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitPrintArguments(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::PrintArgumentsContext* uCParser::printArguments() {
+XParser::PrintArgumentsContext* XParser::printArguments() {
   PrintArgumentsContext *_localctx = _tracker.createInstance<PrintArgumentsContext>(_ctx, getState());
-  enterRule(_localctx, 62, uCParser::RulePrintArguments);
+  enterRule(_localctx, 62, XParser::RulePrintArguments);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -2390,9 +2390,9 @@ uCParser::PrintArgumentsContext* uCParser::printArguments() {
     setState(357);
     _errHandler->sync(this);
     _la = _input->LA(1);
-    while (_la == uCParser::T__1) {
+    while (_la == XParser::T__1) {
       setState(353);
-      match(uCParser::T__1);
+      match(XParser::T__1);
       setState(354);
       printArgument();
       setState(359);
@@ -2412,34 +2412,34 @@ uCParser::PrintArgumentsContext* uCParser::printArguments() {
 
 //----------------- PrintArgumentContext ------------------------------------------------------------------
 
-uCParser::PrintArgumentContext::PrintArgumentContext(ParserRuleContext *parent, size_t invokingState)
+XParser::PrintArgumentContext::PrintArgumentContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-uCParser::ExpressionContext* uCParser::PrintArgumentContext::expression() {
-  return getRuleContext<uCParser::ExpressionContext>(0);
+XParser::ExpressionContext* XParser::PrintArgumentContext::expression() {
+  return getRuleContext<XParser::ExpressionContext>(0);
 }
 
-uCParser::FieldWidthContext* uCParser::PrintArgumentContext::fieldWidth() {
-  return getRuleContext<uCParser::FieldWidthContext>(0);
-}
-
-
-size_t uCParser::PrintArgumentContext::getRuleIndex() const {
-  return uCParser::RulePrintArgument;
+XParser::FieldWidthContext* XParser::PrintArgumentContext::fieldWidth() {
+  return getRuleContext<XParser::FieldWidthContext>(0);
 }
 
 
-antlrcpp::Any uCParser::PrintArgumentContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::PrintArgumentContext::getRuleIndex() const {
+  return XParser::RulePrintArgument;
+}
+
+
+antlrcpp::Any XParser::PrintArgumentContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitPrintArgument(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::PrintArgumentContext* uCParser::printArgument() {
+XParser::PrintArgumentContext* XParser::printArgument() {
   PrintArgumentContext *_localctx = _tracker.createInstance<PrintArgumentContext>(_ctx, getState());
-  enterRule(_localctx, 64, uCParser::RulePrintArgument);
+  enterRule(_localctx, 64, XParser::RulePrintArgument);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -2453,9 +2453,9 @@ uCParser::PrintArgumentContext* uCParser::printArgument() {
     _errHandler->sync(this);
 
     _la = _input->LA(1);
-    if (_la == uCParser::T__11) {
+    if (_la == XParser::T__11) {
       setState(361);
-      match(uCParser::T__11);
+      match(XParser::T__11);
       setState(362);
       fieldWidth();
     }
@@ -2472,38 +2472,38 @@ uCParser::PrintArgumentContext* uCParser::printArgument() {
 
 //----------------- FieldWidthContext ------------------------------------------------------------------
 
-uCParser::FieldWidthContext::FieldWidthContext(ParserRuleContext *parent, size_t invokingState)
+XParser::FieldWidthContext::FieldWidthContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-uCParser::IntegerConstantContext* uCParser::FieldWidthContext::integerConstant() {
-  return getRuleContext<uCParser::IntegerConstantContext>(0);
+XParser::IntegerConstantContext* XParser::FieldWidthContext::integerConstant() {
+  return getRuleContext<XParser::IntegerConstantContext>(0);
 }
 
-uCParser::SignContext* uCParser::FieldWidthContext::sign() {
-  return getRuleContext<uCParser::SignContext>(0);
+XParser::SignContext* XParser::FieldWidthContext::sign() {
+  return getRuleContext<XParser::SignContext>(0);
 }
 
-uCParser::DecimalPlacesContext* uCParser::FieldWidthContext::decimalPlaces() {
-  return getRuleContext<uCParser::DecimalPlacesContext>(0);
-}
-
-
-size_t uCParser::FieldWidthContext::getRuleIndex() const {
-  return uCParser::RuleFieldWidth;
+XParser::DecimalPlacesContext* XParser::FieldWidthContext::decimalPlaces() {
+  return getRuleContext<XParser::DecimalPlacesContext>(0);
 }
 
 
-antlrcpp::Any uCParser::FieldWidthContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::FieldWidthContext::getRuleIndex() const {
+  return XParser::RuleFieldWidth;
+}
+
+
+antlrcpp::Any XParser::FieldWidthContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitFieldWidth(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::FieldWidthContext* uCParser::fieldWidth() {
+XParser::FieldWidthContext* XParser::fieldWidth() {
   FieldWidthContext *_localctx = _tracker.createInstance<FieldWidthContext>(_ctx, getState());
-  enterRule(_localctx, 66, uCParser::RuleFieldWidth);
+  enterRule(_localctx, 66, XParser::RuleFieldWidth);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -2515,7 +2515,7 @@ uCParser::FieldWidthContext* uCParser::fieldWidth() {
     _errHandler->sync(this);
 
     _la = _input->LA(1);
-    if (_la == uCParser::T__14) {
+    if (_la == XParser::T__14) {
       setState(365);
       sign();
     }
@@ -2525,9 +2525,9 @@ uCParser::FieldWidthContext* uCParser::fieldWidth() {
     _errHandler->sync(this);
 
     _la = _input->LA(1);
-    if (_la == uCParser::T__11) {
+    if (_la == XParser::T__11) {
       setState(369);
-      match(uCParser::T__11);
+      match(XParser::T__11);
       setState(370);
       decimalPlaces();
     }
@@ -2544,30 +2544,30 @@ uCParser::FieldWidthContext* uCParser::fieldWidth() {
 
 //----------------- DecimalPlacesContext ------------------------------------------------------------------
 
-uCParser::DecimalPlacesContext::DecimalPlacesContext(ParserRuleContext *parent, size_t invokingState)
+XParser::DecimalPlacesContext::DecimalPlacesContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-uCParser::IntegerConstantContext* uCParser::DecimalPlacesContext::integerConstant() {
-  return getRuleContext<uCParser::IntegerConstantContext>(0);
+XParser::IntegerConstantContext* XParser::DecimalPlacesContext::integerConstant() {
+  return getRuleContext<XParser::IntegerConstantContext>(0);
 }
 
 
-size_t uCParser::DecimalPlacesContext::getRuleIndex() const {
-  return uCParser::RuleDecimalPlaces;
+size_t XParser::DecimalPlacesContext::getRuleIndex() const {
+  return XParser::RuleDecimalPlaces;
 }
 
 
-antlrcpp::Any uCParser::DecimalPlacesContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::DecimalPlacesContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitDecimalPlaces(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::DecimalPlacesContext* uCParser::decimalPlaces() {
+XParser::DecimalPlacesContext* XParser::decimalPlaces() {
   DecimalPlacesContext *_localctx = _tracker.createInstance<DecimalPlacesContext>(_ctx, getState());
-  enterRule(_localctx, 68, uCParser::RuleDecimalPlaces);
+  enterRule(_localctx, 68, XParser::RuleDecimalPlaces);
 
   auto onExit = finally([=] {
     exitRule();
@@ -2587,36 +2587,36 @@ uCParser::DecimalPlacesContext* uCParser::decimalPlaces() {
   return _localctx;
 }
 
-//----------------- ReadStatementContext ------------------------------------------------------------------
+//----------------- GetStatementContext ------------------------------------------------------------------
 
-uCParser::ReadStatementContext::ReadStatementContext(ParserRuleContext *parent, size_t invokingState)
+XParser::GetStatementContext::GetStatementContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-tree::TerminalNode* uCParser::ReadStatementContext::READ() {
-  return getToken(uCParser::READ, 0);
+tree::TerminalNode* XParser::GetStatementContext::GET() {
+  return getToken(XParser::GET, 0);
 }
 
-uCParser::ReadArgumentsContext* uCParser::ReadStatementContext::readArguments() {
-  return getRuleContext<uCParser::ReadArgumentsContext>(0);
-}
-
-
-size_t uCParser::ReadStatementContext::getRuleIndex() const {
-  return uCParser::RuleReadStatement;
+XParser::GetArgumentsContext* XParser::GetStatementContext::getArguments() {
+  return getRuleContext<XParser::GetArgumentsContext>(0);
 }
 
 
-antlrcpp::Any uCParser::ReadStatementContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
-    return parserVisitor->visitReadStatement(this);
+size_t XParser::GetStatementContext::getRuleIndex() const {
+  return XParser::RuleGetStatement;
+}
+
+
+antlrcpp::Any XParser::GetStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
+    return parserVisitor->visitGetStatement(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::ReadStatementContext* uCParser::readStatement() {
-  ReadStatementContext *_localctx = _tracker.createInstance<ReadStatementContext>(_ctx, getState());
-  enterRule(_localctx, 70, uCParser::RuleReadStatement);
+XParser::GetStatementContext* XParser::getStatement() {
+  GetStatementContext *_localctx = _tracker.createInstance<GetStatementContext>(_ctx, getState());
+  enterRule(_localctx, 70, XParser::RuleGetStatement);
 
   auto onExit = finally([=] {
     exitRule();
@@ -2624,13 +2624,13 @@ uCParser::ReadStatementContext* uCParser::readStatement() {
   try {
     enterOuterAlt(_localctx, 1);
     setState(375);
-    match(uCParser::READ);
+    match(XParser::GET);
     setState(376);
-    match(uCParser::T__9);
+    match(XParser::T__9);
     setState(377);
-    readArguments();
+    getArguments();
     setState(378);
-    match(uCParser::T__10);
+    match(XParser::T__10);
    
   }
   catch (RecognitionException &e) {
@@ -2642,36 +2642,36 @@ uCParser::ReadStatementContext* uCParser::readStatement() {
   return _localctx;
 }
 
-//----------------- ReadlnStatementContext ------------------------------------------------------------------
+//----------------- GetlnStatementContext ------------------------------------------------------------------
 
-uCParser::ReadlnStatementContext::ReadlnStatementContext(ParserRuleContext *parent, size_t invokingState)
+XParser::GetlnStatementContext::GetlnStatementContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-tree::TerminalNode* uCParser::ReadlnStatementContext::READLN() {
-  return getToken(uCParser::READLN, 0);
+tree::TerminalNode* XParser::GetlnStatementContext::GETLN() {
+  return getToken(XParser::GETLN, 0);
 }
 
-uCParser::ReadArgumentsContext* uCParser::ReadlnStatementContext::readArguments() {
-  return getRuleContext<uCParser::ReadArgumentsContext>(0);
-}
-
-
-size_t uCParser::ReadlnStatementContext::getRuleIndex() const {
-  return uCParser::RuleReadlnStatement;
+XParser::GetArgumentsContext* XParser::GetlnStatementContext::getArguments() {
+  return getRuleContext<XParser::GetArgumentsContext>(0);
 }
 
 
-antlrcpp::Any uCParser::ReadlnStatementContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
-    return parserVisitor->visitReadlnStatement(this);
+size_t XParser::GetlnStatementContext::getRuleIndex() const {
+  return XParser::RuleGetlnStatement;
+}
+
+
+antlrcpp::Any XParser::GetlnStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
+    return parserVisitor->visitGetlnStatement(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::ReadlnStatementContext* uCParser::readlnStatement() {
-  ReadlnStatementContext *_localctx = _tracker.createInstance<ReadlnStatementContext>(_ctx, getState());
-  enterRule(_localctx, 72, uCParser::RuleReadlnStatement);
+XParser::GetlnStatementContext* XParser::getlnStatement() {
+  GetlnStatementContext *_localctx = _tracker.createInstance<GetlnStatementContext>(_ctx, getState());
+  enterRule(_localctx, 72, XParser::RuleGetlnStatement);
 
   auto onExit = finally([=] {
     exitRule();
@@ -2679,13 +2679,13 @@ uCParser::ReadlnStatementContext* uCParser::readlnStatement() {
   try {
     enterOuterAlt(_localctx, 1);
     setState(380);
-    match(uCParser::READLN);
+    match(XParser::GETLN);
     setState(381);
-    match(uCParser::T__9);
+    match(XParser::T__9);
     setState(382);
-    readArguments();
+    getArguments();
     setState(383);
-    match(uCParser::T__10);
+    match(XParser::T__10);
    
   }
   catch (RecognitionException &e) {
@@ -2697,36 +2697,36 @@ uCParser::ReadlnStatementContext* uCParser::readlnStatement() {
   return _localctx;
 }
 
-//----------------- ReadArgumentsContext ------------------------------------------------------------------
+//----------------- GetArgumentsContext ------------------------------------------------------------------
 
-uCParser::ReadArgumentsContext::ReadArgumentsContext(ParserRuleContext *parent, size_t invokingState)
+XParser::GetArgumentsContext::GetArgumentsContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-std::vector<uCParser::VariableContext *> uCParser::ReadArgumentsContext::variable() {
-  return getRuleContexts<uCParser::VariableContext>();
+std::vector<XParser::VariableContext *> XParser::GetArgumentsContext::variable() {
+  return getRuleContexts<XParser::VariableContext>();
 }
 
-uCParser::VariableContext* uCParser::ReadArgumentsContext::variable(size_t i) {
-  return getRuleContext<uCParser::VariableContext>(i);
-}
-
-
-size_t uCParser::ReadArgumentsContext::getRuleIndex() const {
-  return uCParser::RuleReadArguments;
+XParser::VariableContext* XParser::GetArgumentsContext::variable(size_t i) {
+  return getRuleContext<XParser::VariableContext>(i);
 }
 
 
-antlrcpp::Any uCParser::ReadArgumentsContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
-    return parserVisitor->visitReadArguments(this);
+size_t XParser::GetArgumentsContext::getRuleIndex() const {
+  return XParser::RuleGetArguments;
+}
+
+
+antlrcpp::Any XParser::GetArgumentsContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
+    return parserVisitor->visitGetArguments(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::ReadArgumentsContext* uCParser::readArguments() {
-  ReadArgumentsContext *_localctx = _tracker.createInstance<ReadArgumentsContext>(_ctx, getState());
-  enterRule(_localctx, 74, uCParser::RuleReadArguments);
+XParser::GetArgumentsContext* XParser::getArguments() {
+  GetArgumentsContext *_localctx = _tracker.createInstance<GetArgumentsContext>(_ctx, getState());
+  enterRule(_localctx, 74, XParser::RuleGetArguments);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -2739,9 +2739,9 @@ uCParser::ReadArgumentsContext* uCParser::readArguments() {
     setState(390);
     _errHandler->sync(this);
     _la = _input->LA(1);
-    while (_la == uCParser::T__1) {
+    while (_la == XParser::T__1) {
       setState(386);
-      match(uCParser::T__1);
+      match(XParser::T__1);
       setState(387);
       variable();
       setState(392);
@@ -2761,56 +2761,56 @@ uCParser::ReadArgumentsContext* uCParser::readArguments() {
 
 //----------------- ExpressionContext ------------------------------------------------------------------
 
-uCParser::ExpressionContext::ExpressionContext(ParserRuleContext *parent, size_t invokingState)
+XParser::ExpressionContext::ExpressionContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-std::vector<uCParser::SimpleExpressionContext *> uCParser::ExpressionContext::simpleExpression() {
-  return getRuleContexts<uCParser::SimpleExpressionContext>();
+std::vector<XParser::SimpleExpressionContext *> XParser::ExpressionContext::simpleExpression() {
+  return getRuleContexts<XParser::SimpleExpressionContext>();
 }
 
-uCParser::SimpleExpressionContext* uCParser::ExpressionContext::simpleExpression(size_t i) {
-  return getRuleContext<uCParser::SimpleExpressionContext>(i);
+XParser::SimpleExpressionContext* XParser::ExpressionContext::simpleExpression(size_t i) {
+  return getRuleContext<XParser::SimpleExpressionContext>(i);
 }
 
-uCParser::RelOpContext* uCParser::ExpressionContext::relOp() {
-  return getRuleContext<uCParser::RelOpContext>(0);
+XParser::RelOpContext* XParser::ExpressionContext::relOp() {
+  return getRuleContext<XParser::RelOpContext>(0);
 }
 
-std::vector<uCParser::ExpressionContext *> uCParser::ExpressionContext::expression() {
-  return getRuleContexts<uCParser::ExpressionContext>();
+std::vector<XParser::ExpressionContext *> XParser::ExpressionContext::expression() {
+  return getRuleContexts<XParser::ExpressionContext>();
 }
 
-uCParser::ExpressionContext* uCParser::ExpressionContext::expression(size_t i) {
-  return getRuleContext<uCParser::ExpressionContext>(i);
-}
-
-
-size_t uCParser::ExpressionContext::getRuleIndex() const {
-  return uCParser::RuleExpression;
+XParser::ExpressionContext* XParser::ExpressionContext::expression(size_t i) {
+  return getRuleContext<XParser::ExpressionContext>(i);
 }
 
 
-antlrcpp::Any uCParser::ExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::ExpressionContext::getRuleIndex() const {
+  return XParser::RuleExpression;
+}
+
+
+antlrcpp::Any XParser::ExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitExpression(this);
   else
     return visitor->visitChildren(this);
 }
 
 
-uCParser::ExpressionContext* uCParser::expression() {
+XParser::ExpressionContext* XParser::expression() {
    return expression(0);
 }
 
-uCParser::ExpressionContext* uCParser::expression(int precedence) {
+XParser::ExpressionContext* XParser::expression(int precedence) {
   ParserRuleContext *parentContext = _ctx;
   size_t parentState = getState();
-  uCParser::ExpressionContext *_localctx = _tracker.createInstance<ExpressionContext>(_ctx, parentState);
-  uCParser::ExpressionContext *previousContext = _localctx;
+  XParser::ExpressionContext *_localctx = _tracker.createInstance<ExpressionContext>(_ctx, parentState);
+  XParser::ExpressionContext *previousContext = _localctx;
   (void)previousContext; // Silence compiler, in case the context is not used by generated code.
   size_t startState = 76;
-  enterRecursionRule(_localctx, 76, uCParser::RuleExpression, precedence);
+  enterRecursionRule(_localctx, 76, XParser::RuleExpression, precedence);
 
     
 
@@ -2850,11 +2850,11 @@ uCParser::ExpressionContext* uCParser::expression(int precedence) {
 
         if (!(precpred(_ctx, 1))) throw FailedPredicateException(this, "precpred(_ctx, 1)");
         setState(401);
-        match(uCParser::T__12);
+        match(XParser::T__12);
         setState(402);
         expression(0);
         setState(403);
-        match(uCParser::T__11);
+        match(XParser::T__11);
         setState(404);
         expression(2); 
       }
@@ -2873,46 +2873,46 @@ uCParser::ExpressionContext* uCParser::expression(int precedence) {
 
 //----------------- SimpleExpressionContext ------------------------------------------------------------------
 
-uCParser::SimpleExpressionContext::SimpleExpressionContext(ParserRuleContext *parent, size_t invokingState)
+XParser::SimpleExpressionContext::SimpleExpressionContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-std::vector<uCParser::TermContext *> uCParser::SimpleExpressionContext::term() {
-  return getRuleContexts<uCParser::TermContext>();
+std::vector<XParser::TermContext *> XParser::SimpleExpressionContext::term() {
+  return getRuleContexts<XParser::TermContext>();
 }
 
-uCParser::TermContext* uCParser::SimpleExpressionContext::term(size_t i) {
-  return getRuleContext<uCParser::TermContext>(i);
+XParser::TermContext* XParser::SimpleExpressionContext::term(size_t i) {
+  return getRuleContext<XParser::TermContext>(i);
 }
 
-uCParser::SignContext* uCParser::SimpleExpressionContext::sign() {
-  return getRuleContext<uCParser::SignContext>(0);
+XParser::SignContext* XParser::SimpleExpressionContext::sign() {
+  return getRuleContext<XParser::SignContext>(0);
 }
 
-std::vector<uCParser::AddOpContext *> uCParser::SimpleExpressionContext::addOp() {
-  return getRuleContexts<uCParser::AddOpContext>();
+std::vector<XParser::AddOpContext *> XParser::SimpleExpressionContext::addOp() {
+  return getRuleContexts<XParser::AddOpContext>();
 }
 
-uCParser::AddOpContext* uCParser::SimpleExpressionContext::addOp(size_t i) {
-  return getRuleContext<uCParser::AddOpContext>(i);
-}
-
-
-size_t uCParser::SimpleExpressionContext::getRuleIndex() const {
-  return uCParser::RuleSimpleExpression;
+XParser::AddOpContext* XParser::SimpleExpressionContext::addOp(size_t i) {
+  return getRuleContext<XParser::AddOpContext>(i);
 }
 
 
-antlrcpp::Any uCParser::SimpleExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::SimpleExpressionContext::getRuleIndex() const {
+  return XParser::RuleSimpleExpression;
+}
+
+
+antlrcpp::Any XParser::SimpleExpressionContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitSimpleExpression(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::SimpleExpressionContext* uCParser::simpleExpression() {
+XParser::SimpleExpressionContext* XParser::simpleExpression() {
   SimpleExpressionContext *_localctx = _tracker.createInstance<SimpleExpressionContext>(_ctx, getState());
-  enterRule(_localctx, 78, uCParser::RuleSimpleExpression);
+  enterRule(_localctx, 78, XParser::RuleSimpleExpression);
 
   auto onExit = finally([=] {
     exitRule();
@@ -2960,42 +2960,42 @@ uCParser::SimpleExpressionContext* uCParser::simpleExpression() {
 
 //----------------- TermContext ------------------------------------------------------------------
 
-uCParser::TermContext::TermContext(ParserRuleContext *parent, size_t invokingState)
+XParser::TermContext::TermContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-std::vector<uCParser::FactorContext *> uCParser::TermContext::factor() {
-  return getRuleContexts<uCParser::FactorContext>();
+std::vector<XParser::FactorContext *> XParser::TermContext::factor() {
+  return getRuleContexts<XParser::FactorContext>();
 }
 
-uCParser::FactorContext* uCParser::TermContext::factor(size_t i) {
-  return getRuleContext<uCParser::FactorContext>(i);
+XParser::FactorContext* XParser::TermContext::factor(size_t i) {
+  return getRuleContext<XParser::FactorContext>(i);
 }
 
-std::vector<uCParser::MulOpContext *> uCParser::TermContext::mulOp() {
-  return getRuleContexts<uCParser::MulOpContext>();
+std::vector<XParser::MulOpContext *> XParser::TermContext::mulOp() {
+  return getRuleContexts<XParser::MulOpContext>();
 }
 
-uCParser::MulOpContext* uCParser::TermContext::mulOp(size_t i) {
-  return getRuleContext<uCParser::MulOpContext>(i);
-}
-
-
-size_t uCParser::TermContext::getRuleIndex() const {
-  return uCParser::RuleTerm;
+XParser::MulOpContext* XParser::TermContext::mulOp(size_t i) {
+  return getRuleContext<XParser::MulOpContext>(i);
 }
 
 
-antlrcpp::Any uCParser::TermContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::TermContext::getRuleIndex() const {
+  return XParser::RuleTerm;
+}
+
+
+antlrcpp::Any XParser::TermContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitTerm(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::TermContext* uCParser::term() {
+XParser::TermContext* XParser::term() {
   TermContext *_localctx = _tracker.createInstance<TermContext>(_ctx, getState());
-  enterRule(_localctx, 80, uCParser::RuleTerm);
+  enterRule(_localctx, 80, XParser::RuleTerm);
 
   auto onExit = finally([=] {
     exitRule();
@@ -3032,128 +3032,128 @@ uCParser::TermContext* uCParser::term() {
 
 //----------------- FactorContext ------------------------------------------------------------------
 
-uCParser::FactorContext::FactorContext(ParserRuleContext *parent, size_t invokingState)
+XParser::FactorContext::FactorContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
 
-size_t uCParser::FactorContext::getRuleIndex() const {
-  return uCParser::RuleFactor;
+size_t XParser::FactorContext::getRuleIndex() const {
+  return XParser::RuleFactor;
 }
 
-void uCParser::FactorContext::copyFrom(FactorContext *ctx) {
+void XParser::FactorContext::copyFrom(FactorContext *ctx) {
   ParserRuleContext::copyFrom(ctx);
   this->type = ctx->type;
 }
 
 //----------------- NumberFactorContext ------------------------------------------------------------------
 
-uCParser::NumberContext* uCParser::NumberFactorContext::number() {
-  return getRuleContext<uCParser::NumberContext>(0);
+XParser::NumberContext* XParser::NumberFactorContext::number() {
+  return getRuleContext<XParser::NumberContext>(0);
 }
 
-uCParser::NumberFactorContext::NumberFactorContext(FactorContext *ctx) { copyFrom(ctx); }
+XParser::NumberFactorContext::NumberFactorContext(FactorContext *ctx) { copyFrom(ctx); }
 
 
-antlrcpp::Any uCParser::NumberFactorContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::NumberFactorContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitNumberFactor(this);
   else
     return visitor->visitChildren(this);
 }
 //----------------- StringFactorContext ------------------------------------------------------------------
 
-uCParser::StringConstantContext* uCParser::StringFactorContext::stringConstant() {
-  return getRuleContext<uCParser::StringConstantContext>(0);
+XParser::StringConstantContext* XParser::StringFactorContext::stringConstant() {
+  return getRuleContext<XParser::StringConstantContext>(0);
 }
 
-uCParser::StringFactorContext::StringFactorContext(FactorContext *ctx) { copyFrom(ctx); }
+XParser::StringFactorContext::StringFactorContext(FactorContext *ctx) { copyFrom(ctx); }
 
 
-antlrcpp::Any uCParser::StringFactorContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::StringFactorContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitStringFactor(this);
   else
     return visitor->visitChildren(this);
 }
 //----------------- CharacterFactorContext ------------------------------------------------------------------
 
-uCParser::CharacterConstantContext* uCParser::CharacterFactorContext::characterConstant() {
-  return getRuleContext<uCParser::CharacterConstantContext>(0);
+XParser::CharacterConstantContext* XParser::CharacterFactorContext::characterConstant() {
+  return getRuleContext<XParser::CharacterConstantContext>(0);
 }
 
-uCParser::CharacterFactorContext::CharacterFactorContext(FactorContext *ctx) { copyFrom(ctx); }
+XParser::CharacterFactorContext::CharacterFactorContext(FactorContext *ctx) { copyFrom(ctx); }
 
 
-antlrcpp::Any uCParser::CharacterFactorContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::CharacterFactorContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitCharacterFactor(this);
   else
     return visitor->visitChildren(this);
 }
 //----------------- VariableFactorContext ------------------------------------------------------------------
 
-uCParser::VariableContext* uCParser::VariableFactorContext::variable() {
-  return getRuleContext<uCParser::VariableContext>(0);
+XParser::VariableContext* XParser::VariableFactorContext::variable() {
+  return getRuleContext<XParser::VariableContext>(0);
 }
 
-uCParser::VariableFactorContext::VariableFactorContext(FactorContext *ctx) { copyFrom(ctx); }
+XParser::VariableFactorContext::VariableFactorContext(FactorContext *ctx) { copyFrom(ctx); }
 
 
-antlrcpp::Any uCParser::VariableFactorContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::VariableFactorContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitVariableFactor(this);
   else
     return visitor->visitChildren(this);
 }
 //----------------- FunctionCallFactorContext ------------------------------------------------------------------
 
-uCParser::FunctionCallContext* uCParser::FunctionCallFactorContext::functionCall() {
-  return getRuleContext<uCParser::FunctionCallContext>(0);
+XParser::FunctionCallContext* XParser::FunctionCallFactorContext::functionCall() {
+  return getRuleContext<XParser::FunctionCallContext>(0);
 }
 
-uCParser::FunctionCallFactorContext::FunctionCallFactorContext(FactorContext *ctx) { copyFrom(ctx); }
+XParser::FunctionCallFactorContext::FunctionCallFactorContext(FactorContext *ctx) { copyFrom(ctx); }
 
 
-antlrcpp::Any uCParser::FunctionCallFactorContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::FunctionCallFactorContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitFunctionCallFactor(this);
   else
     return visitor->visitChildren(this);
 }
 //----------------- NotFactorContext ------------------------------------------------------------------
 
-uCParser::FactorContext* uCParser::NotFactorContext::factor() {
-  return getRuleContext<uCParser::FactorContext>(0);
+XParser::FactorContext* XParser::NotFactorContext::factor() {
+  return getRuleContext<XParser::FactorContext>(0);
 }
 
-uCParser::NotFactorContext::NotFactorContext(FactorContext *ctx) { copyFrom(ctx); }
+XParser::NotFactorContext::NotFactorContext(FactorContext *ctx) { copyFrom(ctx); }
 
 
-antlrcpp::Any uCParser::NotFactorContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::NotFactorContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitNotFactor(this);
   else
     return visitor->visitChildren(this);
 }
 //----------------- ParenthesizedFactorContext ------------------------------------------------------------------
 
-uCParser::ExpressionContext* uCParser::ParenthesizedFactorContext::expression() {
-  return getRuleContext<uCParser::ExpressionContext>(0);
+XParser::ExpressionContext* XParser::ParenthesizedFactorContext::expression() {
+  return getRuleContext<XParser::ExpressionContext>(0);
 }
 
-uCParser::ParenthesizedFactorContext::ParenthesizedFactorContext(FactorContext *ctx) { copyFrom(ctx); }
+XParser::ParenthesizedFactorContext::ParenthesizedFactorContext(FactorContext *ctx) { copyFrom(ctx); }
 
 
-antlrcpp::Any uCParser::ParenthesizedFactorContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::ParenthesizedFactorContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitParenthesizedFactor(this);
   else
     return visitor->visitChildren(this);
 }
-uCParser::FactorContext* uCParser::factor() {
+XParser::FactorContext* XParser::factor() {
   FactorContext *_localctx = _tracker.createInstance<FactorContext>(_ctx, getState());
-  enterRule(_localctx, 82, uCParser::RuleFactor);
+  enterRule(_localctx, 82, XParser::RuleFactor);
 
   auto onExit = finally([=] {
     exitRule();
@@ -3163,7 +3163,7 @@ uCParser::FactorContext* uCParser::factor() {
     _errHandler->sync(this);
     switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 35, _ctx)) {
     case 1: {
-      _localctx = dynamic_cast<FactorContext *>(_tracker.createInstance<uCParser::VariableFactorContext>(_localctx));
+      _localctx = dynamic_cast<FactorContext *>(_tracker.createInstance<XParser::VariableFactorContext>(_localctx));
       enterOuterAlt(_localctx, 1);
       setState(432);
       variable();
@@ -3171,7 +3171,7 @@ uCParser::FactorContext* uCParser::factor() {
     }
 
     case 2: {
-      _localctx = dynamic_cast<FactorContext *>(_tracker.createInstance<uCParser::NumberFactorContext>(_localctx));
+      _localctx = dynamic_cast<FactorContext *>(_tracker.createInstance<XParser::NumberFactorContext>(_localctx));
       enterOuterAlt(_localctx, 2);
       setState(433);
       number();
@@ -3179,7 +3179,7 @@ uCParser::FactorContext* uCParser::factor() {
     }
 
     case 3: {
-      _localctx = dynamic_cast<FactorContext *>(_tracker.createInstance<uCParser::CharacterFactorContext>(_localctx));
+      _localctx = dynamic_cast<FactorContext *>(_tracker.createInstance<XParser::CharacterFactorContext>(_localctx));
       enterOuterAlt(_localctx, 3);
       setState(434);
       characterConstant();
@@ -3187,7 +3187,7 @@ uCParser::FactorContext* uCParser::factor() {
     }
 
     case 4: {
-      _localctx = dynamic_cast<FactorContext *>(_tracker.createInstance<uCParser::StringFactorContext>(_localctx));
+      _localctx = dynamic_cast<FactorContext *>(_tracker.createInstance<XParser::StringFactorContext>(_localctx));
       enterOuterAlt(_localctx, 4);
       setState(435);
       stringConstant();
@@ -3195,7 +3195,7 @@ uCParser::FactorContext* uCParser::factor() {
     }
 
     case 5: {
-      _localctx = dynamic_cast<FactorContext *>(_tracker.createInstance<uCParser::FunctionCallFactorContext>(_localctx));
+      _localctx = dynamic_cast<FactorContext *>(_tracker.createInstance<XParser::FunctionCallFactorContext>(_localctx));
       enterOuterAlt(_localctx, 5);
       setState(436);
       functionCall();
@@ -3203,24 +3203,24 @@ uCParser::FactorContext* uCParser::factor() {
     }
 
     case 6: {
-      _localctx = dynamic_cast<FactorContext *>(_tracker.createInstance<uCParser::NotFactorContext>(_localctx));
+      _localctx = dynamic_cast<FactorContext *>(_tracker.createInstance<XParser::NotFactorContext>(_localctx));
       enterOuterAlt(_localctx, 6);
       setState(437);
-      match(uCParser::T__13);
+      match(XParser::T__13);
       setState(438);
       factor();
       break;
     }
 
     case 7: {
-      _localctx = dynamic_cast<FactorContext *>(_tracker.createInstance<uCParser::ParenthesizedFactorContext>(_localctx));
+      _localctx = dynamic_cast<FactorContext *>(_tracker.createInstance<XParser::ParenthesizedFactorContext>(_localctx));
       enterOuterAlt(_localctx, 7);
       setState(439);
-      match(uCParser::T__9);
+      match(XParser::T__9);
       setState(440);
       expression(0);
       setState(441);
-      match(uCParser::T__10);
+      match(XParser::T__10);
       break;
     }
 
@@ -3238,38 +3238,38 @@ uCParser::FactorContext* uCParser::factor() {
 
 //----------------- VariableContext ------------------------------------------------------------------
 
-uCParser::VariableContext::VariableContext(ParserRuleContext *parent, size_t invokingState)
+XParser::VariableContext::VariableContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-uCParser::VariableIdentifierContext* uCParser::VariableContext::variableIdentifier() {
-  return getRuleContext<uCParser::VariableIdentifierContext>(0);
+XParser::VariableIdentifierContext* XParser::VariableContext::variableIdentifier() {
+  return getRuleContext<XParser::VariableIdentifierContext>(0);
 }
 
-std::vector<uCParser::ModifierContext *> uCParser::VariableContext::modifier() {
-  return getRuleContexts<uCParser::ModifierContext>();
+std::vector<XParser::ModifierContext *> XParser::VariableContext::modifier() {
+  return getRuleContexts<XParser::ModifierContext>();
 }
 
-uCParser::ModifierContext* uCParser::VariableContext::modifier(size_t i) {
-  return getRuleContext<uCParser::ModifierContext>(i);
-}
-
-
-size_t uCParser::VariableContext::getRuleIndex() const {
-  return uCParser::RuleVariable;
+XParser::ModifierContext* XParser::VariableContext::modifier(size_t i) {
+  return getRuleContext<XParser::ModifierContext>(i);
 }
 
 
-antlrcpp::Any uCParser::VariableContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::VariableContext::getRuleIndex() const {
+  return XParser::RuleVariable;
+}
+
+
+antlrcpp::Any XParser::VariableContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitVariable(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::VariableContext* uCParser::variable() {
+XParser::VariableContext* XParser::variable() {
   VariableContext *_localctx = _tracker.createInstance<VariableContext>(_ctx, getState());
-  enterRule(_localctx, 84, uCParser::RuleVariable);
+  enterRule(_localctx, 84, XParser::RuleVariable);
 
   auto onExit = finally([=] {
     exitRule();
@@ -3304,30 +3304,30 @@ uCParser::VariableContext* uCParser::variable() {
 
 //----------------- ModifierContext ------------------------------------------------------------------
 
-uCParser::ModifierContext::ModifierContext(ParserRuleContext *parent, size_t invokingState)
+XParser::ModifierContext::ModifierContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-uCParser::IndexContext* uCParser::ModifierContext::index() {
-  return getRuleContext<uCParser::IndexContext>(0);
+XParser::IndexContext* XParser::ModifierContext::index() {
+  return getRuleContext<XParser::IndexContext>(0);
 }
 
 
-size_t uCParser::ModifierContext::getRuleIndex() const {
-  return uCParser::RuleModifier;
+size_t XParser::ModifierContext::getRuleIndex() const {
+  return XParser::RuleModifier;
 }
 
 
-antlrcpp::Any uCParser::ModifierContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::ModifierContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitModifier(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::ModifierContext* uCParser::modifier() {
+XParser::ModifierContext* XParser::modifier() {
   ModifierContext *_localctx = _tracker.createInstance<ModifierContext>(_ctx, getState());
-  enterRule(_localctx, 86, uCParser::RuleModifier);
+  enterRule(_localctx, 86, XParser::RuleModifier);
 
   auto onExit = finally([=] {
     exitRule();
@@ -3335,11 +3335,11 @@ uCParser::ModifierContext* uCParser::modifier() {
   try {
     enterOuterAlt(_localctx, 1);
     setState(452);
-    match(uCParser::T__2);
+    match(XParser::T__2);
     setState(453);
     index();
     setState(454);
-    match(uCParser::T__3);
+    match(XParser::T__3);
    
   }
   catch (RecognitionException &e) {
@@ -3353,30 +3353,30 @@ uCParser::ModifierContext* uCParser::modifier() {
 
 //----------------- IndexContext ------------------------------------------------------------------
 
-uCParser::IndexContext::IndexContext(ParserRuleContext *parent, size_t invokingState)
+XParser::IndexContext::IndexContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-uCParser::ExpressionContext* uCParser::IndexContext::expression() {
-  return getRuleContext<uCParser::ExpressionContext>(0);
+XParser::ExpressionContext* XParser::IndexContext::expression() {
+  return getRuleContext<XParser::ExpressionContext>(0);
 }
 
 
-size_t uCParser::IndexContext::getRuleIndex() const {
-  return uCParser::RuleIndex;
+size_t XParser::IndexContext::getRuleIndex() const {
+  return XParser::RuleIndex;
 }
 
 
-antlrcpp::Any uCParser::IndexContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::IndexContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitIndex(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::IndexContext* uCParser::index() {
+XParser::IndexContext* XParser::index() {
   IndexContext *_localctx = _tracker.createInstance<IndexContext>(_ctx, getState());
-  enterRule(_localctx, 88, uCParser::RuleIndex);
+  enterRule(_localctx, 88, XParser::RuleIndex);
 
   auto onExit = finally([=] {
     exitRule();
@@ -3398,30 +3398,30 @@ uCParser::IndexContext* uCParser::index() {
 
 //----------------- VariableIdentifierContext ------------------------------------------------------------------
 
-uCParser::VariableIdentifierContext::VariableIdentifierContext(ParserRuleContext *parent, size_t invokingState)
+XParser::VariableIdentifierContext::VariableIdentifierContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-tree::TerminalNode* uCParser::VariableIdentifierContext::IDENTIFIER() {
-  return getToken(uCParser::IDENTIFIER, 0);
+tree::TerminalNode* XParser::VariableIdentifierContext::IDENTIFIER() {
+  return getToken(XParser::IDENTIFIER, 0);
 }
 
 
-size_t uCParser::VariableIdentifierContext::getRuleIndex() const {
-  return uCParser::RuleVariableIdentifier;
+size_t XParser::VariableIdentifierContext::getRuleIndex() const {
+  return XParser::RuleVariableIdentifier;
 }
 
 
-antlrcpp::Any uCParser::VariableIdentifierContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::VariableIdentifierContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitVariableIdentifier(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::VariableIdentifierContext* uCParser::variableIdentifier() {
+XParser::VariableIdentifierContext* XParser::variableIdentifier() {
   VariableIdentifierContext *_localctx = _tracker.createInstance<VariableIdentifierContext>(_ctx, getState());
-  enterRule(_localctx, 90, uCParser::RuleVariableIdentifier);
+  enterRule(_localctx, 90, XParser::RuleVariableIdentifier);
 
   auto onExit = finally([=] {
     exitRule();
@@ -3429,7 +3429,7 @@ uCParser::VariableIdentifierContext* uCParser::variableIdentifier() {
   try {
     enterOuterAlt(_localctx, 1);
     setState(458);
-    match(uCParser::IDENTIFIER);
+    match(XParser::IDENTIFIER);
    
   }
   catch (RecognitionException &e) {
@@ -3443,34 +3443,34 @@ uCParser::VariableIdentifierContext* uCParser::variableIdentifier() {
 
 //----------------- NumberContext ------------------------------------------------------------------
 
-uCParser::NumberContext::NumberContext(ParserRuleContext *parent, size_t invokingState)
+XParser::NumberContext::NumberContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-uCParser::UnsignedNumberContext* uCParser::NumberContext::unsignedNumber() {
-  return getRuleContext<uCParser::UnsignedNumberContext>(0);
+XParser::UnsignedNumberContext* XParser::NumberContext::unsignedNumber() {
+  return getRuleContext<XParser::UnsignedNumberContext>(0);
 }
 
-uCParser::SignContext* uCParser::NumberContext::sign() {
-  return getRuleContext<uCParser::SignContext>(0);
-}
-
-
-size_t uCParser::NumberContext::getRuleIndex() const {
-  return uCParser::RuleNumber;
+XParser::SignContext* XParser::NumberContext::sign() {
+  return getRuleContext<XParser::SignContext>(0);
 }
 
 
-antlrcpp::Any uCParser::NumberContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::NumberContext::getRuleIndex() const {
+  return XParser::RuleNumber;
+}
+
+
+antlrcpp::Any XParser::NumberContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitNumber(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::NumberContext* uCParser::number() {
+XParser::NumberContext* XParser::number() {
   NumberContext *_localctx = _tracker.createInstance<NumberContext>(_ctx, getState());
-  enterRule(_localctx, 92, uCParser::RuleNumber);
+  enterRule(_localctx, 92, XParser::RuleNumber);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -3482,7 +3482,7 @@ uCParser::NumberContext* uCParser::number() {
     _errHandler->sync(this);
 
     _la = _input->LA(1);
-    if (_la == uCParser::T__14) {
+    if (_la == XParser::T__14) {
       setState(460);
       sign();
     }
@@ -3501,34 +3501,34 @@ uCParser::NumberContext* uCParser::number() {
 
 //----------------- UnsignedNumberContext ------------------------------------------------------------------
 
-uCParser::UnsignedNumberContext::UnsignedNumberContext(ParserRuleContext *parent, size_t invokingState)
+XParser::UnsignedNumberContext::UnsignedNumberContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-uCParser::IntegerConstantContext* uCParser::UnsignedNumberContext::integerConstant() {
-  return getRuleContext<uCParser::IntegerConstantContext>(0);
+XParser::IntegerConstantContext* XParser::UnsignedNumberContext::integerConstant() {
+  return getRuleContext<XParser::IntegerConstantContext>(0);
 }
 
-uCParser::RealConstantContext* uCParser::UnsignedNumberContext::realConstant() {
-  return getRuleContext<uCParser::RealConstantContext>(0);
-}
-
-
-size_t uCParser::UnsignedNumberContext::getRuleIndex() const {
-  return uCParser::RuleUnsignedNumber;
+XParser::RealConstantContext* XParser::UnsignedNumberContext::realConstant() {
+  return getRuleContext<XParser::RealConstantContext>(0);
 }
 
 
-antlrcpp::Any uCParser::UnsignedNumberContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::UnsignedNumberContext::getRuleIndex() const {
+  return XParser::RuleUnsignedNumber;
+}
+
+
+antlrcpp::Any XParser::UnsignedNumberContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitUnsignedNumber(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::UnsignedNumberContext* uCParser::unsignedNumber() {
+XParser::UnsignedNumberContext* XParser::unsignedNumber() {
   UnsignedNumberContext *_localctx = _tracker.createInstance<UnsignedNumberContext>(_ctx, getState());
-  enterRule(_localctx, 94, uCParser::RuleUnsignedNumber);
+  enterRule(_localctx, 94, XParser::RuleUnsignedNumber);
 
   auto onExit = finally([=] {
     exitRule();
@@ -3537,14 +3537,14 @@ uCParser::UnsignedNumberContext* uCParser::unsignedNumber() {
     setState(467);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
-      case uCParser::INTEGER: {
+      case XParser::INTEGER: {
         enterOuterAlt(_localctx, 1);
         setState(465);
         integerConstant();
         break;
       }
 
-      case uCParser::REAL: {
+      case XParser::REAL: {
         enterOuterAlt(_localctx, 2);
         setState(466);
         realConstant();
@@ -3567,26 +3567,26 @@ uCParser::UnsignedNumberContext* uCParser::unsignedNumber() {
 
 //----------------- SignContext ------------------------------------------------------------------
 
-uCParser::SignContext::SignContext(ParserRuleContext *parent, size_t invokingState)
+XParser::SignContext::SignContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
 
-size_t uCParser::SignContext::getRuleIndex() const {
-  return uCParser::RuleSign;
+size_t XParser::SignContext::getRuleIndex() const {
+  return XParser::RuleSign;
 }
 
 
-antlrcpp::Any uCParser::SignContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::SignContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitSign(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::SignContext* uCParser::sign() {
+XParser::SignContext* XParser::sign() {
   SignContext *_localctx = _tracker.createInstance<SignContext>(_ctx, getState());
-  enterRule(_localctx, 96, uCParser::RuleSign);
+  enterRule(_localctx, 96, XParser::RuleSign);
 
   auto onExit = finally([=] {
     exitRule();
@@ -3594,7 +3594,7 @@ uCParser::SignContext* uCParser::sign() {
   try {
     enterOuterAlt(_localctx, 1);
     setState(469);
-    match(uCParser::T__14);
+    match(XParser::T__14);
    
   }
   catch (RecognitionException &e) {
@@ -3608,30 +3608,30 @@ uCParser::SignContext* uCParser::sign() {
 
 //----------------- IntegerConstantContext ------------------------------------------------------------------
 
-uCParser::IntegerConstantContext::IntegerConstantContext(ParserRuleContext *parent, size_t invokingState)
+XParser::IntegerConstantContext::IntegerConstantContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-tree::TerminalNode* uCParser::IntegerConstantContext::INTEGER() {
-  return getToken(uCParser::INTEGER, 0);
+tree::TerminalNode* XParser::IntegerConstantContext::INTEGER() {
+  return getToken(XParser::INTEGER, 0);
 }
 
 
-size_t uCParser::IntegerConstantContext::getRuleIndex() const {
-  return uCParser::RuleIntegerConstant;
+size_t XParser::IntegerConstantContext::getRuleIndex() const {
+  return XParser::RuleIntegerConstant;
 }
 
 
-antlrcpp::Any uCParser::IntegerConstantContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::IntegerConstantContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitIntegerConstant(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::IntegerConstantContext* uCParser::integerConstant() {
+XParser::IntegerConstantContext* XParser::integerConstant() {
   IntegerConstantContext *_localctx = _tracker.createInstance<IntegerConstantContext>(_ctx, getState());
-  enterRule(_localctx, 98, uCParser::RuleIntegerConstant);
+  enterRule(_localctx, 98, XParser::RuleIntegerConstant);
 
   auto onExit = finally([=] {
     exitRule();
@@ -3639,7 +3639,7 @@ uCParser::IntegerConstantContext* uCParser::integerConstant() {
   try {
     enterOuterAlt(_localctx, 1);
     setState(471);
-    match(uCParser::INTEGER);
+    match(XParser::INTEGER);
    
   }
   catch (RecognitionException &e) {
@@ -3653,30 +3653,30 @@ uCParser::IntegerConstantContext* uCParser::integerConstant() {
 
 //----------------- RealConstantContext ------------------------------------------------------------------
 
-uCParser::RealConstantContext::RealConstantContext(ParserRuleContext *parent, size_t invokingState)
+XParser::RealConstantContext::RealConstantContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-tree::TerminalNode* uCParser::RealConstantContext::REAL() {
-  return getToken(uCParser::REAL, 0);
+tree::TerminalNode* XParser::RealConstantContext::REAL() {
+  return getToken(XParser::REAL, 0);
 }
 
 
-size_t uCParser::RealConstantContext::getRuleIndex() const {
-  return uCParser::RuleRealConstant;
+size_t XParser::RealConstantContext::getRuleIndex() const {
+  return XParser::RuleRealConstant;
 }
 
 
-antlrcpp::Any uCParser::RealConstantContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::RealConstantContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitRealConstant(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::RealConstantContext* uCParser::realConstant() {
+XParser::RealConstantContext* XParser::realConstant() {
   RealConstantContext *_localctx = _tracker.createInstance<RealConstantContext>(_ctx, getState());
-  enterRule(_localctx, 100, uCParser::RuleRealConstant);
+  enterRule(_localctx, 100, XParser::RuleRealConstant);
 
   auto onExit = finally([=] {
     exitRule();
@@ -3684,7 +3684,7 @@ uCParser::RealConstantContext* uCParser::realConstant() {
   try {
     enterOuterAlt(_localctx, 1);
     setState(473);
-    match(uCParser::REAL);
+    match(XParser::REAL);
    
   }
   catch (RecognitionException &e) {
@@ -3698,26 +3698,26 @@ uCParser::RealConstantContext* uCParser::realConstant() {
 
 //----------------- RelOpContext ------------------------------------------------------------------
 
-uCParser::RelOpContext::RelOpContext(ParserRuleContext *parent, size_t invokingState)
+XParser::RelOpContext::RelOpContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
 
-size_t uCParser::RelOpContext::getRuleIndex() const {
-  return uCParser::RuleRelOp;
+size_t XParser::RelOpContext::getRuleIndex() const {
+  return XParser::RuleRelOp;
 }
 
 
-antlrcpp::Any uCParser::RelOpContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::RelOpContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitRelOp(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::RelOpContext* uCParser::relOp() {
+XParser::RelOpContext* XParser::relOp() {
   RelOpContext *_localctx = _tracker.createInstance<RelOpContext>(_ctx, getState());
-  enterRule(_localctx, 102, uCParser::RuleRelOp);
+  enterRule(_localctx, 102, XParser::RuleRelOp);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -3728,12 +3728,12 @@ uCParser::RelOpContext* uCParser::relOp() {
     setState(475);
     _la = _input->LA(1);
     if (!((((_la & ~ 0x3fULL) == 0) &&
-      ((1ULL << _la) & ((1ULL << uCParser::T__15)
-      | (1ULL << uCParser::T__16)
-      | (1ULL << uCParser::T__17)
-      | (1ULL << uCParser::T__18)
-      | (1ULL << uCParser::T__19)
-      | (1ULL << uCParser::T__20))) != 0))) {
+      ((1ULL << _la) & ((1ULL << XParser::T__15)
+      | (1ULL << XParser::T__16)
+      | (1ULL << XParser::T__17)
+      | (1ULL << XParser::T__18)
+      | (1ULL << XParser::T__19)
+      | (1ULL << XParser::T__20))) != 0))) {
     _errHandler->recoverInline(this);
     }
     else {
@@ -3753,26 +3753,26 @@ uCParser::RelOpContext* uCParser::relOp() {
 
 //----------------- AddOpContext ------------------------------------------------------------------
 
-uCParser::AddOpContext::AddOpContext(ParserRuleContext *parent, size_t invokingState)
+XParser::AddOpContext::AddOpContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
 
-size_t uCParser::AddOpContext::getRuleIndex() const {
-  return uCParser::RuleAddOp;
+size_t XParser::AddOpContext::getRuleIndex() const {
+  return XParser::RuleAddOp;
 }
 
 
-antlrcpp::Any uCParser::AddOpContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::AddOpContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitAddOp(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::AddOpContext* uCParser::addOp() {
+XParser::AddOpContext* XParser::addOp() {
   AddOpContext *_localctx = _tracker.createInstance<AddOpContext>(_ctx, getState());
-  enterRule(_localctx, 104, uCParser::RuleAddOp);
+  enterRule(_localctx, 104, XParser::RuleAddOp);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -3783,9 +3783,9 @@ uCParser::AddOpContext* uCParser::addOp() {
     setState(477);
     _la = _input->LA(1);
     if (!((((_la & ~ 0x3fULL) == 0) &&
-      ((1ULL << _la) & ((1ULL << uCParser::T__14)
-      | (1ULL << uCParser::T__21)
-      | (1ULL << uCParser::T__22))) != 0))) {
+      ((1ULL << _la) & ((1ULL << XParser::T__14)
+      | (1ULL << XParser::T__21)
+      | (1ULL << XParser::T__22))) != 0))) {
     _errHandler->recoverInline(this);
     }
     else {
@@ -3805,26 +3805,26 @@ uCParser::AddOpContext* uCParser::addOp() {
 
 //----------------- MulOpContext ------------------------------------------------------------------
 
-uCParser::MulOpContext::MulOpContext(ParserRuleContext *parent, size_t invokingState)
+XParser::MulOpContext::MulOpContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
 
-size_t uCParser::MulOpContext::getRuleIndex() const {
-  return uCParser::RuleMulOp;
+size_t XParser::MulOpContext::getRuleIndex() const {
+  return XParser::RuleMulOp;
 }
 
 
-antlrcpp::Any uCParser::MulOpContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::MulOpContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitMulOp(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::MulOpContext* uCParser::mulOp() {
+XParser::MulOpContext* XParser::mulOp() {
   MulOpContext *_localctx = _tracker.createInstance<MulOpContext>(_ctx, getState());
-  enterRule(_localctx, 106, uCParser::RuleMulOp);
+  enterRule(_localctx, 106, XParser::RuleMulOp);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -3835,10 +3835,10 @@ uCParser::MulOpContext* uCParser::mulOp() {
     setState(479);
     _la = _input->LA(1);
     if (!((((_la & ~ 0x3fULL) == 0) &&
-      ((1ULL << _la) & ((1ULL << uCParser::T__23)
-      | (1ULL << uCParser::T__24)
-      | (1ULL << uCParser::T__25)
-      | (1ULL << uCParser::T__26))) != 0))) {
+      ((1ULL << _la) & ((1ULL << XParser::T__23)
+      | (1ULL << XParser::T__24)
+      | (1ULL << XParser::T__25)
+      | (1ULL << XParser::T__26))) != 0))) {
     _errHandler->recoverInline(this);
     }
     else {
@@ -3858,42 +3858,42 @@ uCParser::MulOpContext* uCParser::mulOp() {
 
 //----------------- TypeIdentifierContext ------------------------------------------------------------------
 
-uCParser::TypeIdentifierContext::TypeIdentifierContext(ParserRuleContext *parent, size_t invokingState)
+XParser::TypeIdentifierContext::TypeIdentifierContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-tree::TerminalNode* uCParser::TypeIdentifierContext::INT() {
-  return getToken(uCParser::INT, 0);
+tree::TerminalNode* XParser::TypeIdentifierContext::INT() {
+  return getToken(XParser::INT, 0);
 }
 
-tree::TerminalNode* uCParser::TypeIdentifierContext::BOOL() {
-  return getToken(uCParser::BOOL, 0);
+tree::TerminalNode* XParser::TypeIdentifierContext::BOOL() {
+  return getToken(XParser::BOOL, 0);
 }
 
-tree::TerminalNode* uCParser::TypeIdentifierContext::FLOAT() {
-  return getToken(uCParser::FLOAT, 0);
+tree::TerminalNode* XParser::TypeIdentifierContext::FLOAT() {
+  return getToken(XParser::FLOAT, 0);
 }
 
-tree::TerminalNode* uCParser::TypeIdentifierContext::VOID() {
-  return getToken(uCParser::VOID, 0);
-}
-
-
-size_t uCParser::TypeIdentifierContext::getRuleIndex() const {
-  return uCParser::RuleTypeIdentifier;
+tree::TerminalNode* XParser::TypeIdentifierContext::VOID() {
+  return getToken(XParser::VOID, 0);
 }
 
 
-antlrcpp::Any uCParser::TypeIdentifierContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+size_t XParser::TypeIdentifierContext::getRuleIndex() const {
+  return XParser::RuleTypeIdentifier;
+}
+
+
+antlrcpp::Any XParser::TypeIdentifierContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitTypeIdentifier(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::TypeIdentifierContext* uCParser::typeIdentifier() {
+XParser::TypeIdentifierContext* XParser::typeIdentifier() {
   TypeIdentifierContext *_localctx = _tracker.createInstance<TypeIdentifierContext>(_ctx, getState());
-  enterRule(_localctx, 108, uCParser::RuleTypeIdentifier);
+  enterRule(_localctx, 108, XParser::RuleTypeIdentifier);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -3904,10 +3904,10 @@ uCParser::TypeIdentifierContext* uCParser::typeIdentifier() {
     setState(481);
     _la = _input->LA(1);
     if (!((((_la & ~ 0x3fULL) == 0) &&
-      ((1ULL << _la) & ((1ULL << uCParser::INT)
-      | (1ULL << uCParser::BOOL)
-      | (1ULL << uCParser::FLOAT)
-      | (1ULL << uCParser::VOID))) != 0))) {
+      ((1ULL << _la) & ((1ULL << XParser::INT)
+      | (1ULL << XParser::BOOL)
+      | (1ULL << XParser::FLOAT)
+      | (1ULL << XParser::VOID))) != 0))) {
     _errHandler->recoverInline(this);
     }
     else {
@@ -3927,30 +3927,30 @@ uCParser::TypeIdentifierContext* uCParser::typeIdentifier() {
 
 //----------------- CharacterConstantContext ------------------------------------------------------------------
 
-uCParser::CharacterConstantContext::CharacterConstantContext(ParserRuleContext *parent, size_t invokingState)
+XParser::CharacterConstantContext::CharacterConstantContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-tree::TerminalNode* uCParser::CharacterConstantContext::CHARACTER() {
-  return getToken(uCParser::CHARACTER, 0);
+tree::TerminalNode* XParser::CharacterConstantContext::CHARACTER() {
+  return getToken(XParser::CHARACTER, 0);
 }
 
 
-size_t uCParser::CharacterConstantContext::getRuleIndex() const {
-  return uCParser::RuleCharacterConstant;
+size_t XParser::CharacterConstantContext::getRuleIndex() const {
+  return XParser::RuleCharacterConstant;
 }
 
 
-antlrcpp::Any uCParser::CharacterConstantContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::CharacterConstantContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitCharacterConstant(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::CharacterConstantContext* uCParser::characterConstant() {
+XParser::CharacterConstantContext* XParser::characterConstant() {
   CharacterConstantContext *_localctx = _tracker.createInstance<CharacterConstantContext>(_ctx, getState());
-  enterRule(_localctx, 110, uCParser::RuleCharacterConstant);
+  enterRule(_localctx, 110, XParser::RuleCharacterConstant);
 
   auto onExit = finally([=] {
     exitRule();
@@ -3958,7 +3958,7 @@ uCParser::CharacterConstantContext* uCParser::characterConstant() {
   try {
     enterOuterAlt(_localctx, 1);
     setState(483);
-    match(uCParser::CHARACTER);
+    match(XParser::CHARACTER);
    
   }
   catch (RecognitionException &e) {
@@ -3972,30 +3972,30 @@ uCParser::CharacterConstantContext* uCParser::characterConstant() {
 
 //----------------- StringConstantContext ------------------------------------------------------------------
 
-uCParser::StringConstantContext::StringConstantContext(ParserRuleContext *parent, size_t invokingState)
+XParser::StringConstantContext::StringConstantContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-tree::TerminalNode* uCParser::StringConstantContext::STRING() {
-  return getToken(uCParser::STRING, 0);
+tree::TerminalNode* XParser::StringConstantContext::STRING() {
+  return getToken(XParser::STRING, 0);
 }
 
 
-size_t uCParser::StringConstantContext::getRuleIndex() const {
-  return uCParser::RuleStringConstant;
+size_t XParser::StringConstantContext::getRuleIndex() const {
+  return XParser::RuleStringConstant;
 }
 
 
-antlrcpp::Any uCParser::StringConstantContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<uCVisitor*>(visitor))
+antlrcpp::Any XParser::StringConstantContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
     return parserVisitor->visitStringConstant(this);
   else
     return visitor->visitChildren(this);
 }
 
-uCParser::StringConstantContext* uCParser::stringConstant() {
+XParser::StringConstantContext* XParser::stringConstant() {
   StringConstantContext *_localctx = _tracker.createInstance<StringConstantContext>(_ctx, getState());
-  enterRule(_localctx, 112, uCParser::RuleStringConstant);
+  enterRule(_localctx, 112, XParser::RuleStringConstant);
 
   auto onExit = finally([=] {
     exitRule();
@@ -4003,7 +4003,7 @@ uCParser::StringConstantContext* uCParser::stringConstant() {
   try {
     enterOuterAlt(_localctx, 1);
     setState(485);
-    match(uCParser::STRING);
+    match(XParser::STRING);
    
   }
   catch (RecognitionException &e) {
@@ -4015,7 +4015,7 @@ uCParser::StringConstantContext* uCParser::stringConstant() {
   return _localctx;
 }
 
-bool uCParser::sempred(RuleContext *context, size_t ruleIndex, size_t predicateIndex) {
+bool XParser::sempred(RuleContext *context, size_t ruleIndex, size_t predicateIndex) {
   switch (ruleIndex) {
     case 38: return expressionSempred(dynamic_cast<ExpressionContext *>(context), predicateIndex);
 
@@ -4025,7 +4025,7 @@ bool uCParser::sempred(RuleContext *context, size_t ruleIndex, size_t predicateI
   return true;
 }
 
-bool uCParser::expressionSempred(ExpressionContext *_localctx, size_t predicateIndex) {
+bool XParser::expressionSempred(ExpressionContext *_localctx, size_t predicateIndex) {
   switch (predicateIndex) {
     case 0: return precpred(_ctx, 1);
 
@@ -4036,14 +4036,14 @@ bool uCParser::expressionSempred(ExpressionContext *_localctx, size_t predicateI
 }
 
 // Static vars and initialization.
-std::vector<dfa::DFA> uCParser::_decisionToDFA;
-atn::PredictionContextCache uCParser::_sharedContextCache;
+std::vector<dfa::DFA> XParser::_decisionToDFA;
+atn::PredictionContextCache XParser::_sharedContextCache;
 
 // We own the ATN which in turn owns the ATN states.
-atn::ATN uCParser::_atn;
-std::vector<uint16_t> uCParser::_serializedATN;
+atn::ATN XParser::_atn;
+std::vector<uint16_t> XParser::_serializedATN;
 
-std::vector<std::string> uCParser::_ruleNames = {
+std::vector<std::string> XParser::_ruleNames = {
   "program", "c_statement", "statement", "emptyStatement", "variableDeclaration", 
   "length", "assignmentStatement", "lhs", "rhs", "controlScope", "controlStatement", 
   "doWhileLoop", "whileLoop", "forLoop", "ifStatement", "switchStatement", 
@@ -4051,14 +4051,14 @@ std::vector<std::string> uCParser::_ruleNames = {
   "functionDeclaration", "functionIdentifier", "parameterDeclarationsList", 
   "parameterDeclaration", "parameterIdentifier", "returnStatement", "functionCall", 
   "argumentList", "argument", "printStatement", "printlnStatement", "printArguments", 
-  "printArgument", "fieldWidth", "decimalPlaces", "readStatement", "readlnStatement", 
-  "readArguments", "expression", "simpleExpression", "term", "factor", "variable", 
+  "printArgument", "fieldWidth", "decimalPlaces", "getStatement", "getlnStatement", 
+  "getArguments", "expression", "simpleExpression", "term", "factor", "variable", 
   "modifier", "index", "variableIdentifier", "number", "unsignedNumber", 
   "sign", "integerConstant", "realConstant", "relOp", "addOp", "mulOp", 
   "typeIdentifier", "characterConstant", "stringConstant"
 };
 
-std::vector<std::string> uCParser::_literalNames = {
+std::vector<std::string> XParser::_literalNames = {
   "", "';'", "','", "'['", "']'", "'='", "'++'", "'--'", "'{'", "'}'", "'('", 
   "')'", "':'", "'?'", "'!'", "'-'", "'=='", "'!='", "'<'", "'<='", "'>'", 
   "'>='", "'+'", "'||'", "'*'", "'/'", "'%'", "'&&'", "", "", "", "", "", 
@@ -4066,20 +4066,20 @@ std::vector<std::string> uCParser::_literalNames = {
   "'//'"
 };
 
-std::vector<std::string> uCParser::_symbolicNames = {
+std::vector<std::string> XParser::_symbolicNames = {
   "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 
   "", "", "", "", "", "", "", "", "", "", "INT", "BOOL", "FLOAT", "VOID", 
   "DO", "WHILE", "FOR", "IF", "ELSEIF", "ELSE", "SWITCH", "CASE", "DEFAULT", 
-  "PRINT", "PRINTLN", "READ", "READLN", "RETURN", "ARRAYINDICATOR", "SINGLEQUOTE", 
+  "PRINT", "PRINTLN", "GET", "GETLN", "RETURN", "ARRAYINDICATOR", "SINGLEQUOTE", 
   "DOUBLEQUOTE", "DOUBLESLASH", "IDENTIFIER", "INTEGER", "REAL", "CHARACTER", 
   "STRING", "NEWLINE", "WS", "COMMENT", "BLOCKCOMMENT"
 };
 
-dfa::Vocabulary uCParser::_vocabulary(_literalNames, _symbolicNames);
+dfa::Vocabulary XParser::_vocabulary(_literalNames, _symbolicNames);
 
-std::vector<std::string> uCParser::_tokenNames;
+std::vector<std::string> XParser::_tokenNames;
 
-uCParser::Initializer::Initializer() {
+XParser::Initializer::Initializer() {
 	for (size_t i = 0; i < _symbolicNames.size(); ++i) {
 		std::string name = _vocabulary.getLiteralName(i);
 		if (name.empty()) {
@@ -4432,4 +4432,4 @@ uCParser::Initializer::Initializer() {
   }
 }
 
-uCParser::Initializer uCParser::_init;
+XParser::Initializer XParser::_init;

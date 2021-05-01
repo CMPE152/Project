@@ -24,18 +24,18 @@ public:
         localStack = new LocalStack();
     }
 
-    void emitProgram(uCParser::ProgramContext *ctx);
-    void emitRoutine(uCParser::FunctionDefinitionContext *ctx);
+    void emitProgram(XParser::ProgramContext *ctx);
+    void emitRoutine(XParser::FunctionDefinitionContext *ctx);
 
 private:
     void emitProgramVariables();
     void emitInputScanner();
     void emitConstructor();
-    void emitSubroutines(uCParser::ProgramContext *ctx);
-    void emitMainMethod(uCParser::ProgramContext *ctx);
+    void emitSubroutines(XParser::ProgramContext *ctx);
+    void emitMainMethod(XParser::ProgramContext *ctx);
     void emitMainPrologue(SymtabEntry* programId);
     void emitMainEpilogue();
-    void emitFunction(uCParser::FunctionDefinitionContext *ctx);
+    void emitFunction(XParser::FunctionDefinitionContext *ctx);
     void emitFunctionHeader(SymtabEntry *routineId);
     void emitFunctionLocals(SymtabEntry *routineId);
     void emitFunctionReturn(SymtabEntry *routineId);

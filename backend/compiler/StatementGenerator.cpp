@@ -2,7 +2,7 @@
 #include <vector>
 #include <map>
 
-#include "uCBaseVisitor.h"
+#include "XBaseVisitor.h"
 #include "antlr4-runtime.h"
 
 #include "intermediate/symtab/Predefined.h"
@@ -52,16 +52,16 @@ void StatementGenerator::emitCast(Typespec* from, Typespec* to){
     }
 }
 
-void StatementGenerator::emitAssignment(uCParser::AssignVariableContext *ctx){
-    uCParser::VariableContext *varCtx = ctx->lhs()->variable();
+void StatementGenerator::emitAssignment(XParser::AssignVariableContext *ctx){
+    XParser::VariableContext *varCtx = ctx->lhs()->variable();
     SymtabEntry *varId = varCtx->entry;
     Typespec *varType = varCtx->type;
 
-    uCParser::ExpressionContext *exprCtx = ctx->rhs()->expression();
+    XParser::ExpressionContext *exprCtx = ctx->rhs()->expression();
     Typespec *exprType = exprCtx->type;
 
     int modifierCount = varCtx->modifier().size();
-    uCParser::ModifierContext *lastModCtx = (modifierCount > 0)?varCtx->modifier().back():nullptr;
+    XParser::ModifierContext *lastModCtx = (modifierCount > 0)?varCtx->modifier().back():nullptr;
     if(modifierCount > 0){
         compiler->visit(varCtx);
     }
@@ -91,11 +91,11 @@ void StatementGenerator::emitAssignment(uCParser::AssignVariableContext *ctx){
 }
 
 //change
-void StatementGenerator::emitDeclarationAssignment(uCParser::AssignVariableContext *ctx){
+void StatementGenerator::emitDeclarationAssignment(XParser::AssignVariableContext *ctx){
     SymtabEntry *varId = ctx->lhs()->variableDeclaration()->variableIdentifier(0)->entry;
     Typespec *varType = ctx->lhs()->variableDeclaration()->variableIdentifier(0)->type;
 
-    uCParser::ExpressionContext *exprCtx = ctx->rhs()->expression();
+    XParser::ExpressionContext *exprCtx = ctx->rhs()->expression();
 
     Typespec *exprType = exprCtx->type;
 
@@ -111,7 +111,7 @@ void StatementGenerator::emitDeclarationAssignment(uCParser::AssignVariableConte
 }
 
 //change
-void StatementGenerator::emitIncrement(uCParser::IncrementVariableContext *ctx){
+void StatementGenerator::emitIncrement(XParser::IncrementVariableContext *ctx){
     SymtabEntry *varEntry = ctx->variable()->entry;
     Typespec *varType = ctx->variable()->type;
 
@@ -134,7 +134,7 @@ void StatementGenerator::emitIncrement(uCParser::IncrementVariableContext *ctx){
 }
 
 //change
-void StatementGenerator::emitDecrement(uCParser::DecrementVariableContext *ctx){
+void StatementGenerator::emitDecrement(XParser::DecrementVariableContext *ctx){
     SymtabEntry *varEntry = ctx->variable()->entry;
     Typespec *varType = ctx->variable()->type;
 
@@ -157,7 +157,7 @@ void StatementGenerator::emitDecrement(uCParser::DecrementVariableContext *ctx){
 }
 
 //change
-void StatementGenerator::emitIf(uCParser::IfStatementContext *ctx){
+void StatementGenerator::emitIf(XParser::IfStatementContext *ctx){
     Label* doneLabel = new Label();
 
     int numElseIf = ctx->IF().size() - 1;
@@ -198,11 +198,11 @@ void StatementGenerator::emitIf(uCParser::IfStatementContext *ctx){
 }
 
 //change
-void StatementGenerator::emitSwitch(uCParser::SwitchStatementContext *ctx){
-    std::vector<std::pair<uCParser::CaseBranchContext*,Label*>> branchLabels;
+void StatementGenerator::emitSwitch(XParser::SwitchStatementContext *ctx){
+    std::vector<std::pair<XParser::CaseBranchContext*,Label*>> branchLabels;
 
     
-    for(uCParser::CaseBranchContext* branch : ctx->switchCaseList()->caseBranch()){
+    for(XParser::CaseBranchContext* branch : ctx->switchCaseList()->caseBranch()){
         branchLabels.emplace_back(branch,new Label);
     }
     Label* exitCase = new Label;
@@ -254,7 +254,7 @@ void StatementGenerator::emitSwitch(uCParser::SwitchStatementContext *ctx){
 }
 
 //change
-void StatementGenerator::emitDoWhile(uCParser::DoWhileLoopContext *ctx){
+void StatementGenerator::emitDoWhile(XParser::DoWhileLoopContext *ctx){
     Label *loopTopLabel  = new Label();
     Label *loopExitLabel = new Label();
 
@@ -269,7 +269,7 @@ void StatementGenerator::emitDoWhile(uCParser::DoWhileLoopContext *ctx){
 }
 
 //change
-void StatementGenerator::emitWhile(uCParser::WhileLoopContext *ctx){
+void StatementGenerator::emitWhile(XParser::WhileLoopContext *ctx){
     Label* topLabel = new Label();
     Label* exitLabel = new Label();
 
@@ -291,7 +291,7 @@ void StatementGenerator::emitWhile(uCParser::WhileLoopContext *ctx){
 }
 
 //change
-void StatementGenerator::emitFor(uCParser::ForLoopContext *ctx){
+void StatementGenerator::emitFor(XParser::ForLoopContext *ctx){
     Label* topLabel = new Label();
     Label* exitLabel = new Label();
 
@@ -314,16 +314,16 @@ void StatementGenerator::emitFor(uCParser::ForLoopContext *ctx){
     emitLabel(exitLabel);
 }
 
-void StatementGenerator::emitProcedureCall(uCParser::FunctionCallContext *ctx){
+void StatementGenerator::emitProcedureCall(XParser::FunctionCallContext *ctx){
     emitCall(ctx->functionIdentifier()->entry,ctx->argumentList());
 }
 
-void StatementGenerator::emitFunctionCall(uCParser::FunctionCallContext *ctx){
+void StatementGenerator::emitFunctionCall(XParser::FunctionCallContext *ctx){
     emitCall(ctx->functionIdentifier()->entry,ctx->argumentList());
 }
 
 //change
-void StatementGenerator::emitCall(SymtabEntry *routineId, uCParser::ArgumentListContext *argListCtx){
+void StatementGenerator::emitCall(SymtabEntry *routineId, XParser::ArgumentListContext *argListCtx){
 
     string argTypeString;
 
@@ -351,7 +351,7 @@ void StatementGenerator::emitCall(SymtabEntry *routineId, uCParser::ArgumentList
 }
 
 //change
-void StatementGenerator::emitReturn(uCParser::ReturnStatementContext *ctx) {
+void StatementGenerator::emitReturn(XParser::ReturnStatementContext *ctx) {
     
     if (ctx->expression()){
         compiler->visit(ctx->expression());
@@ -365,17 +365,17 @@ void StatementGenerator::emitReturn(uCParser::ReturnStatementContext *ctx) {
 }
 
 //change with emitwrite
-void StatementGenerator::emitPrint(uCParser::PrintStatementContext *ctx){
+void StatementGenerator::emitPrint(XParser::PrintStatementContext *ctx){
     emitPrint(ctx->printArguments(), false);
 }
 
 //chage emitwriteln
-void StatementGenerator::emitPrintln(uCParser::PrintlnStatementContext *ctx){
+void StatementGenerator::emitPrintln(XParser::PrintlnStatementContext *ctx){
     emitPrint(ctx->printArguments(), true);
 }
 
 //chage emitwrite
-void StatementGenerator::emitPrint(uCParser::PrintArgumentsContext *argsCtx, bool needLF){
+void StatementGenerator::emitPrint(XParser::PrintArgumentsContext *argsCtx, bool needLF){
     emit(GETSTATIC, "java/lang/System/out", "Ljava/io/PrintStream;");
 
     
@@ -415,12 +415,12 @@ void StatementGenerator::emitPrint(uCParser::PrintArgumentsContext *argsCtx, boo
     }
 }
 
-int StatementGenerator::createPrintFormat(uCParser::PrintArgumentsContext *argsCtx, string& format, bool needLF){
+int StatementGenerator::createPrintFormat(XParser::PrintArgumentsContext *argsCtx, string& format, bool needLF){
     int exprCount = 0;
     format += "\"";
 
     
-    for (uCParser::PrintArgumentContext *argCtx : argsCtx->printArgument())
+    for (XParser::PrintArgumentContext *argCtx : argsCtx->printArgument())
     {
         Typespec *type = argCtx->expression()->type;
         string argText = argCtx->getText();
@@ -434,14 +434,14 @@ int StatementGenerator::createPrintFormat(uCParser::PrintArgumentsContext *argsC
             exprCount++;
             format.append("%");
 
-            uCParser::FieldWidthContext *fwCtx = argCtx->fieldWidth();
+            XParser::FieldWidthContext *fwCtx = argCtx->fieldWidth();
             if (fwCtx != nullptr)
             {
                 string sign = (   (fwCtx->sign() != nullptr)
                                   && (fwCtx->sign()->getText() == "-")) ? "-" : "";
                 format += sign + fwCtx->integerConstant()->getText();
 
-                uCParser::DecimalPlacesContext *dpCtx =
+                XParser::DecimalPlacesContext *dpCtx =
                         fwCtx->decimalPlaces();
                 if (dpCtx != nullptr)
                 {
@@ -463,7 +463,7 @@ int StatementGenerator::createPrintFormat(uCParser::PrintArgumentsContext *argsC
     return exprCount;
 }
 
-void StatementGenerator::emitArgumentsArray(uCParser::PrintArgumentsContext *argsCtx, int exprCount){
+void StatementGenerator::emitArgumentsArray(XParser::PrintArgumentsContext *argsCtx, int exprCount){
     
     emitLoadConstant(exprCount);
     emit(ANEWARRAY, "java/lang/Object");
@@ -471,11 +471,11 @@ void StatementGenerator::emitArgumentsArray(uCParser::PrintArgumentsContext *arg
     int index = 0;
 
     
-    for (uCParser::PrintArgumentContext *argCtx :
+    for (XParser::PrintArgumentContext *argCtx :
             argsCtx->printArgument())
     {
         string argText = argCtx->getText();
-        uCParser::ExpressionContext *exprCtx = argCtx->expression();
+        XParser::ExpressionContext *exprCtx = argCtx->expression();
         Typespec *type = exprCtx->type->baseType();
 
         
@@ -500,21 +500,21 @@ void StatementGenerator::emitArgumentsArray(uCParser::PrintArgumentsContext *arg
     }
 }
 
-void StatementGenerator::emitRead(uCParser::ReadStatementContext *ctx){
-    emitRead(ctx->readArguments(), false);
+void StatementGenerator::emitGet(XParser::GetStatementContext *ctx){
+    emitGet(ctx->getArguments(), false);
 }
 
-void StatementGenerator::emitReadln(uCParser::ReadlnStatementContext *ctx){
-    emitRead(ctx->readArguments(), true);
+void StatementGenerator::emitGetln(XParser::GetlnStatementContext *ctx){
+    emitGet(ctx->getArguments(), true);
 }
 
-void StatementGenerator::emitRead(uCParser::ReadArgumentsContext *argsCtx, bool needSkip){
+void StatementGenerator::emitGet(XParser::GetArgumentsContext *argsCtx, bool needSkip){
     int size = argsCtx->variable().size();
 
     
     for (int i = 0; i < size; i++)
     {
-        uCParser::VariableContext *varCtx = argsCtx->variable()[i];
+        XParser::VariableContext *varCtx = argsCtx->variable()[i];
         Typespec *varType = varCtx->type;
 
         if (varType == Predefined::integerType)

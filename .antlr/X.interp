@@ -103,8 +103,8 @@ CASE
 DEFAULT
 PRINT
 PRINTLN
-READ
-READLN
+GET
+GETLN
 RETURN
 ARRAYINDICATOR
 SINGLEQUOTE
@@ -156,9 +156,9 @@ printArguments
 printArgument
 fieldWidth
 decimalPlaces
-readStatement
-readlnStatement
-readArguments
+getStatement
+getlnStatement
+getArguments
 expression
 simpleExpression
 term

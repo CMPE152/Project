@@ -6,9 +6,9 @@
     using namespace intermediate::type;
 
 
-// Generated from c:\Users\yezho\Desktop\CMPE152\temp\Team_Y_CMPE152\Compiler_Project\uC.g4 by ANTLR 4.8
+// Generated from c:\Users\yezho\Desktop\CMPE152\temp\Team_Y_CMPE152\Compiler_Project\X.g4 by ANTLR 4.8
 
 
-#include "uCBaseVisitor.h"
+#include "XVisitor.h"
 
 

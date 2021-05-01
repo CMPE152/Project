@@ -11,7 +11,7 @@
 
 #include <fstream>
 
-#include "uCBaseVisitor.h"
+#include "XBaseVisitor.h"
 #include "antlr4-runtime.h"
 
 #include "intermediate/symtab/SymtabStack.h"
@@ -107,7 +107,7 @@ public:
      * Emit a statement comment.
      * @param ctx the StatementContext.
      */
-    void emitComment(uCParser::StatementContext *ctx);
+    void emitComment(XParser::StatementContext *ctx);
 
     /**
      * Emit a label.

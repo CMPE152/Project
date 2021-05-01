@@ -1,4 +1,4 @@
-grammar uC;
+grammar X;
 
 @header {
     #include <map>
@@ -25,8 +25,8 @@ statement
     | controlStatement
     | printStatement
     | printlnStatement
-    | readStatement
-    | readlnStatement
+    | getStatement
+    | getlnStatement
     | functionCall
     | returnStatement
     ;
@@ -110,9 +110,9 @@ fieldWidth       : sign? integerConstant (':' decimalPlaces)? ;
 decimalPlaces    : integerConstant ;
 
 //====Readin (So we can get input)====//
-readStatement : READ '(' readArguments ')' ;
-readlnStatement : READLN '(' readArguments ')' ;
-readArguments : variable ( ',' variable )* ;
+getStatement : GET '(' getArguments ')' ;
+getlnStatement : GETLN '(' getArguments ')' ;
+getArguments : variable ( ',' variable )* ;
 
 //====Expressions,factors, etc.====//
 expression locals [ Typespec *type = nullptr ]
@@ -212,8 +212,8 @@ CASE      : C A S E ;
 DEFAULT   : D E F A U L T ;
 PRINT     : P R I N T ;
 PRINTLN   : P R I N T L N ;
-READ      : R E A D ;
-READLN    : R E A D L N ;
+GET     : G E T ;
+GETLN    : G E T L N ;
 RETURN    : R E T U R N ;
 
 ARRAYINDICATOR : '[]' ;

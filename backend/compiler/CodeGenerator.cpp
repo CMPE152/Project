@@ -11,12 +11,12 @@
 #include <iomanip>
 #include <chrono>
 
-#include "uCBaseVisitor.h"
+#include "XBaseVisitor.h"
 #include "antlr4-runtime.h"
 
 #include "intermediate/symtab/Predefined.h"
 #include "intermediate/type/Typespec.h"
-#include "backend/compiler/ASMCodeGenerator.h"
+#include "backend/compiler/CodeGenerator.h"
 #include "backend/compiler/Directive.h"
 #include "backend/compiler/Label.h"
 #include "backend/compiler/Instruction.h"
@@ -74,7 +74,7 @@ void CodeGenerator::emitComment(string text)
  * Emit a statement comment.
  * @param ctx the StatementContext.
  */
-void CodeGenerator::emitComment(uCParser::StatementContext *ctx)
+void CodeGenerator::emitComment(XParser::StatementContext *ctx)
 {
     string text = ctx->getText();
     if (text.length() > 70) text = text.substr(0, 70) + " ...";
