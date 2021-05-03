@@ -162,6 +162,7 @@ typeIdentifier locals [ Typespec *type = nullptr, SymtabEntry *entry = nullptr ]
     : INT |
       BOOL |
       FLOAT |
+      CHAR |
       VOID ;
 
 
@@ -200,6 +201,7 @@ INT    : I N T ;
 BOOL   : B O O L ;
 FLOAT  : F L O A T ;
 VOID   : V O I D ;
+CHAR   : C H A R ;
 
 DO        : D O ;
 WHILE     : W H I L E ;

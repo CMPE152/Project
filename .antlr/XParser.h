@@ -6,7 +6,7 @@
     using namespace intermediate::type;
 
 
-// Generated from c:\Users\yezho\Desktop\CMPE152\temp\Team_Y_CMPE152\Compiler_Project\X.g4 by ANTLR 4.8
+// Generated from c:\Users\Richie Lee\Desktop\College\1 San Jose State University\8 2021 Spring Semester\CMPE152\Final_project\X.g4 by ANTLR 4.8
 
 #pragma once
 
@@ -23,12 +23,12 @@ public:
     T__7 = 8, T__8 = 9, T__9 = 10, T__10 = 11, T__11 = 12, T__12 = 13, T__13 = 14, 
     T__14 = 15, T__15 = 16, T__16 = 17, T__17 = 18, T__18 = 19, T__19 = 20, 
     T__20 = 21, T__21 = 22, T__22 = 23, T__23 = 24, T__24 = 25, T__25 = 26, 
-    T__26 = 27, INT = 28, BOOL = 29, FLOAT = 30, VOID = 31, DO = 32, WHILE = 33, 
-    FOR = 34, IF = 35, ELSEIF = 36, ELSE = 37, SWITCH = 38, CASE = 39, DEFAULT = 40, 
-    PRINT = 41, PRINTLN = 42, GET = 43, GETLN = 44, RETURN = 45, ARRAYINDICATOR = 46, 
-    SINGLEQUOTE = 47, DOUBLEQUOTE = 48, DOUBLESLASH = 49, IDENTIFIER = 50, 
-    INTEGER = 51, REAL = 52, CHARACTER = 53, STRING = 54, NEWLINE = 55, 
-    WS = 56, COMMENT = 57, BLOCKCOMMENT = 58
+    T__26 = 27, INT = 28, BOOL = 29, FLOAT = 30, VOID = 31, CHAR = 32, DO = 33, 
+    WHILE = 34, FOR = 35, IF = 36, ELSEIF = 37, ELSE = 38, SWITCH = 39, 
+    CASE = 40, DEFAULT = 41, PRINT = 42, PRINTLN = 43, GET = 44, GETLN = 45, 
+    RETURN = 46, ARRAYINDICATOR = 47, SINGLEQUOTE = 48, DOUBLEQUOTE = 49, 
+    DOUBLESLASH = 50, IDENTIFIER = 51, INTEGER = 52, REAL = 53, CHARACTER = 54, 
+    STRING = 55, NEWLINE = 56, WS = 57, COMMENT = 58, BLOCKCOMMENT = 59
   };
 
   enum {
@@ -1022,6 +1022,7 @@ public:
     antlr4::tree::TerminalNode *INT();
     antlr4::tree::TerminalNode *BOOL();
     antlr4::tree::TerminalNode *FLOAT();
+    antlr4::tree::TerminalNode *CHAR();
     antlr4::tree::TerminalNode *VOID();
 
 

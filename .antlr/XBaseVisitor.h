@@ -6,7 +6,7 @@
     using namespace intermediate::type;
 
 
-// Generated from c:\Users\yezho\Desktop\CMPE152\temp\Team_Y_CMPE152\Compiler_Project\X.g4 by ANTLR 4.8
+// Generated from c:\Users\Richie Lee\Desktop\College\1 San Jose State University\8 2021 Spring Semester\CMPE152\Final_project\X.g4 by ANTLR 4.8
 
 #pragma once
 
