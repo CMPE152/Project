@@ -695,4 +695,19 @@ string CodeGenerator::valueSignature(Typespec *type)
     return ss.str();
 }
 
+//change
+void CodeGenerator::emitCast(Typespec* from, Typespec* to){
+    
+    if(from == Predefined::integerType || from == Predefined::charType || from->getForm() == ENUMERATION) {
+        if (to == Predefined::realType) emit(I2F);
+        else if (to == Predefined::charType) emit(I2C);
+    }
+    else if (from == Predefined::realType) {
+        if (to == Predefined::integerType) emit(F2I);
+        else if (to == Predefined::charType) {
+            emit(F2I);
+            emit(I2C); 
+        }
+    }
+}
 }} // namespace backend::compiler

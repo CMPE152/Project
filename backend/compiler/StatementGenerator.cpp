@@ -42,15 +42,7 @@ string StatementGenerator::typeToString(Typespec *type){
     return retStr;
 }
 
-//change
-void StatementGenerator::emitCast(Typespec* from, Typespec* to){
-    
-    if(from == Predefined::integerType){
-        if(to == Predefined::realType){
-            emit(Instruction::I2F);
-        }
-    }
-}
+
 
 void StatementGenerator::emitAssignment(XParser::AssignVariableContext *ctx){
     XParser::VariableContext *varCtx = ctx->lhs()->variable();
@@ -61,7 +53,7 @@ void StatementGenerator::emitAssignment(XParser::AssignVariableContext *ctx){
     Typespec *exprType = exprCtx->type;
 
     int modifierCount = varCtx->modifier().size();
-    XParser::ModifierContext *lastModCtx = (modifierCount > 0)?varCtx->modifier().back():nullptr;
+    XParser::ModifierContext *lastModCtx = (modifierCount > 0) ? varCtx->modifier().back() : nullptr;
     if(modifierCount > 0){
         compiler->visit(varCtx);
     }
@@ -69,11 +61,8 @@ void StatementGenerator::emitAssignment(XParser::AssignVariableContext *ctx){
     
     compiler->visit(exprCtx);
 
-    
-    if (   (varType == Predefined::realType)
-           && (exprType->baseType() == Predefined::integerType)) emit(I2F);
+    emitCast(exprType->baseType(), varType);
 
-    
     if(lastModCtx == nullptr){
         emitStoreValue(varId,varId->getType());
     }
@@ -98,15 +87,10 @@ void StatementGenerator::emitDeclarationAssignment(XParser::AssignVariableContex
     XParser::ExpressionContext *exprCtx = ctx->rhs()->expression();
 
     Typespec *exprType = exprCtx->type;
-
     
     compiler->visit(exprCtx);
 
-    
-    if ((varType == Predefined::realType)
-           && (exprType->baseType() == Predefined::integerType)) emit(I2F);
-
-    
+    emitCast(exprType->baseType(), varType);
     emitStoreValue(varId, varId->getType());
 }
 
@@ -114,46 +98,48 @@ void StatementGenerator::emitDeclarationAssignment(XParser::AssignVariableContex
 void StatementGenerator::emitIncrement(XParser::IncrementVariableContext *ctx){
     SymtabEntry *varEntry = ctx->variable()->entry;
     Typespec *varType = ctx->variable()->type;
-
+    bool isArray = !ctx->variable()->modifier().empty();
     
-    if(!ctx->variable()->modifier().empty()){
-        
-        compiler->visit(ctx->variable());
-        compiler->loadValue(ctx->variable());
+    compiler->visit(ctx->variable());
+    if (isArray) compiler->loadValue(ctx->variable()); 
+    
 
-        emitLoadConstant(1);
-        emit(Instruction::IADD);
-        emitStoreValue(nullptr,varType);
+    if (varType == Predefined::realType) {
+        emitLoadConstant(1.0);
+        emit(FADD);
     }
     else {
-        compiler->visit(ctx->variable());
         emitLoadConstant(1);
-        emit(Instruction::IADD);
-        emitStoreValue(varEntry, varType);
+        emitCast(varType, Predefined::integerType);
+        emit(IADD);
     }
+    
+    if (isArray) emitStoreValue(nullptr,varType);
+    else emitStoreValue(varEntry, varType);
 }
 
 //change
 void StatementGenerator::emitDecrement(XParser::DecrementVariableContext *ctx){
     SymtabEntry *varEntry = ctx->variable()->entry;
     Typespec *varType = ctx->variable()->type;
-
+    bool isArray = !ctx->variable()->modifier().empty();
     
-    if(!ctx->variable()->modifier().empty()){
-        
-        compiler->visit(ctx->variable());
-        compiler->loadValue(ctx->variable());
+    compiler->visit(ctx->variable());
+    if (isArray) compiler->loadValue(ctx->variable()); 
+    
 
-        emitLoadConstant(1);
-        emit(Instruction::ISUB);
-        emitStoreValue(nullptr,varType);
+    if (varType == Predefined::realType) {
+        emitLoadConstant(1.0);
+        emit(FSUB);
     }
     else {
-        compiler->visit(ctx->variable());
         emitLoadConstant(1);
-        emit(Instruction::ISUB);
-        emitStoreValue(varEntry, varType);
+        emitCast(varType, Predefined::integerType);
+        emit(ISUB);
     }
+    
+    if (isArray) emitStoreValue(nullptr,varType);
+    else emitStoreValue(varEntry, varType);
 }
 
 //change
@@ -350,20 +336,6 @@ void StatementGenerator::emitCall(SymtabEntry *routineId, XParser::ArgumentListC
     emit(Instruction::INVOKESTATIC,functionName);
 }
 
-//change
-void StatementGenerator::emitReturn(XParser::ReturnStatementContext *ctx) {
-    
-    if (ctx->expression()){
-        compiler->visit(ctx->expression());
-
-        
-        emitReturnValue(ctx->expression()->type);
-    }
-    else{
-        emit(RETURN);
-    }
-}
-
 //change with emitwrite
 void StatementGenerator::emitPrint(XParser::PrintStatementContext *ctx){
     emitPrint(ctx->printArguments(), false);
@@ -551,7 +523,6 @@ void StatementGenerator::emitGet(XParser::GetArgumentsContext *argsCtx, bool nee
 
             emit(GETSTATIC, programName + "/_sysin Ljava/util/Scanner;");
             emit(INVOKEVIRTUAL, "java/util/Scanner/reset()Ljava/util/Scanner;");
-
         }
         else  
         {

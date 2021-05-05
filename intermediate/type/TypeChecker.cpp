@@ -41,8 +41,8 @@ bool TypeChecker::isIntegerOrReal(Typespec *typespec)
 bool TypeChecker::isAtLeastOneReal(Typespec *typespec1, Typespec *typespec2)
 {
     return (isReal(typespec1) && isReal(typespec2)) ||
-           (isReal(typespec1) && isInteger(typespec2)) ||
-           (isInteger(typespec1) && isReal(typespec2));
+           (isReal(typespec1) && isIntegerOrChar(typespec2)) ||
+           (isIntegerOrChar(typespec1) && isReal(typespec2));
 }
 
 bool TypeChecker::isBoolean(Typespec *typespec)
@@ -73,6 +73,14 @@ bool TypeChecker::areBothString(Typespec *typespec1, Typespec *typespec2)
     return isString(typespec1) && isString(typespec2);
 }
 
+bool TypeChecker::isIntegerOrChar(Typespec *type) {
+    return isInteger(type) || isChar(type);
+}
+
+bool TypeChecker::isNumeric(Typespec *type) {
+    return isIntegerOrChar(type) || isReal(type);
+}
+
 bool TypeChecker::areAssignmentCompatible(Typespec *targetType,
                                           Typespec *valueType)
 {
@@ -81,15 +89,11 @@ bool TypeChecker::areAssignmentCompatible(Typespec *targetType,
     targetType = targetType->baseType();
     valueType  = valueType->baseType();
 
-    bool compatible = false;
-
     // Identical types.
-    if (targetType == valueType) compatible = true;
+    if (targetType == valueType) return true;
 
     // real := integer
-    else if (isReal(targetType) && isInteger(valueType)) compatible = true;
-
-    return compatible;
+    return isNumeric(targetType) && isNumeric(valueType);
 }
 
 bool TypeChecker::areComparisonCompatible(Typespec *type1,

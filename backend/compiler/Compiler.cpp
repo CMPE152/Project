@@ -107,7 +107,7 @@ Object Compiler::visitFunctionCall(XParser::FunctionCallContext *ctx){
 
 //change
 Object Compiler::visitReturnStatement(XParser::ReturnStatementContext *ctx){
-    statementCode->emitReturn(ctx);
+    programCode->emitReturn(ctx);
     return nullptr;
 }
 

@@ -348,6 +348,8 @@ public:
      */
     string valueSignature(Typespec *type);
 
+    void emitCast(Typespec* from, Typespec* to);
+
 private:
     /**
      * Emit code to store a value to an ummodified target variable,

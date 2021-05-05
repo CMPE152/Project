@@ -55,7 +55,7 @@ L001:
 	ldc	"Enter Number:"
 	invokevirtual	java/io/PrintStream/print(Ljava/lang/String;)V
 ;
-; 008 read(i)
+; 008 get(i)
 ;
 	getstatic	FastFib/_sysin Ljava/util/Scanner;
 	invokevirtual	java/util/Scanner/nextInt()I
@@ -295,9 +295,11 @@ L026:
 ;
 .method private static printList([II)V
 
-
+.var 2 is k I
 .var 1 is len I
 .var 0 is list [I
+	iconst_0
+	istore_2
 ;
 ; 034 print("[")
 ;
@@ -307,7 +309,6 @@ L026:
 ;
 ; 035 intk=0
 ;
-.var 2 is k I
 	iconst_0
 	istore_2
 L029:

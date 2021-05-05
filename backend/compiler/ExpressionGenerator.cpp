@@ -6,6 +6,7 @@
 #include "backend/compiler/CodeGenerator.h"
 #include "backend/compiler/ExpressionGenerator.h"
 #include "backend/compiler/Compiler.h"
+#include "intermediate/type/TypeChecker.h"
 
 namespace backend { namespace compiler {
 
@@ -50,23 +51,19 @@ void ExpressionGenerator::emitExpression(XParser::ExpressionContext *ctx){
 
             bool integerMode = false;
             bool realMode = false;
-            bool characterMode = false;
 
-            if ((type1 == Predefined::integerType)
-                && (type2 == Predefined::integerType)) {
+            if (TypeChecker::isIntegerOrChar(type1)
+                && TypeChecker::isIntegerOrChar(type2)) {
                 integerMode = true;
             } else if ((type1 == Predefined::realType)
                        || (type2 == Predefined::realType)) {
                 realMode = true;
-            } else if ((type1 == Predefined::charType)
-                       && (type2 == Predefined::charType)) {
-                characterMode = true;
             }
 
             Label *trueLabel = new Label();
             Label *exitLabel = new Label();
 
-            if (integerMode || characterMode) {
+            if (integerMode) {
                 emitSimpleExpression(simpleCtx2);
 
                 if (op == "==") emit(IF_ICMPEQ, trueLabel);
@@ -137,8 +134,8 @@ void ExpressionGenerator::emitSimpleExpression(XParser::SimpleExpressionContext 
         bool realMode    = false;
         bool booleanMode = false;
 
-        if (   (type1 == Predefined::integerType)
-               && (type2 == Predefined::integerType))
+        if (   TypeChecker::isIntegerOrChar(type1)
+               && TypeChecker::isIntegerOrChar(type2))
         {
             integerMode = true;
         }
@@ -168,6 +165,7 @@ void ExpressionGenerator::emitSimpleExpression(XParser::SimpleExpressionContext 
 
             if (op == "+") emit(FADD);
             else           emit(FSUB);
+            type1 = Predefined::realType;
         }
         else if (booleanMode)
         {
@@ -219,8 +217,8 @@ void ExpressionGenerator::emitTerm(XParser::TermContext *ctx){
         bool integerMode = false;
         bool realMode    = false;
 
-        if (   (type1 == Predefined::integerType)
-               && (type2 == Predefined::integerType))
+        if (   TypeChecker::isIntegerOrChar(type1)
+               && TypeChecker::isIntegerOrChar(type2))
         {
             integerMode = true;
         }
@@ -231,21 +229,26 @@ void ExpressionGenerator::emitTerm(XParser::TermContext *ctx){
         }
 
         if (integerMode)
-        {
+        {   
+            emitCast(type1, Predefined::integerType);
             compiler->visit(factorCtx2);
+            emitCast(type2, Predefined::integerType);
 
             if      (op == "*")   emit(IMUL);
             else if (op == "/")   emit(FDIV);
             else if (op == "%") emit(IREM);
+            type1 = Predefined::integerType;
         }
         else if (realMode)
         {
-            if (type1 == Predefined::integerType) emit(I2F);
+            emitCast(type1, Predefined::realType);
             compiler->visit(factorCtx2);
-            if (type2 == Predefined::integerType) emit(I2F);
+            emitCast(type2, Predefined::realType);
 
             if      (op == "*") emit(FMUL);
             else if (op == "/") emit(FDIV);
+            else if (op == "%") emit(FREM);
+            type1 = Predefined::realType;
         }
         else  // booleanMode
         {

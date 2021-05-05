@@ -162,7 +162,9 @@ typeIdentifier locals [ Typespec *type = nullptr, SymtabEntry *entry = nullptr ]
     : INT |
       BOOL |
       FLOAT |
-      VOID ;
+      VOID |
+      CHAR
+      ;
 
 
 characterConstant : CHARACTER ;
@@ -215,6 +217,7 @@ PRINTLN   : P R I N T L N ;
 GET     : G E T ;
 GETLN    : G E T L N ;
 RETURN    : R E T U R N ;
+CHAR : C H A R;
 
 ARRAYINDICATOR : '[]' ;
 SINGLEQUOTE  : '\'' ;

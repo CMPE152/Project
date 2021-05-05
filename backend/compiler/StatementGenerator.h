@@ -51,8 +51,6 @@ public:
 
     void emitGetln(XParser::GetlnStatementContext *ctx);
 
-    void emitReturn(XParser::ReturnStatementContext *ctx);
-
 private:
 
     void emitCall(SymtabEntry *routineId, XParser::ArgumentListContext *argListCtx);
@@ -68,7 +66,6 @@ private:
 private:
     //A couple utility tools
     string typeToString(Typespec* type);
-    void emitCast(Typespec* from, Typespec* to);
 };
 
 }} // namespace backend::compiler

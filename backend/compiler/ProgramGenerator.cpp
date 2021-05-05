@@ -46,6 +46,7 @@ void ProgramGenerator::emitRoutine(XParser::FunctionDefinitionContext *ctx){
     //structuredCode.emitData(routineId);
 
     localVariables = new LocalVariables(routineSymtab->getMaxSlotNumber());
+    returnType = routineId->getType();
 
     // Emit code for the compound statement.
     XParser::ControlScopeContext *stmtCtx = (XParser::ControlScopeContext *) routineId->getExecutable();
@@ -333,6 +334,18 @@ void ProgramGenerator::emitFunctionEpilogue(){
     emitDirective(LIMIT_LOCALS, localVariables->count());
     emitDirective(LIMIT_STACK,  static_cast<int>(localStack->capacity()*1.5));
     emitDirective(END_METHOD);
+}
+
+//change
+void ProgramGenerator::emitReturn(XParser::ReturnStatementContext *ctx) {
+    if (returnType == Predefined::voidType) {
+        emit(RETURN);
+    }
+    else if (ctx->expression()){
+        compiler->visit(ctx->expression());
+        emitCast(ctx->expression()->type, returnType);
+        emitReturnValue(returnType);
+    }
 }
 
 }} // namespace backend::compiler

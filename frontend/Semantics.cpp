@@ -448,6 +448,7 @@ Object Semantics::visitVariableDeclaration(XParser::VariableDeclarationContext *
                 }
 
                 idCtx->entry = variableId;
+                idCtx->type = typeCtx->type;
             }
             else
             {
@@ -740,18 +741,18 @@ Object Semantics::visitFunctionCallFactor(XParser::FunctionCallFactorContext *ct
 }
 
 Object Semantics::visitReturnStatement(XParser::ReturnStatementContext *ctx){
-    Typespec* routineType = symtabStack->getLocalSymtab()->getOwner()->getType();
+    Typespec* returnType = symtabStack->getLocalSymtab()->getOwner()->getType();
     Kind routineKind = symtabStack->getLocalSymtab()->getOwner()->getKind();
     if(ctx->expression()){
         XParser::ExpressionContext *eCtx = ctx->expression();
         visit(eCtx);
-        if(eCtx->type != routineType){
+        if(!TypeChecker::areAssignmentCompatible(eCtx->type, returnType)){
             error.flag(INVALID_RETURN_TYPE,ctx);
         }
     }
     else{
         //Must be part of a function with return type void
-        if(routineType != nullptr && routineKind != PROCEDURE){
+        if(returnType != nullptr && routineKind != PROCEDURE){
             error.flag(INVALID_RETURN_TYPE,ctx);
         }
     }
@@ -842,77 +843,75 @@ Object Semantics::visitSimpleExpression(XParser::SimpleExpressionContext *ctx){
                 error.flag(INVALID_SIGN, signCtx);
             }
 
-            termType2 = Predefined::booleanType;
+            termType1 = Predefined::booleanType;
         }
         else if (op == "+")
         {
             // Both operands integer ==> integer result
-            if (TypeChecker::areBothInteger(termType1, termType2))
+            if (TypeChecker::isIntegerOrChar(termType1) && TypeChecker::isIntegerOrChar(termType2))
             {
-                termType2 = Predefined::integerType;
+                termType1 = Predefined::integerType;
             }
 
                 // Both real operands ==> real result
                 // One real and one integer operand ==> real result
             else if (TypeChecker::isAtLeastOneReal(termType1, termType2))
             {
-                termType2 = Predefined::realType;
+                termType1 = Predefined::realType;
             }
 
                 // Both operands string ==> string result
             else if (TypeChecker::areBothString(termType1, termType2))
             {
                 if (hasSign) error.flag(INVALID_SIGN, signCtx);
-                termType2 = Predefined::stringType;
+                termType1 = Predefined::stringType;
             }
 
                 // Type mismatch.
             else
             {
-                if (!TypeChecker::isIntegerOrReal(termType1))
+                if (!TypeChecker::isNumeric(termType1))
                 {
                     error.flag(TYPE_MUST_BE_NUMERIC, termCtx1);
-                    termType2 = Predefined::integerType;
+                    termType1 = Predefined::integerType;
                 }
-                if (!TypeChecker::isIntegerOrReal(termType2))
+                if (!TypeChecker::isNumeric(termType2))
                 {
                     error.flag(TYPE_MUST_BE_NUMERIC, termCtx2);
-                    termType2 = Predefined::integerType;
+                    termType1 = Predefined::integerType;
                 }
             }
         }
         else  // -
         {
             // Both operands integer ==> integer result
-            if (TypeChecker::areBothInteger(termType1, termType2))
+            if (TypeChecker::isIntegerOrChar(termType1) && TypeChecker::isIntegerOrChar(termType2))
             {
-                termType2 = Predefined::integerType;
+                termType1 = Predefined::integerType;
             }
 
                 // Both real operands ==> real result
                 // One real and one integer operand ==> real result
             else if (TypeChecker::isAtLeastOneReal(termType1, termType2))
             {
-                termType2 = Predefined::realType;
+                termType1 = Predefined::realType;
             }
 
                 // Type mismatch.
             else
             {
-                if (!TypeChecker::isIntegerOrReal(termType1))
+                if (!TypeChecker::isNumeric(termType1))
                 {
                     error.flag(TYPE_MUST_BE_NUMERIC, termCtx1);
-                    termType2 = Predefined::integerType;
+                    termType1 = Predefined::integerType;
                 }
-                if (!TypeChecker::isIntegerOrReal(termType2))
+                if (!TypeChecker::isNumeric(termType2))
                 {
                     error.flag(TYPE_MUST_BE_NUMERIC, termCtx2);
-                    termType2 = Predefined::integerType;
+                    termType1 = Predefined::integerType;
                 }
             }
         }
-
-        termType1 = termType2;
     }
 
     ctx->type = termType1;
@@ -938,72 +937,70 @@ Object Semantics::visitTerm(XParser::TermContext *ctx){
         if (op == "*")
         {
             // Both operands integer  ==> integer result
-            if (TypeChecker::areBothInteger(factorType1, factorType2))
+            if (TypeChecker::isIntegerOrChar(factorType1) && TypeChecker::isIntegerOrChar(factorType2))
             {
-                factorType2 = Predefined::integerType;
+                factorType1 = Predefined::integerType;
             }
 
                 // Both real operands ==> real result
                 // One real and one integer operand ==> real result
             else if (TypeChecker::isAtLeastOneReal(factorType1, factorType2))
             {
-                factorType2 = Predefined::realType;
+                factorType1 = Predefined::realType;
             }
 
                 // Type mismatch.
             else
             {
-                if (!TypeChecker::isIntegerOrReal(factorType1))
+                if (!TypeChecker::isNumeric(factorType1))
                 {
                     error.flag(TYPE_MUST_BE_NUMERIC, factorCtx1);
-                    factorType2 = Predefined::integerType;
+                    factorType1 = Predefined::integerType;
                 }
-                if (!TypeChecker::isIntegerOrReal(factorType2))
+                if (!TypeChecker::isNumeric(factorType2))
                 {
                     error.flag(TYPE_MUST_BE_NUMERIC, factorCtx2);
-                    factorType2 = Predefined::integerType;
                 }
             }
         }
         else if (op == "/")
         {
             // All integer and real operand combinations ==> real result
-            if (   TypeChecker::areBothInteger(factorType1, factorType2)
+            if (   TypeChecker::isIntegerOrChar(factorType1) && TypeChecker::isIntegerOrChar(factorType2)
                    || TypeChecker::isAtLeastOneReal(factorType1, factorType2))
             {
-                factorType2 = Predefined::realType;
+                factorType1 = Predefined::realType;
             }
 
                 // Type mismatch.
             else
             {
-                if (!TypeChecker::isIntegerOrReal(factorType1))
+                if (!TypeChecker::isNumeric(factorType1))
                 {
                     error.flag(TYPE_MUST_BE_NUMERIC, factorCtx1);
-                    factorType2 = Predefined::integerType;
+                    factorType1 = Predefined::integerType;
                 }
-                if (!TypeChecker::isIntegerOrReal(factorType2))
+                if (!TypeChecker::isNumeric(factorType2))
                 {
                     error.flag(TYPE_MUST_BE_NUMERIC, factorCtx2);
-                    factorType2 = Predefined::integerType;
                 }
             }
         }
         else if (op == "%")
         {
             // Both operands integer ==> integer result. Else type mismatch.
-            if (!TypeChecker::isInteger(factorType1))
+            if (!TypeChecker::isNumeric(factorType1))
             {
-                error.flag(TYPE_MUST_BE_INTEGER, factorCtx1);
-                factorType2 = Predefined::integerType;
+                error.flag(TYPE_MUST_BE_NUMERIC, factorCtx1);
+                factorType1 = Predefined::integerType;
             }
-            if (!TypeChecker::isInteger(factorType2))
+            if (!TypeChecker::isNumeric(factorType2))
             {
-                error.flag(TYPE_MUST_BE_INTEGER, factorCtx2);
-                factorType2 = Predefined::integerType;
+                error.flag(TYPE_MUST_BE_NUMERIC, factorCtx2);
             }
-
-            ctx->type = Predefined::integerType;
+            if (TypeChecker::isReal(factorType2)) {
+                factorType1 = Predefined::realType;
+            }
         }
         else if (op == "&&")
         {
@@ -1011,16 +1008,13 @@ Object Semantics::visitTerm(XParser::TermContext *ctx){
             if (!TypeChecker::isBoolean(factorType1))
             {
                 error.flag(TYPE_MUST_BE_BOOLEAN, factorCtx1);
-                factorType2 = Predefined::booleanType;
+                factorType1 = Predefined::booleanType;
             }
             if (!TypeChecker::isBoolean(factorType2))
             {
                 error.flag(TYPE_MUST_BE_BOOLEAN, factorCtx2);
-                factorType2 = Predefined::booleanType;
             }
         }
-
-        factorType1 = factorType2;
     }
 
     ctx->type = factorType1;

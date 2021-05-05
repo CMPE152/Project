@@ -94,6 +94,9 @@ public:
      */
     static bool areBothString(Typespec *typespec1, Typespec *typespec2);
 
+    static bool isIntegerOrChar(Typespec *type);
+    static bool isNumeric(Typespec *type);
+
     /**
      * Check if two type specifications are assignment compatible.
      * @param targetTypespec the target type specification.

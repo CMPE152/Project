@@ -10,6 +10,7 @@ class ProgramGenerator : public CodeGenerator
 private:
     SymtabEntry *programId;  // symbol table entry of the program name
     int programLocalsCount;  // count of program local variables
+    Typespec *returnType;
 
 public:
     /*
@@ -19,13 +20,14 @@ public:
      */
     ProgramGenerator(CodeGenerator *parent, Compiler *compiler,string outputDir="")
         : CodeGenerator(parent, compiler,outputDir),
-          programId(nullptr), programLocalsCount(5) // 5 because _elapsed is long
+          programId(nullptr), returnType(nullptr), programLocalsCount(5) // 5 because _elapsed is long
     {
         localStack = new LocalStack();
     }
 
     void emitProgram(XParser::ProgramContext *ctx);
     void emitRoutine(XParser::FunctionDefinitionContext *ctx);
+    void emitReturn(XParser::ReturnStatementContext *ctx);
 
 private:
     void emitProgramVariables();

@@ -25,10 +25,10 @@ public:
     T__20 = 21, T__21 = 22, T__22 = 23, T__23 = 24, T__24 = 25, T__25 = 26, 
     T__26 = 27, INT = 28, BOOL = 29, FLOAT = 30, VOID = 31, DO = 32, WHILE = 33, 
     FOR = 34, IF = 35, ELSEIF = 36, ELSE = 37, SWITCH = 38, CASE = 39, DEFAULT = 40, 
-    PRINT = 41, PRINTLN = 42, GET = 43, GETLN = 44, RETURN = 45, ARRAYINDICATOR = 46, 
-    SINGLEQUOTE = 47, DOUBLEQUOTE = 48, DOUBLESLASH = 49, IDENTIFIER = 50, 
-    INTEGER = 51, REAL = 52, CHARACTER = 53, STRING = 54, NEWLINE = 55, 
-    WS = 56, COMMENT = 57, BLOCKCOMMENT = 58
+    PRINT = 41, PRINTLN = 42, GET = 43, GETLN = 44, RETURN = 45, CHAR = 46, 
+    ARRAYINDICATOR = 47, SINGLEQUOTE = 48, DOUBLEQUOTE = 49, DOUBLESLASH = 50, 
+    IDENTIFIER = 51, INTEGER = 52, REAL = 53, CHARACTER = 54, STRING = 55, 
+    NEWLINE = 56, WS = 57, COMMENT = 58, BLOCKCOMMENT = 59
   };
 
   enum {
@@ -1023,6 +1023,7 @@ public:
     antlr4::tree::TerminalNode *BOOL();
     antlr4::tree::TerminalNode *FLOAT();
     antlr4::tree::TerminalNode *VOID();
+    antlr4::tree::TerminalNode *CHAR();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
