@@ -513,7 +513,8 @@ Object Semantics::visitAssignVariable(XParser::AssignVariableContext *ctx){
     XParser::LhsContext *lhsCtx = ctx->lhs();
     XParser::RhsContext *rhsCtx = ctx->rhs();
 
-    visitChildren(ctx);
+    visit(rhsCtx);
+    visit(lhsCtx);
 
     Typespec *lhsType = lhsCtx->type;
     Typespec *rhsType = rhsCtx->expression()->type;
@@ -573,6 +574,8 @@ Object Semantics::visitWhileLoop(XParser::WhileLoopContext *ctx){
 }
 
 Object Semantics::visitForLoop(XParser::ForLoopContext *ctx){
+    Symtab *parent = symtabStack->getLocalSymtab();
+    Symtab *child = symtabStack->push(new Symtab(parent));
     //Visit the init and end-loop statements
     for(XParser::StatementContext *sCtx : ctx->statement()){
         visit(sCtx);
@@ -588,6 +591,8 @@ Object Semantics::visitForLoop(XParser::ForLoopContext *ctx){
     }
 
     visit(ctx->controlScope());
+    parent->updateFromChild(child);
+    symtabStack->pop();
     return nullptr;
 }
 
