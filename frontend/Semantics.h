@@ -126,7 +126,7 @@ namespace frontend {
         Object visitStringFactor(XParser::StringFactorContext *ctx) override;
         Object visitNotFactor(XParser::NotFactorContext *ctx) override;
         Object visitParenthesizedFactor(XParser::ParenthesizedFactorContext *ctx) override;
-
+        Object visitControlScope(XParser::ControlScopeContext *ctx) override;
     };
 
 } // namespace frontend

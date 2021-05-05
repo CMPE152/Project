@@ -50,7 +50,7 @@ void ProgramGenerator::emitRoutine(XParser::FunctionDefinitionContext *ctx){
 
     // Emit code for the compound statement.
     XParser::ControlScopeContext *stmtCtx = (XParser::ControlScopeContext *) routineId->getExecutable();
-    compiler->visit(stmtCtx);
+    compiler->visitChildren(stmtCtx);
 
     emitFunctionReturn(routineId);
     emitFunctionEpilogue();
@@ -233,7 +233,7 @@ void ProgramGenerator::emitFunction(XParser::FunctionDefinitionContext *ctx){
 
     // Emit code for the compound statement.
     XParser::ControlScopeContext *stmtCtx = (XParser::ControlScopeContext *) routineId->getExecutable();
-    compiler->visit(stmtCtx);
+    compiler->visitChildren(stmtCtx);
 
     emitFunctionReturn(routineId);
     emitFunctionEpilogue();
@@ -345,7 +345,12 @@ void ProgramGenerator::emitReturn(XParser::ReturnStatementContext *ctx) {
         compiler->visit(ctx->expression());
         emitReturnValue(ctx->expression()->type);
     }
-    else emitReturnDefault();
+}
+
+void ProgramGenerator::emitReturnDefault() 
+{
+    emitLoadConstant(0);
+    emitReturnValue(Predefined::integerType);
 }
 
 void ProgramGenerator::emitReturnValue(Typespec* from)
@@ -367,10 +372,6 @@ void ProgramGenerator::emitReturnValue(Typespec* from)
     else                                   emit(ARETURN);
 }
 
-void ProgramGenerator::emitReturnDefault() 
-{
-    emitLoadConstant(0);
-    emitReturnValue(Predefined::integerType);
-}
+
 
 }} // namespace backend::compiler

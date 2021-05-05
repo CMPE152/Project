@@ -161,7 +161,6 @@ public:
     virtual size_t getRuleIndex() const override;
     AssignmentStatementContext *assignmentStatement();
     VariableDeclarationContext *variableDeclaration();
-    ControlStatementContext *controlStatement();
     PrintStatementContext *printStatement();
     PrintlnStatementContext *printlnStatement();
     GetStatementContext *getStatement();
@@ -297,6 +296,8 @@ public:
     C_statementContext* c_statement(size_t i);
     std::vector<ControlStatementContext *> controlStatement();
     ControlStatementContext* controlStatement(size_t i);
+    std::vector<ControlScopeContext *> controlScope();
+    ControlScopeContext* controlScope(size_t i);
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -314,7 +315,6 @@ public:
     ForLoopContext *forLoop();
     IfStatementContext *ifStatement();
     SwitchStatementContext *switchStatement();
-    ControlScopeContext *controlScope();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;

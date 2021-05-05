@@ -1119,8 +1119,14 @@ Object Semantics::visitParenthesizedFactor(XParser::ParenthesizedFactorContext *
     return nullptr;
 }
 
-
-
+Object Semantics::visitControlScope(XParser::ControlScopeContext *ctx) {
+    Symtab *parent = symtabStack->getLocalSymtab();
+    Symtab *child = symtabStack->push(new Symtab(parent));
+    visitChildren(ctx);
+    parent->updateFromChild(child);
+    symtabStack->pop();
+    return nullptr;
+}
 
 
 

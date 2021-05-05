@@ -22,7 +22,6 @@ c_statement
 statement
     : assignmentStatement
     | variableDeclaration
-    | controlStatement
     | printStatement
     | printlnStatement
     | getStatement
@@ -55,7 +54,7 @@ lhs locals [ Typespec *type = nullptr ]
 rhs : expression ;
 
 //====Program flow/control statements====//
-controlScope : '{' (c_statement | controlStatement)* '}' ;
+controlScope : '{' (c_statement | controlStatement| controlScope)* '}' ;
 
 controlStatement
     : doWhileLoop
@@ -63,7 +62,6 @@ controlStatement
     | forLoop
     | ifStatement
     | switchStatement
-    | controlScope
     ;
 
 doWhileLoop : DO controlScope WHILE '(' expression ')';

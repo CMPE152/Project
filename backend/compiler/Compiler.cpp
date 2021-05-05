@@ -35,9 +35,7 @@ Object Compiler::visitVariableDeclaration(XParser::VariableDeclarationContext *c
 
 //change
 Object Compiler::visitStatement(XParser::StatementContext *ctx){
-    if (ctx->controlStatement() == nullptr){
-        statementCode->emitComment(ctx);
-    }
+    statementCode->emitComment(ctx);
 
     return visitChildren(ctx);
 }

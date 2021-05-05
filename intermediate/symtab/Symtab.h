@@ -42,6 +42,10 @@ public:
         : nestingLevel(nestingLevel), slotNumber(-1), maxSlotNumber(-1),
           ownerId(nullptr) {}
 
+    Symtab(Symtab *parent)
+        : nestingLevel(parent->nestingLevel + 1), slotNumber(parent->slotNumber), maxSlotNumber(parent->maxSlotNumber),
+          ownerId(parent->ownerId) {}
+
     /**
      * Destructor.
      */
@@ -149,6 +153,11 @@ public:
             SymtabEntry *entry = it->second;
             if (entry->getKind() == VARIABLE) entry->setKind(kind);
         }
+    }
+
+    void updateFromChild(Symtab *child) {
+        maxSlotNumber = child->maxSlotNumber;
+        slotNumber = child->slotNumber;
     }
 };
 

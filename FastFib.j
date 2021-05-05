@@ -38,12 +38,6 @@
 ;
 .method private static main()V
 
-.var 1 is fib_n I
-.var 0 is i I
-	iconst_0
-	istore_1
-	iconst_0
-	istore_0
 ;
 ; 005 inti
 ;
@@ -172,14 +166,7 @@ L002:
 ;
 .method private static fib(I)I
 
-.var 2 is arr [I
-.var 1 is arrLen I
-.var 3 is i I
 .var 0 is index I
-	iconst_0
-	istore_1
-	iconst_0
-	istore_3
 ;
 ; 020 intarrLen=(index<=1)?2:index+1
 ;
@@ -296,11 +283,8 @@ L026:
 ;
 .method private static printList([II)V
 
-.var 2 is k I
 .var 1 is len I
 .var 0 is list [I
-	iconst_0
-	istore_2
 ;
 ; 034 print("[")
 ;
