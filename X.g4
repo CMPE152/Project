@@ -91,8 +91,7 @@ parameterDeclaration     : typeIdentifier ARRAYINDICATOR* parameterIdentifier;
 parameterIdentifier locals [ Typespec *type = nullptr, SymtabEntry *entry = nullptr ]
    : IDENTIFIER ;
 
-returnStatement
-    : RETURN expression?;
+returnStatement: RETURN expression?;
 
 functionCall : functionIdentifier '(' argumentList? ')' ;
 argumentList : argument ( ',' argument )* ;
@@ -119,7 +118,6 @@ expression locals [ Typespec *type = nullptr ]
     : simpleExpression (relOp simpleExpression)?
     | expression '?' expression ':' expression
     ;
-
 
 simpleExpression locals [ Typespec *type = nullptr ]
     : sign? term (addOp term)* ;

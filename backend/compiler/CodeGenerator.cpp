@@ -251,7 +251,10 @@ void CodeGenerator::emitLoadConstant(double value)
     if      (value == 0.0f) emit(FCONST_0);
     else if (value == 1.0f) emit(FCONST_1);
     else if (value == 2.0f) emit(FCONST_2);
-    else                    emit(LDC, value);
+    else {
+        emit(LDC, value);
+        if (value == (int)value) emit(I2F);
+    }
 }
 
 void CodeGenerator::emitLoadConstant(string value)
@@ -551,24 +554,6 @@ void CodeGenerator::emitCheckCastClass(Typespec *type)
     }
 
     emit(CHECKCAST, descriptor);
-}
-
-void CodeGenerator::emitReturnValue(Typespec *type)
-{
-    Form form = SCALAR;
-
-    if (type != nullptr)
-    {
-        type = type->baseType();
-        form = type->getForm();
-    }
-
-    if (   (type == Predefined::integerType)
-        || (type == Predefined::booleanType)
-        || (type == Predefined::charType)
-        || (form == ENUMERATION))          emit(IRETURN);
-    else if (type == Predefined::realType) emit(FRETURN);
-    else                                   emit(ARETURN);
 }
 
 void CodeGenerator::emitRangeCheck(Typespec *targetType)

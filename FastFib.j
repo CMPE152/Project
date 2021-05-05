@@ -284,6 +284,7 @@ L026:
 	iaload
 	ireturn
 
+	iconst_0
 	ireturn
 
 .limit locals 4

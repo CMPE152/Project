@@ -291,12 +291,6 @@ public:
     void emitCheckCastClass(Typespec *type);
 
     /**
-     * Emit a function return of a value.
-     * @param type the type of the return value.
-     */
-    void emitReturnValue(Typespec *type);
-
-    /**
      * Emit code to perform a runtime range check before an assignment.
      * @param targetType the type of the assignment target.
      */

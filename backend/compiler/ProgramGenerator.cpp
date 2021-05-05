@@ -319,7 +319,7 @@ void ProgramGenerator::emitFunctionReturn(SymtabEntry *routineId){
 
         //SymtabEntry *varId = routineId->getRoutineSymtab()->lookup(varName);
         //emitLoadLocal(type, varId->getSlotNumber());
-        emitReturnValue(type);
+        emitReturnDefault();
     }
 
     // Procedure: Just return.
@@ -343,9 +343,34 @@ void ProgramGenerator::emitReturn(XParser::ReturnStatementContext *ctx) {
     }
     else if (ctx->expression()){
         compiler->visit(ctx->expression());
-        emitCast(ctx->expression()->type, returnType);
-        emitReturnValue(returnType);
+        emitReturnValue(ctx->expression()->type);
     }
+    else emitReturnDefault();
+}
+
+void ProgramGenerator::emitReturnValue(Typespec* from)
+{
+    emitCast(from, returnType);
+    Form form = SCALAR;
+
+    if (returnType != nullptr)
+    {
+        returnType = returnType->baseType();
+        form = returnType->getForm();
+    }
+
+    if (   (returnType == Predefined::integerType)
+        || (returnType == Predefined::booleanType)
+        || (returnType == Predefined::charType)
+        || (form == ENUMERATION))          emit(IRETURN);
+    else if (returnType == Predefined::realType) emit(FRETURN);
+    else                                   emit(ARETURN);
+}
+
+void ProgramGenerator::emitReturnDefault() 
+{
+    emitLoadConstant(0);
+    emitReturnValue(Predefined::integerType);
 }
 
 }} // namespace backend::compiler

@@ -28,6 +28,13 @@ public:
     void emitProgram(XParser::ProgramContext *ctx);
     void emitRoutine(XParser::FunctionDefinitionContext *ctx);
     void emitReturn(XParser::ReturnStatementContext *ctx);
+    void emitReturnDefault();
+
+    /**
+     * Emit a function return of a value.
+     * @param type the type of the return value.
+     */
+    void emitReturnValue(Typespec *from);
 
 private:
     void emitProgramVariables();
