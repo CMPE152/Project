@@ -590,7 +590,7 @@ Object Semantics::visitForLoop(XParser::ForLoopContext *ctx){
         error.flag(TYPE_MUST_BE_BOOLEAN, exprCtx);
     }
 
-    visit(ctx->controlScope());
+    visitChildren(ctx->controlScope());
     parent->updateFromChild(child);
     symtabStack->pop();
     return nullptr;
