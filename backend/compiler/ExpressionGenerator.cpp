@@ -235,7 +235,7 @@ void ExpressionGenerator::emitTerm(XParser::TermContext *ctx){
             emitCast(type2, Predefined::integerType);
 
             if      (op == "*")   emit(IMUL);
-            else if (op == "/")   emit(FDIV);
+            else if (op == "/")   emit(IDIV);
             else if (op == "%") emit(IREM);
             type1 = Predefined::integerType;
         }

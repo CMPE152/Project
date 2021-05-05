@@ -251,7 +251,11 @@ void CodeGenerator::emitLoadConstant(double value)
     if      (value == 0.0f) emit(FCONST_0);
     else if (value == 1.0f) emit(FCONST_1);
     else if (value == 2.0f) emit(FCONST_2);
-    else                    emit(LDC, value);
+    else {
+        emit(LDC, value);
+        if (value == (int)value)
+            emit(I2F);
+    }
 }
 
 void CodeGenerator::emitLoadConstant(string value)

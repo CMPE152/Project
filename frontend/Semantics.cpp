@@ -966,12 +966,13 @@ Object Semantics::visitTerm(XParser::TermContext *ctx){
         else if (op == "/")
         {
             // All integer and real operand combinations ==> real result
-            if (   TypeChecker::isIntegerOrChar(factorType1) && TypeChecker::isIntegerOrChar(factorType2)
-                   || TypeChecker::isAtLeastOneReal(factorType1, factorType2))
+            if (TypeChecker::isIntegerOrChar(factorType1) && TypeChecker::isIntegerOrChar(factorType2)){
+                factorType1 = Predefined::integerType;
+            }
+            else if (TypeChecker::isAtLeastOneReal(factorType1, factorType2))
             {
                 factorType1 = Predefined::realType;
             }
-
                 // Type mismatch.
             else
             {
