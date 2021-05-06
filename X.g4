@@ -13,7 +13,7 @@ program locals [SymtabEntry *entry = nullptr]
     : (functionDefinition | functionDeclaration ';' |assignmentStatement ';' | variableDeclaration ';')+ ;
 
 //====General Statements====//
-c_statement
+singleStatement
     : functionDeclaration ';'
     | statement ';'
     | emptyStatement ';'
@@ -54,9 +54,9 @@ lhs locals [ Typespec *type = nullptr ]
 rhs : expression ;
 
 //====Program flow/control statements====//
-controlScope : '{' (c_statement | controlStatement| controlScope)* '}' ;
+scope : '{' (singleStatement | scopeStatement | scope)* '}' ;
 
-controlStatement
+scopeStatement
     : doWhileLoop
     | whileLoop
     | forLoop
@@ -64,22 +64,22 @@ controlStatement
     | switchStatement
     ;
 
-doWhileLoop : DO controlScope WHILE '(' expression ')';
-whileLoop : WHILE '(' expression ')' controlScope ;
-forLoop : FOR '(' statement? ';' expression ';' statement? ')' controlScope ;
+doWhileLoop : DO scope WHILE '(' expression ')';
+whileLoop : WHILE '(' expression ')' scope ;
+forLoop : FOR '(' statement? ';' expression ';' statement? ')' scope ;
 ifStatement
-    : IF '(' expression ')' controlScope
-      (ELSE IF '(' expression ')' controlScope)*
-      (ELSE controlScope)?
+    : IF '(' expression ')' scope
+      (ELSE IF '(' expression ')' scope)*
+      (ELSE scope)?
     ;
 
 switchStatement : SWITCH '(' expression ')' '{' switchCaseList '}';
 switchCaseList :  caseBranch* defaultBranch? ;
-caseBranch : CASE number ':' controlScope ;
-defaultBranch : DEFAULT ':' controlScope ;
+caseBranch : CASE number ':' scope ;
+defaultBranch : DEFAULT ':' scope ;
 
 //====Function declarations/definitions/calls====//
-functionDefinition : functionDeclaration controlScope ;
+functionDefinition : functionDeclaration scope ;
 functionDeclaration : typeIdentifier functionIdentifier '(' (parameterDeclarationsList | VOID)? ')' ;
 
 functionIdentifier locals [ Typespec *type = nullptr, SymtabEntry *entry = nullptr ]

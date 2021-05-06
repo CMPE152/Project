@@ -49,7 +49,7 @@ void ProgramGenerator::emitRoutine(XParser::FunctionDefinitionContext *ctx){
     returnType = routineId->getType();
 
     // Emit code for the compound statement.
-    XParser::ControlScopeContext *stmtCtx = (XParser::ControlScopeContext *) routineId->getExecutable();
+    XParser::ScopeContext *stmtCtx = (XParser::ScopeContext *) routineId->getExecutable();
     compiler->visitChildren(stmtCtx);
 
     emitFunctionReturn(routineId);
@@ -232,7 +232,7 @@ void ProgramGenerator::emitFunction(XParser::FunctionDefinitionContext *ctx){
     localVariables = new LocalVariables(routineSymtab->getMaxSlotNumber());
 
     // Emit code for the compound statement.
-    XParser::ControlScopeContext *stmtCtx = (XParser::ControlScopeContext *) routineId->getExecutable();
+    XParser::ScopeContext *stmtCtx = (XParser::ScopeContext *) routineId->getExecutable();
     compiler->visitChildren(stmtCtx);
 
     emitFunctionReturn(routineId);
@@ -313,8 +313,8 @@ void ProgramGenerator::emitFunctionReturn(SymtabEntry *routineId){
     else {
         emit(RETURN);
         // empty void function need an extra return due to unknown reason
-        XParser::ControlScopeContext *stmtCtx = (XParser::ControlScopeContext *) routineId->getExecutable();
-        if (stmtCtx->c_statement().empty() && stmtCtx->controlStatement().empty() && stmtCtx->controlScope().empty()) {
+        XParser::ScopeContext *stmtCtx = (XParser::ScopeContext *) routineId->getExecutable();
+        if (stmtCtx->singleStatement().empty() && stmtCtx->scopeStatement().empty() && stmtCtx->scope().empty()) {
             emit(RETURN);
         }
     }

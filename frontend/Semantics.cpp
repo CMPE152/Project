@@ -294,8 +294,8 @@ Object Semantics::visitFunctionDefinition(XParser::FunctionDefinitionContext *ct
 
     //Push the proper symtab stack
     symtabStack->push(routineId->getRoutineSymtab());
-    visitChildren(ctx->controlScope());
-    routineId->setExecutable(ctx->controlScope());
+    visitChildren(ctx->scope());
+    routineId->setExecutable(ctx->scope());
     routineId->setRoutineCode(DEFINED);
 
     symtabStack->pop();
@@ -577,7 +577,7 @@ Object Semantics::visitDoWhileLoop(XParser::DoWhileLoopContext *ctx){
         error.flag(TYPE_MUST_BE_BOOLEAN, exprCtx);
     }
 
-    visit(ctx->controlScope());
+    visit(ctx->scope());
     return nullptr;
 }
 
@@ -591,7 +591,7 @@ Object Semantics::visitWhileLoop(XParser::WhileLoopContext *ctx){
         error.flag(TYPE_MUST_BE_BOOLEAN, exprCtx);
     }
 
-    visit(ctx->controlScope());
+    visit(ctx->scope());
     return nullptr;
 }
 
@@ -612,7 +612,7 @@ Object Semantics::visitForLoop(XParser::ForLoopContext *ctx){
         error.flag(TYPE_MUST_BE_BOOLEAN, exprCtx);
     }
 
-    visitChildren(ctx->controlScope());
+    visitChildren(ctx->scope());
     parent->updateFromChild(child);
     symtabStack->pop();
     return nullptr;
@@ -626,7 +626,7 @@ Object Semantics::visitIfStatement(XParser::IfStatementContext *ctx){
     if (!TypeChecker::isBoolean(expr_type))    {
         error.flag(TYPE_MUST_BE_BOOLEAN, exprCtx);
     }
-    visit(ctx->controlScope(0));
+    visit(ctx->scope(0));
 
     //Optional else if conditions
     int numElseIf = ctx->IF().size() - 1;
@@ -638,7 +638,7 @@ Object Semantics::visitIfStatement(XParser::IfStatementContext *ctx){
         if (!TypeChecker::isBoolean(ie_expr_type))        {
             error.flag(TYPE_MUST_BE_BOOLEAN, ie_exprCtx);
         }
-        visit(ctx->controlScope(i+1));
+        visit(ctx->scope(i+1));
     }
 
     //Optional else condition
@@ -651,7 +651,7 @@ Object Semantics::visitIfStatement(XParser::IfStatementContext *ctx){
         if (!TypeChecker::isBoolean(e_expr_type))        {
             error.flag(TYPE_MUST_BE_BOOLEAN, e_exprCtx);
         }
-        visit(ctx->controlScope().back());
+        visit(ctx->scope().back());
     }
 
     return nullptr;
@@ -673,10 +673,10 @@ Object Semantics::visitSwitchStatement(XParser::SwitchStatementContext *ctx){
     // Loop over the CASE branches.
     for(XParser::CaseBranchContext* cbCtx : caseListCtx->caseBranch()){
        //We already know based on the syntax tree that the constants are ok since they are numbers (or default)
-       visit(cbCtx->controlScope());
+       visit(cbCtx->scope());
     }
     if(caseListCtx->defaultBranch()){
-        visit(caseListCtx->defaultBranch()->controlScope());
+        visit(caseListCtx->defaultBranch()->scope());
     }
 
     return nullptr;
@@ -1146,7 +1146,7 @@ Object Semantics::visitParenthesizedFactor(XParser::ParenthesizedFactorContext *
     return nullptr;
 }
 
-Object Semantics::visitControlScope(XParser::ControlScopeContext *ctx) {
+Object Semantics::visitScope(XParser::ScopeContext *ctx) {
     Symtab *parent = symtabStack->getLocalSymtab();
     Symtab *child = symtabStack->push(new Symtab(parent));
     visitChildren(ctx);

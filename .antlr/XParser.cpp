@@ -158,40 +158,40 @@ XParser::ProgramContext* XParser::program() {
   return _localctx;
 }
 
-//----------------- C_statementContext ------------------------------------------------------------------
+//----------------- SingleStatementContext ------------------------------------------------------------------
 
-XParser::C_statementContext::C_statementContext(ParserRuleContext *parent, size_t invokingState)
+XParser::SingleStatementContext::SingleStatementContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-XParser::FunctionDeclarationContext* XParser::C_statementContext::functionDeclaration() {
+XParser::FunctionDeclarationContext* XParser::SingleStatementContext::functionDeclaration() {
   return getRuleContext<XParser::FunctionDeclarationContext>(0);
 }
 
-XParser::StatementContext* XParser::C_statementContext::statement() {
+XParser::StatementContext* XParser::SingleStatementContext::statement() {
   return getRuleContext<XParser::StatementContext>(0);
 }
 
-XParser::EmptyStatementContext* XParser::C_statementContext::emptyStatement() {
+XParser::EmptyStatementContext* XParser::SingleStatementContext::emptyStatement() {
   return getRuleContext<XParser::EmptyStatementContext>(0);
 }
 
 
-size_t XParser::C_statementContext::getRuleIndex() const {
-  return XParser::RuleC_statement;
+size_t XParser::SingleStatementContext::getRuleIndex() const {
+  return XParser::RuleSingleStatement;
 }
 
 
-antlrcpp::Any XParser::C_statementContext::accept(tree::ParseTreeVisitor *visitor) {
+antlrcpp::Any XParser::SingleStatementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
-    return parserVisitor->visitC_statement(this);
+    return parserVisitor->visitSingleStatement(this);
   else
     return visitor->visitChildren(this);
 }
 
-XParser::C_statementContext* XParser::c_statement() {
-  C_statementContext *_localctx = _tracker.createInstance<C_statementContext>(_ctx, getState());
-  enterRule(_localctx, 2, XParser::RuleC_statement);
+XParser::SingleStatementContext* XParser::singleStatement() {
+  SingleStatementContext *_localctx = _tracker.createInstance<SingleStatementContext>(_ctx, getState());
+  enterRule(_localctx, 2, XParser::RuleSingleStatement);
 
   auto onExit = finally([=] {
     exitRule();
@@ -795,52 +795,52 @@ XParser::RhsContext* XParser::rhs() {
   return _localctx;
 }
 
-//----------------- ControlScopeContext ------------------------------------------------------------------
+//----------------- ScopeContext ------------------------------------------------------------------
 
-XParser::ControlScopeContext::ControlScopeContext(ParserRuleContext *parent, size_t invokingState)
+XParser::ScopeContext::ScopeContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-std::vector<XParser::C_statementContext *> XParser::ControlScopeContext::c_statement() {
-  return getRuleContexts<XParser::C_statementContext>();
+std::vector<XParser::SingleStatementContext *> XParser::ScopeContext::singleStatement() {
+  return getRuleContexts<XParser::SingleStatementContext>();
 }
 
-XParser::C_statementContext* XParser::ControlScopeContext::c_statement(size_t i) {
-  return getRuleContext<XParser::C_statementContext>(i);
+XParser::SingleStatementContext* XParser::ScopeContext::singleStatement(size_t i) {
+  return getRuleContext<XParser::SingleStatementContext>(i);
 }
 
-std::vector<XParser::ControlStatementContext *> XParser::ControlScopeContext::controlStatement() {
-  return getRuleContexts<XParser::ControlStatementContext>();
+std::vector<XParser::ScopeStatementContext *> XParser::ScopeContext::scopeStatement() {
+  return getRuleContexts<XParser::ScopeStatementContext>();
 }
 
-XParser::ControlStatementContext* XParser::ControlScopeContext::controlStatement(size_t i) {
-  return getRuleContext<XParser::ControlStatementContext>(i);
+XParser::ScopeStatementContext* XParser::ScopeContext::scopeStatement(size_t i) {
+  return getRuleContext<XParser::ScopeStatementContext>(i);
 }
 
-std::vector<XParser::ControlScopeContext *> XParser::ControlScopeContext::controlScope() {
-  return getRuleContexts<XParser::ControlScopeContext>();
+std::vector<XParser::ScopeContext *> XParser::ScopeContext::scope() {
+  return getRuleContexts<XParser::ScopeContext>();
 }
 
-XParser::ControlScopeContext* XParser::ControlScopeContext::controlScope(size_t i) {
-  return getRuleContext<XParser::ControlScopeContext>(i);
-}
-
-
-size_t XParser::ControlScopeContext::getRuleIndex() const {
-  return XParser::RuleControlScope;
+XParser::ScopeContext* XParser::ScopeContext::scope(size_t i) {
+  return getRuleContext<XParser::ScopeContext>(i);
 }
 
 
-antlrcpp::Any XParser::ControlScopeContext::accept(tree::ParseTreeVisitor *visitor) {
+size_t XParser::ScopeContext::getRuleIndex() const {
+  return XParser::RuleScope;
+}
+
+
+antlrcpp::Any XParser::ScopeContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
-    return parserVisitor->visitControlScope(this);
+    return parserVisitor->visitScope(this);
   else
     return visitor->visitChildren(this);
 }
 
-XParser::ControlScopeContext* XParser::controlScope() {
-  ControlScopeContext *_localctx = _tracker.createInstance<ControlScopeContext>(_ctx, getState());
-  enterRule(_localctx, 18, XParser::RuleControlScope);
+XParser::ScopeContext* XParser::scope() {
+  ScopeContext *_localctx = _tracker.createInstance<ScopeContext>(_ctx, getState());
+  enterRule(_localctx, 18, XParser::RuleScope);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -888,7 +888,7 @@ XParser::ControlScopeContext* XParser::controlScope() {
         case XParser::CHAR:
         case XParser::IDENTIFIER: {
           setState(194);
-          c_statement();
+          singleStatement();
           break;
         }
 
@@ -898,13 +898,13 @@ XParser::ControlScopeContext* XParser::controlScope() {
         case XParser::IF:
         case XParser::SWITCH: {
           setState(195);
-          controlStatement();
+          scopeStatement();
           break;
         }
 
         case XParser::T__7: {
           setState(196);
-          controlScope();
+          scope();
           break;
         }
 
@@ -928,48 +928,48 @@ XParser::ControlScopeContext* XParser::controlScope() {
   return _localctx;
 }
 
-//----------------- ControlStatementContext ------------------------------------------------------------------
+//----------------- ScopeStatementContext ------------------------------------------------------------------
 
-XParser::ControlStatementContext::ControlStatementContext(ParserRuleContext *parent, size_t invokingState)
+XParser::ScopeStatementContext::ScopeStatementContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-XParser::DoWhileLoopContext* XParser::ControlStatementContext::doWhileLoop() {
+XParser::DoWhileLoopContext* XParser::ScopeStatementContext::doWhileLoop() {
   return getRuleContext<XParser::DoWhileLoopContext>(0);
 }
 
-XParser::WhileLoopContext* XParser::ControlStatementContext::whileLoop() {
+XParser::WhileLoopContext* XParser::ScopeStatementContext::whileLoop() {
   return getRuleContext<XParser::WhileLoopContext>(0);
 }
 
-XParser::ForLoopContext* XParser::ControlStatementContext::forLoop() {
+XParser::ForLoopContext* XParser::ScopeStatementContext::forLoop() {
   return getRuleContext<XParser::ForLoopContext>(0);
 }
 
-XParser::IfStatementContext* XParser::ControlStatementContext::ifStatement() {
+XParser::IfStatementContext* XParser::ScopeStatementContext::ifStatement() {
   return getRuleContext<XParser::IfStatementContext>(0);
 }
 
-XParser::SwitchStatementContext* XParser::ControlStatementContext::switchStatement() {
+XParser::SwitchStatementContext* XParser::ScopeStatementContext::switchStatement() {
   return getRuleContext<XParser::SwitchStatementContext>(0);
 }
 
 
-size_t XParser::ControlStatementContext::getRuleIndex() const {
-  return XParser::RuleControlStatement;
+size_t XParser::ScopeStatementContext::getRuleIndex() const {
+  return XParser::RuleScopeStatement;
 }
 
 
-antlrcpp::Any XParser::ControlStatementContext::accept(tree::ParseTreeVisitor *visitor) {
+antlrcpp::Any XParser::ScopeStatementContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<XVisitor*>(visitor))
-    return parserVisitor->visitControlStatement(this);
+    return parserVisitor->visitScopeStatement(this);
   else
     return visitor->visitChildren(this);
 }
 
-XParser::ControlStatementContext* XParser::controlStatement() {
-  ControlStatementContext *_localctx = _tracker.createInstance<ControlStatementContext>(_ctx, getState());
-  enterRule(_localctx, 20, XParser::RuleControlStatement);
+XParser::ScopeStatementContext* XParser::scopeStatement() {
+  ScopeStatementContext *_localctx = _tracker.createInstance<ScopeStatementContext>(_ctx, getState());
+  enterRule(_localctx, 20, XParser::RuleScopeStatement);
 
   auto onExit = finally([=] {
     exitRule();
@@ -1037,8 +1037,8 @@ tree::TerminalNode* XParser::DoWhileLoopContext::DO() {
   return getToken(XParser::DO, 0);
 }
 
-XParser::ControlScopeContext* XParser::DoWhileLoopContext::controlScope() {
-  return getRuleContext<XParser::ControlScopeContext>(0);
+XParser::ScopeContext* XParser::DoWhileLoopContext::scope() {
+  return getRuleContext<XParser::ScopeContext>(0);
 }
 
 tree::TerminalNode* XParser::DoWhileLoopContext::WHILE() {
@@ -1074,7 +1074,7 @@ XParser::DoWhileLoopContext* XParser::doWhileLoop() {
     setState(211);
     match(XParser::DO);
     setState(212);
-    controlScope();
+    scope();
     setState(213);
     match(XParser::WHILE);
     setState(214);
@@ -1108,8 +1108,8 @@ XParser::ExpressionContext* XParser::WhileLoopContext::expression() {
   return getRuleContext<XParser::ExpressionContext>(0);
 }
 
-XParser::ControlScopeContext* XParser::WhileLoopContext::controlScope() {
-  return getRuleContext<XParser::ControlScopeContext>(0);
+XParser::ScopeContext* XParser::WhileLoopContext::scope() {
+  return getRuleContext<XParser::ScopeContext>(0);
 }
 
 
@@ -1143,7 +1143,7 @@ XParser::WhileLoopContext* XParser::whileLoop() {
     setState(221);
     match(XParser::T__10);
     setState(222);
-    controlScope();
+    scope();
    
   }
   catch (RecognitionException &e) {
@@ -1169,8 +1169,8 @@ XParser::ExpressionContext* XParser::ForLoopContext::expression() {
   return getRuleContext<XParser::ExpressionContext>(0);
 }
 
-XParser::ControlScopeContext* XParser::ForLoopContext::controlScope() {
-  return getRuleContext<XParser::ControlScopeContext>(0);
+XParser::ScopeContext* XParser::ForLoopContext::scope() {
+  return getRuleContext<XParser::ScopeContext>(0);
 }
 
 std::vector<XParser::StatementContext *> XParser::ForLoopContext::statement() {
@@ -1255,7 +1255,7 @@ XParser::ForLoopContext* XParser::forLoop() {
     setState(235);
     match(XParser::T__10);
     setState(236);
-    controlScope();
+    scope();
    
   }
   catch (RecognitionException &e) {
@@ -1289,12 +1289,12 @@ XParser::ExpressionContext* XParser::IfStatementContext::expression(size_t i) {
   return getRuleContext<XParser::ExpressionContext>(i);
 }
 
-std::vector<XParser::ControlScopeContext *> XParser::IfStatementContext::controlScope() {
-  return getRuleContexts<XParser::ControlScopeContext>();
+std::vector<XParser::ScopeContext *> XParser::IfStatementContext::scope() {
+  return getRuleContexts<XParser::ScopeContext>();
 }
 
-XParser::ControlScopeContext* XParser::IfStatementContext::controlScope(size_t i) {
-  return getRuleContext<XParser::ControlScopeContext>(i);
+XParser::ScopeContext* XParser::IfStatementContext::scope(size_t i) {
+  return getRuleContext<XParser::ScopeContext>(i);
 }
 
 std::vector<tree::TerminalNode *> XParser::IfStatementContext::ELSE() {
@@ -1338,7 +1338,7 @@ XParser::IfStatementContext* XParser::ifStatement() {
     setState(241);
     match(XParser::T__10);
     setState(242);
-    controlScope();
+    scope();
     setState(252);
     _errHandler->sync(this);
     alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 14, _ctx);
@@ -1355,7 +1355,7 @@ XParser::IfStatementContext* XParser::ifStatement() {
         setState(247);
         match(XParser::T__10);
         setState(248);
-        controlScope(); 
+        scope(); 
       }
       setState(254);
       _errHandler->sync(this);
@@ -1369,7 +1369,7 @@ XParser::IfStatementContext* XParser::ifStatement() {
       setState(255);
       match(XParser::ELSE);
       setState(256);
-      controlScope();
+      scope();
     }
    
   }
@@ -1531,8 +1531,8 @@ XParser::NumberContext* XParser::CaseBranchContext::number() {
   return getRuleContext<XParser::NumberContext>(0);
 }
 
-XParser::ControlScopeContext* XParser::CaseBranchContext::controlScope() {
-  return getRuleContext<XParser::ControlScopeContext>(0);
+XParser::ScopeContext* XParser::CaseBranchContext::scope() {
+  return getRuleContext<XParser::ScopeContext>(0);
 }
 
 
@@ -1564,7 +1564,7 @@ XParser::CaseBranchContext* XParser::caseBranch() {
     setState(278);
     match(XParser::T__11);
     setState(279);
-    controlScope();
+    scope();
    
   }
   catch (RecognitionException &e) {
@@ -1586,8 +1586,8 @@ tree::TerminalNode* XParser::DefaultBranchContext::DEFAULT() {
   return getToken(XParser::DEFAULT, 0);
 }
 
-XParser::ControlScopeContext* XParser::DefaultBranchContext::controlScope() {
-  return getRuleContext<XParser::ControlScopeContext>(0);
+XParser::ScopeContext* XParser::DefaultBranchContext::scope() {
+  return getRuleContext<XParser::ScopeContext>(0);
 }
 
 
@@ -1617,7 +1617,7 @@ XParser::DefaultBranchContext* XParser::defaultBranch() {
     setState(282);
     match(XParser::T__11);
     setState(283);
-    controlScope();
+    scope();
    
   }
   catch (RecognitionException &e) {
@@ -1639,8 +1639,8 @@ XParser::FunctionDeclarationContext* XParser::FunctionDefinitionContext::functio
   return getRuleContext<XParser::FunctionDeclarationContext>(0);
 }
 
-XParser::ControlScopeContext* XParser::FunctionDefinitionContext::controlScope() {
-  return getRuleContext<XParser::ControlScopeContext>(0);
+XParser::ScopeContext* XParser::FunctionDefinitionContext::scope() {
+  return getRuleContext<XParser::ScopeContext>(0);
 }
 
 
@@ -1668,7 +1668,7 @@ XParser::FunctionDefinitionContext* XParser::functionDefinition() {
     setState(285);
     functionDeclaration();
     setState(286);
-    controlScope();
+    scope();
    
   }
   catch (RecognitionException &e) {
@@ -4129,8 +4129,8 @@ atn::ATN XParser::_atn;
 std::vector<uint16_t> XParser::_serializedATN;
 
 std::vector<std::string> XParser::_ruleNames = {
-  "program", "c_statement", "statement", "emptyStatement", "variableDeclaration", 
-  "length", "assignmentStatement", "lhs", "rhs", "controlScope", "controlStatement", 
+  "program", "singleStatement", "statement", "emptyStatement", "variableDeclaration", 
+  "length", "assignmentStatement", "lhs", "rhs", "scope", "scopeStatement", 
   "doWhileLoop", "whileLoop", "forLoop", "ifStatement", "switchStatement", 
   "switchCaseList", "caseBranch", "defaultBranch", "functionDefinition", 
   "functionDeclaration", "functionIdentifier", "parameterDeclarationsList", 

@@ -155,7 +155,7 @@ void StatementGenerator::emitIf(XParser::IfStatementContext *ctx){
     emit(Instruction::IF_ICMPEQ,skipFirst->getString());
 
     
-    compiler->visit(ctx->controlScope()[0]);
+    compiler->visit(ctx->scope()[0]);
     emit(Instruction::GOTO,doneLabel->getString());
     emitLabel(skipFirst);
 
@@ -168,14 +168,14 @@ void StatementGenerator::emitIf(XParser::IfStatementContext *ctx){
         emit(Instruction::IF_ICMPEQ,skipOver->getString());
 
         
-        compiler->visit(ctx->controlScope(1+i));
+        compiler->visit(ctx->scope(1+i));
         emit(Instruction::GOTO,doneLabel->getString());
         emitLabel(skipOver);
     }
 
     if(elsePresent){
         
-        compiler->visit(ctx->controlScope().back());
+        compiler->visit(ctx->scope().back());
     }
 
     
@@ -223,15 +223,15 @@ void StatementGenerator::emitSwitch(XParser::SwitchStatementContext *ctx){
     
     for(auto entry : branchLabels){
         emitLabel(entry.second);
-        if(entry.first->controlScope() != nullptr) {
-            compiler->visit(entry.first->controlScope());
+        if(entry.first->scope() != nullptr) {
+            compiler->visit(entry.first->scope());
         }
         emit(Instruction::GOTO,exitCase->getString());
     }
 
     if(ctx->switchCaseList()->defaultBranch()){
         emitLabel(defaultCase);
-        compiler->visit(ctx->switchCaseList()->defaultBranch()->controlScope());
+        compiler->visit(ctx->switchCaseList()->defaultBranch()->scope());
         emit(Instruction::GOTO,exitCase->getString());
     }
 
@@ -245,7 +245,7 @@ void StatementGenerator::emitDoWhile(XParser::DoWhileLoopContext *ctx){
 
     emitLabel(loopTopLabel);
 
-    compiler->visit(ctx->controlScope());
+    compiler->visit(ctx->scope());
     compiler->visit(ctx->expression());
     emit(Instruction::ICONST_1);
     emit(Instruction::IF_ICMPEQ, loopTopLabel->getString());
@@ -269,7 +269,7 @@ void StatementGenerator::emitWhile(XParser::WhileLoopContext *ctx){
     emit(Instruction::IF_ICMPEQ, exitLabel->getString());
 
     
-    compiler->visit(ctx->controlScope());
+    compiler->visit(ctx->scope());
     emit(Instruction::GOTO,topLabel->getString());
 
     emitLabel(exitLabel); 
@@ -292,7 +292,7 @@ void StatementGenerator::emitFor(XParser::ForLoopContext *ctx){
     emit(Instruction::IF_ICMPEQ, exitLabel->getString());
 
     
-    compiler->visit(ctx->controlScope());
+    compiler->visit(ctx->scope());
     compiler->visit(ctx->statement(1));
     emit(Instruction::GOTO,topLabel->getString());
 

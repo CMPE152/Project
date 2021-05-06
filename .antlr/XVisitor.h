@@ -28,7 +28,7 @@ public:
    */
     virtual antlrcpp::Any visitProgram(XParser::ProgramContext *context) = 0;
 
-    virtual antlrcpp::Any visitC_statement(XParser::C_statementContext *context) = 0;
+    virtual antlrcpp::Any visitSingleStatement(XParser::SingleStatementContext *context) = 0;
 
     virtual antlrcpp::Any visitStatement(XParser::StatementContext *context) = 0;
 
@@ -48,9 +48,9 @@ public:
 
     virtual antlrcpp::Any visitRhs(XParser::RhsContext *context) = 0;
 
-    virtual antlrcpp::Any visitControlScope(XParser::ControlScopeContext *context) = 0;
+    virtual antlrcpp::Any visitScope(XParser::ScopeContext *context) = 0;
 
-    virtual antlrcpp::Any visitControlStatement(XParser::ControlStatementContext *context) = 0;
+    virtual antlrcpp::Any visitScopeStatement(XParser::ScopeStatementContext *context) = 0;
 
     virtual antlrcpp::Any visitDoWhileLoop(XParser::DoWhileLoopContext *context) = 0;
 

@@ -32,15 +32,15 @@ public:
   };
 
   enum {
-    RuleProgram = 0, RuleC_statement = 1, RuleStatement = 2, RuleEmptyStatement = 3, 
+    RuleProgram = 0, RuleSingleStatement = 1, RuleStatement = 2, RuleEmptyStatement = 3, 
     RuleVariableDeclaration = 4, RuleLength = 5, RuleAssignmentStatement = 6, 
-    RuleLhs = 7, RuleRhs = 8, RuleControlScope = 9, RuleControlStatement = 10, 
-    RuleDoWhileLoop = 11, RuleWhileLoop = 12, RuleForLoop = 13, RuleIfStatement = 14, 
-    RuleSwitchStatement = 15, RuleSwitchCaseList = 16, RuleCaseBranch = 17, 
-    RuleDefaultBranch = 18, RuleFunctionDefinition = 19, RuleFunctionDeclaration = 20, 
-    RuleFunctionIdentifier = 21, RuleParameterDeclarationsList = 22, RuleParameterDeclaration = 23, 
-    RuleParameterIdentifier = 24, RuleReturnStatement = 25, RuleFunctionCall = 26, 
-    RuleArgumentList = 27, RuleArgument = 28, RulePrintStatement = 29, RulePrintlnStatement = 30, 
+    RuleLhs = 7, RuleRhs = 8, RuleScope = 9, RuleScopeStatement = 10, RuleDoWhileLoop = 11, 
+    RuleWhileLoop = 12, RuleForLoop = 13, RuleIfStatement = 14, RuleSwitchStatement = 15, 
+    RuleSwitchCaseList = 16, RuleCaseBranch = 17, RuleDefaultBranch = 18, 
+    RuleFunctionDefinition = 19, RuleFunctionDeclaration = 20, RuleFunctionIdentifier = 21, 
+    RuleParameterDeclarationsList = 22, RuleParameterDeclaration = 23, RuleParameterIdentifier = 24, 
+    RuleReturnStatement = 25, RuleFunctionCall = 26, RuleArgumentList = 27, 
+    RuleArgument = 28, RulePrintStatement = 29, RulePrintlnStatement = 30, 
     RulePrintArguments = 31, RulePrintArgument = 32, RuleFieldWidth = 33, 
     RuleDecimalPlaces = 34, RuleGetStatement = 35, RuleGetlnStatement = 36, 
     RuleGetArguments = 37, RuleExpression = 38, RuleSimpleExpression = 39, 
@@ -62,7 +62,7 @@ public:
 
 
   class ProgramContext;
-  class C_statementContext;
+  class SingleStatementContext;
   class StatementContext;
   class EmptyStatementContext;
   class VariableDeclarationContext;
@@ -70,8 +70,8 @@ public:
   class AssignmentStatementContext;
   class LhsContext;
   class RhsContext;
-  class ControlScopeContext;
-  class ControlStatementContext;
+  class ScopeContext;
+  class ScopeStatementContext;
   class DoWhileLoopContext;
   class WhileLoopContext;
   class ForLoopContext;
@@ -140,9 +140,9 @@ public:
 
   ProgramContext* program();
 
-  class  C_statementContext : public antlr4::ParserRuleContext {
+  class  SingleStatementContext : public antlr4::ParserRuleContext {
   public:
-    C_statementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    SingleStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     FunctionDeclarationContext *functionDeclaration();
     StatementContext *statement();
@@ -153,7 +153,7 @@ public:
    
   };
 
-  C_statementContext* c_statement();
+  SingleStatementContext* singleStatement();
 
   class  StatementContext : public antlr4::ParserRuleContext {
   public:
@@ -288,27 +288,27 @@ public:
 
   RhsContext* rhs();
 
-  class  ControlScopeContext : public antlr4::ParserRuleContext {
+  class  ScopeContext : public antlr4::ParserRuleContext {
   public:
-    ControlScopeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    ScopeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    std::vector<C_statementContext *> c_statement();
-    C_statementContext* c_statement(size_t i);
-    std::vector<ControlStatementContext *> controlStatement();
-    ControlStatementContext* controlStatement(size_t i);
-    std::vector<ControlScopeContext *> controlScope();
-    ControlScopeContext* controlScope(size_t i);
+    std::vector<SingleStatementContext *> singleStatement();
+    SingleStatementContext* singleStatement(size_t i);
+    std::vector<ScopeStatementContext *> scopeStatement();
+    ScopeStatementContext* scopeStatement(size_t i);
+    std::vector<ScopeContext *> scope();
+    ScopeContext* scope(size_t i);
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
    
   };
 
-  ControlScopeContext* controlScope();
+  ScopeContext* scope();
 
-  class  ControlStatementContext : public antlr4::ParserRuleContext {
+  class  ScopeStatementContext : public antlr4::ParserRuleContext {
   public:
-    ControlStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    ScopeStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     DoWhileLoopContext *doWhileLoop();
     WhileLoopContext *whileLoop();
@@ -321,14 +321,14 @@ public:
    
   };
 
-  ControlStatementContext* controlStatement();
+  ScopeStatementContext* scopeStatement();
 
   class  DoWhileLoopContext : public antlr4::ParserRuleContext {
   public:
     DoWhileLoopContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *DO();
-    ControlScopeContext *controlScope();
+    ScopeContext *scope();
     antlr4::tree::TerminalNode *WHILE();
     ExpressionContext *expression();
 
@@ -345,7 +345,7 @@ public:
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *WHILE();
     ExpressionContext *expression();
-    ControlScopeContext *controlScope();
+    ScopeContext *scope();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -360,7 +360,7 @@ public:
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *FOR();
     ExpressionContext *expression();
-    ControlScopeContext *controlScope();
+    ScopeContext *scope();
     std::vector<StatementContext *> statement();
     StatementContext* statement(size_t i);
 
@@ -379,8 +379,8 @@ public:
     antlr4::tree::TerminalNode* IF(size_t i);
     std::vector<ExpressionContext *> expression();
     ExpressionContext* expression(size_t i);
-    std::vector<ControlScopeContext *> controlScope();
-    ControlScopeContext* controlScope(size_t i);
+    std::vector<ScopeContext *> scope();
+    ScopeContext* scope(size_t i);
     std::vector<antlr4::tree::TerminalNode *> ELSE();
     antlr4::tree::TerminalNode* ELSE(size_t i);
 
@@ -427,7 +427,7 @@ public:
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *CASE();
     NumberContext *number();
-    ControlScopeContext *controlScope();
+    ScopeContext *scope();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -441,7 +441,7 @@ public:
     DefaultBranchContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *DEFAULT();
-    ControlScopeContext *controlScope();
+    ScopeContext *scope();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -455,7 +455,7 @@ public:
     FunctionDefinitionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     FunctionDeclarationContext *functionDeclaration();
-    ControlScopeContext *controlScope();
+    ScopeContext *scope();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;

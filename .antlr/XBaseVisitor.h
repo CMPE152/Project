@@ -26,7 +26,7 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual antlrcpp::Any visitC_statement(XParser::C_statementContext *ctx) override {
+  virtual antlrcpp::Any visitSingleStatement(XParser::SingleStatementContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -66,11 +66,11 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual antlrcpp::Any visitControlScope(XParser::ControlScopeContext *ctx) override {
+  virtual antlrcpp::Any visitScope(XParser::ScopeContext *ctx) override {
     return visitChildren(ctx);
   }
 
-  virtual antlrcpp::Any visitControlStatement(XParser::ControlStatementContext *ctx) override {
+  virtual antlrcpp::Any visitScopeStatement(XParser::ScopeStatementContext *ctx) override {
     return visitChildren(ctx);
   }
 

@@ -130,7 +130,7 @@ BLOCKCOMMENT
 
 rule names:
 program
-c_statement
+singleStatement
 statement
 emptyStatement
 variableDeclaration
@@ -138,8 +138,8 @@ length
 assignmentStatement
 lhs
 rhs
-controlScope
-controlStatement
+scope
+scopeStatement
 doWhileLoop
 whileLoop
 forLoop
