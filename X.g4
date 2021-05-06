@@ -125,6 +125,8 @@ term locals [ Typespec *type = nullptr ]
 
 factor locals [ Typespec *type = nullptr ]
     : variable             # variableFactor
+    | variable ('++' | '--') # PostcrementVariable
+    | ('++' | '--') variable # PrecrementVariable
     | number               # numberFactor
     | characterConstant    # characterFactor
     | stringConstant       # stringFactor

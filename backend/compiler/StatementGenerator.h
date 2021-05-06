@@ -26,7 +26,7 @@ public:
     void emitDeclarationAssignment(XParser::AssignVariableContext *ctx);
 
     void emitIncrement(XParser::IncrementVariableContext *ctx);
-
+    
     void emitDecrement(XParser::DecrementVariableContext *ctx);
 
     void emitIf(XParser::IfStatementContext *ctx);

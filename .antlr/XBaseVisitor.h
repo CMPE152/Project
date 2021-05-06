@@ -198,6 +198,14 @@ public:
     return visitChildren(ctx);
   }
 
+  virtual antlrcpp::Any visitPostcrementVariable(XParser::PostcrementVariableContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitPrecrementVariable(XParser::PrecrementVariableContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual antlrcpp::Any visitNumberFactor(XParser::NumberFactorContext *ctx) override {
     return visitChildren(ctx);
   }

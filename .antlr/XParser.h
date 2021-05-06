@@ -815,6 +815,15 @@ public:
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };
 
+  class  PostcrementVariableContext : public FactorContext {
+  public:
+    PostcrementVariableContext(FactorContext *ctx);
+
+    VariableContext *variable();
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
   class  VariableFactorContext : public FactorContext {
   public:
     VariableFactorContext(FactorContext *ctx);
@@ -838,6 +847,15 @@ public:
     NotFactorContext(FactorContext *ctx);
 
     FactorContext *factor();
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+  };
+
+  class  PrecrementVariableContext : public FactorContext {
+  public:
+    PrecrementVariableContext(FactorContext *ctx);
+
+    VariableContext *variable();
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
   };

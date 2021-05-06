@@ -97,8 +97,10 @@ namespace frontend {
         Object visitTypeIdentifier(XParser::TypeIdentifierContext *ctx) override;
         Object visitLhs(XParser::LhsContext *ctx) override;
         Object visitAssignVariable(XParser::AssignVariableContext *ctx) override;
-        Object visitDecrementVariable(XParser::DecrementVariableContext *ctx) override;
         Object visitIncrementVariable(XParser::IncrementVariableContext *ctx) override;
+        Object visitDecrementVariable(XParser::DecrementVariableContext *ctx) override;
+        Object visitPrecrementVariable(XParser::PrecrementVariableContext *ctx) override;
+        Object visitPostcrementVariable(XParser::PostcrementVariableContext *ctx) override;
 
         Object visitFunctionDeclaration(XParser::FunctionDeclarationContext *ctx) override;
         Object visitFunctionDefinition(XParser::FunctionDefinitionContext *ctx) override;

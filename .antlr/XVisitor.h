@@ -114,6 +114,10 @@ public:
 
     virtual antlrcpp::Any visitVariableFactor(XParser::VariableFactorContext *context) = 0;
 
+    virtual antlrcpp::Any visitPostcrementVariable(XParser::PostcrementVariableContext *context) = 0;
+
+    virtual antlrcpp::Any visitPrecrementVariable(XParser::PrecrementVariableContext *context) = 0;
+
     virtual antlrcpp::Any visitNumberFactor(XParser::NumberFactorContext *context) = 0;
 
     virtual antlrcpp::Any visitCharacterFactor(XParser::CharacterFactorContext *context) = 0;

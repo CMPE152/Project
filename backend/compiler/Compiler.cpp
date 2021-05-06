@@ -52,15 +52,25 @@ Object Compiler::visitAssignVariable(XParser::AssignVariableContext *ctx){
     return nullptr;
 }
 
-//change
-Object Compiler::visitIncrementVariable(XParser::IncrementVariableContext *ctx){
+Object Compiler::visitIncrementVariable(XParser::IncrementVariableContext *ctx) {
     statementCode->emitIncrement(ctx);
+    return nullptr;
+}
+            
+Object Compiler::visitDecrementVariable(XParser::DecrementVariableContext *ctx) {
+    statementCode->emitDecrement(ctx);
     return nullptr;
 }
 
 //change
-Object Compiler::visitDecrementVariable(XParser::DecrementVariableContext *ctx){
-    statementCode->emitDecrement(ctx);
+Object Compiler::visitPostcrementVariable(XParser::PostcrementVariableContext *ctx){
+    expressionCode->emitPostcrement(ctx);
+    return nullptr;
+}
+
+//change
+Object Compiler::visitPrecrementVariable(XParser::PrecrementVariableContext *ctx){
+    expressionCode->emitPrecrement(ctx);
     return nullptr;
 }
 

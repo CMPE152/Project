@@ -102,7 +102,6 @@ void StatementGenerator::emitIncrement(XParser::IncrementVariableContext *ctx){
     
     compiler->visit(ctx->variable());
     if (isArray) compiler->loadValue(ctx->variable()); 
-    
 
     if (varType == Predefined::realType) {
         emitLoadConstant(1.0);
@@ -127,7 +126,6 @@ void StatementGenerator::emitDecrement(XParser::DecrementVariableContext *ctx){
     compiler->visit(ctx->variable());
     if (isArray) compiler->loadValue(ctx->variable()); 
     
-
     if (varType == Predefined::realType) {
         emitLoadConstant(1.0);
         emit(FSUB);
@@ -137,9 +135,10 @@ void StatementGenerator::emitDecrement(XParser::DecrementVariableContext *ctx){
         emitCast(varType, Predefined::integerType);
         emit(ISUB);
     }
-    
+
     if (isArray) emitStoreValue(nullptr,varType);
     else emitStoreValue(varEntry, varType);
+
 }
 
 //change

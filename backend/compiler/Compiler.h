@@ -65,6 +65,8 @@ namespace backend { namespace compiler {
             Object visitAssignVariable(XParser::AssignVariableContext *ctx) override;
             Object visitIncrementVariable(XParser::IncrementVariableContext *ctx) override;
             Object visitDecrementVariable(XParser::DecrementVariableContext *ctx) override;
+            Object visitPostcrementVariable(XParser::PostcrementVariableContext *ctx) override;
+            Object visitPrecrementVariable(XParser::PrecrementVariableContext *ctx) override;
             Object visitIfStatement(XParser::IfStatementContext *ctx) override;
             Object visitSwitchStatement(XParser::SwitchStatementContext *ctx) override;
             Object visitDoWhileLoop(XParser::DoWhileLoopContext *ctx) override;

@@ -36,6 +36,9 @@ public:
 
     void emitLoadRealConstant(XParser::NumberContext *realCtx);
 
+    void emitPostcrement(XParser::PostcrementVariableContext *ctx);
+
+    void emitPrecrement(XParser::PrecrementVariableContext *ctx);
 private:
 
 };

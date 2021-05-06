@@ -361,4 +361,66 @@ void ExpressionGenerator::emitLoadRealConstant(XParser::NumberContext *realCtx){
     emitLoadConstant(value);
 }
 
+//change
+void ExpressionGenerator::emitPostcrement(XParser::PostcrementVariableContext *ctx){
+    SymtabEntry *varEntry = ctx->variable()->entry;
+    Typespec *varType = ctx->variable()->type;
+    bool isArray = !ctx->variable()->modifier().empty();
+    bool increment = ctx->getStop()->getText() == "++";
+    
+    compiler->visit(ctx->variable());
+    if (isArray) {
+        compiler->loadValue(ctx->variable()); 
+        emit(DUP_X1);
+    }
+    else emit(DUP);
+
+    if (varType == Predefined::realType) {
+        emitLoadConstant(1.0);
+        if (increment) emit(FADD);
+        else emit(FSUB);
+    }
+    else {
+        emitLoadConstant(1);
+        emitCast(varType, Predefined::integerType);
+        if (increment) emit(IADD);
+        else emit(ISUB);
+    }
+    
+    if (isArray) emitStoreValue(nullptr,varType);
+    else emitStoreValue(varEntry, varType);
+}
+
+//change
+void ExpressionGenerator::emitPrecrement(XParser::PrecrementVariableContext *ctx){
+    SymtabEntry *varEntry = ctx->variable()->entry;
+    Typespec *varType = ctx->variable()->type;
+    bool isArray = !ctx->variable()->modifier().empty();
+    bool increment = ctx->getStart()->getText() == "++";
+    
+    compiler->visit(ctx->variable());
+    if (isArray) compiler->loadValue(ctx->variable()); 
+    
+
+    if (varType == Predefined::realType) {
+        emitLoadConstant(1.0);
+        if (increment) emit(FADD);
+        else emit(FSUB);
+    }
+    else {
+        emitLoadConstant(1);
+        emitCast(varType, Predefined::integerType);
+        if (increment) emit(IADD);
+        else emit(ISUB);
+    }
+
+    if (isArray) {
+        emit(DUP_X1);
+        emitStoreValue(nullptr,varType);
+    }
+    else {
+        emit(DUP);
+        emitStoreValue(varEntry, varType);
+    }
+}
 }} // namespace backend::compiler

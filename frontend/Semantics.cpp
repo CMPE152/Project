@@ -530,7 +530,7 @@ Object Semantics::visitAssignVariable(XParser::AssignVariableContext *ctx){
 Object Semantics::visitDecrementVariable(XParser::DecrementVariableContext *ctx){
     XParser::VariableContext *vCtx = ctx->variable();
     visit(vCtx);
-    if(vCtx->type->getForm() != SCALAR){
+    if(!TypeChecker::isNumeric(vCtx->type)){
         error.flag(TYPE_MUST_BE_NUMERIC,ctx);
     }
     return nullptr;
@@ -539,8 +539,30 @@ Object Semantics::visitDecrementVariable(XParser::DecrementVariableContext *ctx)
 Object Semantics::visitIncrementVariable(XParser::IncrementVariableContext *ctx){
     XParser::VariableContext *vCtx = ctx->variable();
     visit(vCtx);
-    if(vCtx->type->getForm() != SCALAR){
+    if(!TypeChecker::isNumeric(vCtx->type)){
         error.flag(TYPE_MUST_BE_NUMERIC,ctx);
+    }
+    return nullptr;
+}
+
+Object Semantics::visitPrecrementVariable(XParser::PrecrementVariableContext *ctx){
+    XParser::VariableContext *vCtx = ctx->variable();
+    visit(vCtx);
+    ctx->type = vCtx->type;
+    if(!TypeChecker::isNumeric(vCtx->type)){
+        error.flag(TYPE_MUST_BE_NUMERIC,ctx);
+        ctx->type = Predefined::integerType;
+    }
+    return nullptr;
+}
+
+Object Semantics::visitPostcrementVariable(XParser::PostcrementVariableContext *ctx){
+    XParser::VariableContext *vCtx = ctx->variable();
+    visit(vCtx);
+    ctx->type = vCtx->type;
+    if(!TypeChecker::isNumeric(vCtx->type)){
+        error.flag(TYPE_MUST_BE_NUMERIC,ctx);
+        ctx->type = Predefined::integerType;
     }
     return nullptr;
 }
