@@ -294,7 +294,7 @@ Object Semantics::visitFunctionDefinition(XParser::FunctionDefinitionContext *ct
 
     //Push the proper symtab stack
     symtabStack->push(routineId->getRoutineSymtab());
-    visit(ctx->controlScope());
+    visitChildren(ctx->controlScope());
     routineId->setExecutable(ctx->controlScope());
     routineId->setRoutineCode(DEFINED);
 
