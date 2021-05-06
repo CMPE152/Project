@@ -811,15 +811,6 @@ Object Semantics::visitSimpleExpression(XParser::SimpleExpressionContext *ctx){
     bool hasSign = signCtx != nullptr;
     XParser::TermContext *termCtx1 = ctx->term()[0];
 
-    if (hasSign)
-    {
-        string sign = signCtx->getText();
-        if ((sign== "+") && (sign == "-"))
-        {
-            error.flag(INVALID_SIGN, signCtx);
-        }
-    }
-
     // First term.
     visit(termCtx1);
     Typespec *termType1 = termCtx1->type;
@@ -887,7 +878,7 @@ Object Semantics::visitSimpleExpression(XParser::SimpleExpressionContext *ctx){
                 }
             }
         }
-        else  // -
+        else if (op == "-") // -
         {
             // Both operands integer ==> integer result
             if (TypeChecker::isIntegerOrChar(termType1) && TypeChecker::isIntegerOrChar(termType2))
@@ -916,6 +907,15 @@ Object Semantics::visitSimpleExpression(XParser::SimpleExpressionContext *ctx){
                     termType1 = Predefined::integerType;
                 }
             }
+        }
+        else if (op == "<<" || op == ">>" || op == ">>>") {
+            if (!TypeChecker::isIntegerOrChar(termType1)) {
+                error.flag(TYPE_MUST_BE_INTEGER, termCtx1);
+            }
+            if (!TypeChecker::isIntegerOrChar(termType2)) {
+                error.flag(TYPE_MUST_BE_INTEGER, termCtx2);
+            }
+            termType1 = Predefined::integerType;
         }
     }
 

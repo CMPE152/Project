@@ -73,9 +73,9 @@ void ExpressionGenerator::emitExpression(XParser::ExpressionContext *ctx){
                 else if (op == ">") emit(IF_ICMPGT, trueLabel);
                 else if (op == ">=") emit(IF_ICMPGE, trueLabel);
             } else if (realMode) {
-                if (type1 == Predefined::integerType) emit(I2F);
+                emitCast(type1, Predefined::realType);
                 emitSimpleExpression(simpleCtx2);
-                if (type2 == Predefined::integerType) emit(I2F);
+                emitCast(type2, Predefined::realType);
 
                 emit(FCMPG);
 
@@ -154,14 +154,17 @@ void ExpressionGenerator::emitSimpleExpression(XParser::SimpleExpressionContext 
         {
             emitTerm(termCtx2);
 
-            if (op == "+") emit(IADD);
-            else           emit(ISUB);
+            if (op == "+")          emit(IADD);
+            else if (op == "-")     emit(ISUB);
+            else if (op == "<<")    emit(ISHL);
+            else if (op == ">>")    emit(ISHR);
+            else                    emit(IUSHR);
         }
         else if (realMode)
         {
-            if (type1 == Predefined::integerType) emit(I2F);
+            emitCast(type1, Predefined::realType);
             emitTerm(termCtx2);
-            if (type2 == Predefined::integerType) emit(I2F);
+            emitCast(type2, Predefined::realType);
 
             if (op == "+") emit(FADD);
             else           emit(FSUB);

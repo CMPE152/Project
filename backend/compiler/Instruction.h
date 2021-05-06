@@ -45,7 +45,8 @@ enum class Instruction
     // Arithmetic and logical
     IADD, FADD, ISUB, FSUB, IMUL, FMUL,
     IDIV, FDIV, IREM, FREM, INEG, FNEG,
-    IINC, IAND, IOR, IXOR,
+    IINC, IAND, IOR, IXOR, ISHL, ISHR,
+    IUSHR,
 
     // Type conversion and checking
     I2F, I2C, I2D, F2I, F2D, D2F,
@@ -101,7 +102,8 @@ static const int STACK_USE[] =
     // Arithmetic and logical
     -1, -1, -1, -1, -1, -1,
     -1, -1, -1, -1, 0, 0,
-    0, -1, -1, -1,
+    0, -1, -1, -1, -1, -1,
+    -1,
 
     // Type conversion and checking
     0, 0, 0, 0, 0, 0,
@@ -162,7 +164,8 @@ static const string INSTRUCTION_STRINGS[] =
     // Arithmetic and logical
     "IADD", "FADD", "ISUB", "FSUB", "IMUL", "FMUL",
     "IDIV", "FDIV", "IREM", "FREM", "INEG", "FNEG",
-    "IINC", "IAND", "IOR", "IXOR",
+    "IINC", "IAND", "IOR", "IXOR", "ISHL", "ISHR",
+    "IUSHR",
 
     // Type conversion and checking
     "I2F", "I2C", "I2D", "F2I", "F2D", "D2F",
@@ -274,6 +277,9 @@ constexpr Instruction IINC = Instruction::IINC;
 constexpr Instruction IAND = Instruction::IAND;
 constexpr Instruction IOR  = Instruction::IOR;
 constexpr Instruction IXOR = Instruction::IXOR;
+constexpr Instruction ISHL = Instruction::ISHL;
+constexpr Instruction ISHR = Instruction::ISHR;
+constexpr Instruction IUSHR = Instruction::IUSHR;
 
 // Type conversion and checking
 constexpr Instruction I2F       = Instruction::I2F;
