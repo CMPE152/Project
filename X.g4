@@ -42,8 +42,8 @@ length : expression ;
 //====Variable assignment====//
 assignmentStatement
     : lhs '=' rhs   #assignVariable
-    | variable '++' #incrementVariable
-    | variable '--' #decrementVariable
+    | (('++' variable) | (variable '++')) #incrementVariable
+    | (('--' variable) | (variable '--')) #decrementVariable
     ;
 
 lhs locals [ Typespec *type = nullptr ]
