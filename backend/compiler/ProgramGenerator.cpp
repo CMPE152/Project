@@ -307,24 +307,16 @@ void ProgramGenerator::emitFunctionLocals(SymtabEntry *routineId){
 //change similar with emitroutinereturn
 void ProgramGenerator::emitFunctionReturn(SymtabEntry *routineId){
     emitLine();
-
-    // Function: Return the value in the implied function variable.
-    if (routineId->getKind() == FUNCTION)
-    {
-        Typespec *type = routineId->getType();
-
-        // Get the slot number of the function variable.
-        string varName = routineId->getName();
-        //Pushing value to stack will be handled by return statement
-
-        //SymtabEntry *varId = routineId->getRoutineSymtab()->lookup(varName);
-        //emitLoadLocal(type, varId->getSlotNumber());
+    if (routineId->getKind() == FUNCTION) {
         emitReturnDefault();
     }
-
-    // Procedure: Just return.
-    else{
+    else {
         emit(RETURN);
+        // empty void function need an extra return due to unknown reason
+        XParser::ControlScopeContext *stmtCtx = (XParser::ControlScopeContext *) routineId->getExecutable();
+        if (stmtCtx->c_statement().empty() && stmtCtx->controlStatement().empty() && stmtCtx->controlScope().empty()) {
+            emit(RETURN);
+        }
     }
 }
 
